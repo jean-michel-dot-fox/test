@@ -572,6 +572,15 @@
     },
     {
       "name": "customerGender"
+    },
+    {
+      "name": "extraFields",
+      "parameters": [
+        {
+          "name": "mm_category_0",
+          "type": "string"
+        }
+      ]
     }
   ],
   "userQueries": [
