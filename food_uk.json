@@ -45,6 +45,9 @@
             "name": "order_total_fees"
           },
           {
+            "name": "order_tip"
+          },
+          {
             "name": "order_distinct_item_quantity"
           },
           {
@@ -652,7 +655,20 @@
           "amazon"
         ]
       }
+    },
+    {
+      "name": "extraFields",
+      "parameters": [
+        {
+          "name": "sport_competition",
+          "type": "string"
+        }
+      ]
     }
   ],
-  "userQueries": []
+  "userQueries": [
+    "UPDATE {{destDatabase}}.{{tableName}} ft LEFT JOIN {{sourceDatabase}}.customer_is_amazon_prime c on ft.id_customer = c.id_customer SET ft.start_loyalty_amazon = c.start_loyalty_amazon",
+    "UPDATE {{destDatabase}}.{{tableName}} ft LEFT JOIN {{sourceDatabase}}.customer_is_amazon_prime c on ft.id_customer = c.id_customer SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (order_datetime > c.start_loyalty_amazon, 1, 0))",
+    "UPDATE {{destDatabase}}.{{tableName}} ft LEFT JOIN {{assetDatabase}}.special_days_sport_competitions_demo sd ON sd.event_date = date(ft.order_datetime) SET sport_competition = sd.concat_name"
+  ]
 }
