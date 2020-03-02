@@ -1,6 +1,6 @@
 {
   "industryType": "ecom",
-  "tableName": "test fullpanel 5",
+  "tableName": "test_hugo",
   "query": {
     "select": [
       {
