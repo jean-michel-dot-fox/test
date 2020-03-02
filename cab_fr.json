@@ -668,7 +668,7 @@
       "name": "extraFields",
       "parameters": [
         {
-          "name": "is_seller_reconditioning_extended",
+          "name": "is_departure_airport",
           "type": "integer"
         },
         {
