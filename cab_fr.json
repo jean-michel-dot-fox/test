@@ -608,11 +608,11 @@
       "parameters": [
         {
           "name": "is_departure_airport",
-          "type": "integer"
+          "type": "string"
         },
         {
           "name": "is_arrival_airport",
-          "type": "integer"
+          "type": "string"
         }
       ]
     }
