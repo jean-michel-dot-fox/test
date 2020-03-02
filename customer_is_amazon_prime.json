@@ -33,6 +33,29 @@
         ]
       },
       {
+        "table": "order_items",
+        "fields": [
+          {
+            "name": "id_order_item"
+          },
+          {
+            "name": "order_item_delivery_address_city"
+          },
+          {
+            "name": "order_item_delivery_address_country_code"
+          },
+          {
+            "name": "order_item_delivery_address_region"
+          },
+          {
+            "name": "order_item_delivery_address_zipcode"
+          },
+          {
+            "name": "order_item_total_price_paid"
+          }
+        ]
+      },
+      {
         "table": "products",
         "fields": [
           {
@@ -92,25 +115,7 @@
               {
                 "operator": "IN",
                 "values": [
-                  "cote sushi",
-                  "deliveroo",
-                  "dominos",
-                  "foodcheri",
-                  "foodora",
-                  "frichti",
-                  "glovo",
-                  "pizza hut",
-                  "planet sushi",
-                  "popchef",
-                  "restoin",
-                  "speed rabbit pizza",
-                  "sushishop",
-                  "takeeateasy",
-                  "uber eats",
-                  "justeat",
-                  "fetch",
-                  "nestor",
-                  "mcdonalds"
+                  "amazon"
                 ]
               }
             ]
@@ -119,10 +124,9 @@
             "name": "parser_name",
             "conditions": [
               {
-                "operator": "NOT IN",
+                "operator": "LIKE",
                 "values": [
-                  "alloresto-new-fr-1",
-                  "alloresto-new-fr-2"
+                  "%amazon%"
                 ]
               }
             ]
@@ -318,42 +322,6 @@
             100,
             200,
             500
-          ]
-        },
-        {
-          "table": "order_items",
-          "fields": [
-            {
-              "name": "order_item_total_price_paid"
-            }
-          ],
-          "intervals": [
-            0,
-            15,
-            30,
-            50,
-            100,
-            200,
-            500
-          ]
-        },
-        {
-          "table": "order_items",
-          "fields": [
-            {
-              "name": "order_item_price_per_unit"
-            },
-            {
-              "name": "order_item_price_per_unit_with_promo_contributions"
-            }
-          ],
-          "intervals": [
-            0,
-            10,
-            20,
-            30,
-            40,
-            50
           ]
         }
       ]
