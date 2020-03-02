@@ -1,674 +1,583 @@
 {
-  "industryType": "cab",
-  "tableName": "cab_fr",
-  "query": {
-    "select": [
-      {
-        "table": "brands",
-        "fields": [
-          {
-            "name": "id_brand"
-          },
-          {
-            "name": "brand_name"
-          }
-        ]
-      },
-      {
-        "table": "orders",
-        "fields": [
-          {
-            "name": "id_order"
-          },
-          {
-            "name": "order_item_quantity"
-          },
-          {
-            "name": "order_datetime"
-          },
-          {
-            "name": "order_total_paid"
-          },
-          {
-            "name": "order_currency"
-          },
-          {
-            "name": "order_option_3"
-          },
-          {
-            "name": "order_delivery_fee"
-          },
-          {
-            "name": "order_processing_fee"
-          },
-          {
-            "name": "order_total_fees"
-          },
-          {
-            "name": "order_tip"
-          },
-          {
-            "name": "order_distinct_item_quantity"
-          },
-          {
-            "name": "order_created_at"
-          },
-          {
-            "name": "order_foxid"
-          }
-        ]
-      },
-      {
-        "table": "order_items",
-        "fields": [
-          {
-            "name": "id_order_item"
-          },
-          {
-            "name": "order_item_total_price_paid"
-          },
-          {
-            "name": "order_item_quantity"
-          },
-          {
-            "name": "order_item_delivery_address"
-          },
-          {
-            "name": "order_item_delivery_date_max"
-          },
-          {
-            "name": "order_item_delivery_date_min"
-          },
-          {
-            "name": "order_item_delivery_time_max"
-          },
-          {
-            "name": "order_item_delivery_time_min"
-          },
-          {
-            "name": "order_item_duration"
-          },
-          {
-            "name": "order_item_delivery_address_zipcode"
-          },
-          {
-            "name": "order_item_delivery_address_country_code"
-          },
-          {
-            "name": "order_item_delivery_address_region"
-          },
-          {
-            "name": "order_item_delivery_address_subregion"
-          },
-          {
-            "name": "order_item_delivery_address_city"
-          },
-          {
-            "name": "order_item_delivery_address_latitude"
-          },
-          {
-            "name": "order_item_delivery_address_longitude"
-          },
-          {
-            "name": "order_item_delivery_type"
-          },
-          {
-            "name": "order_item_price_per_unit"
-          },
-          {
-            "name": "order_item_address"
-          },
-          {
-            "name": "order_item_address_zipcode"
-          },
-          {
-            "name": "order_item_address_country_code"
-          },
-          {
-            "name": "order_item_address_region"
-          },
-          {
-            "name": "order_item_address_subregion"
-          },
-          {
-            "name": "order_item_address_city"
-          },
-          {
-            "name": "order_item_address_latitude"
-          },
-          {
-            "name": "order_item_address_longitude"
-          },
-          {
-            "name": "order_item_other_fee_1_name"
-          },
-          {
-            "name": "order_item_other_fee_1"
-          },
-          {
-            "name": "order_item_other_fee_2_name"
-          },
-          {
-            "name": "order_item_other_fee_2"
-          },
-          {
-            "name": "order_item_departure_address"
-          },
-          {
-            "name": "order_item_departure_address_latitude"
-          },
-          {
-            "name": "order_item_departure_address_longitude"
-          },
-          {
-            "name": "order_item_arrival_address"
-          },
-          {
-            "name": "order_item_arrival_address_latitude"
-          },
-          {
-            "name": "order_item_arrival_address_longitude"
-          }
-        ]
-      },
-      {
-        "table": "products",
-        "fields": [
-          {
-            "name": "id_product"
-          },
-          {
-            "name": "product_name"
-          }
-        ]
-      },
-      {
-        "table": "sellers",
-        "fields": [
-          {
-            "name": "id_seller"
-          },
-          {
-            "name": "seller_name"
-          }
-        ]
-      },
-      {
-        "table": "customers",
-        "fields": [
-          {
-            "name": "id_customer"
-          },
-          {
-            "name": "customer_birth_year"
-          },
-          {
-            "name": "customer_gender"
-          },
-          {
-            "name": "customer_hash"
-          },
-          {
-            "name": "customer_region"
-          },
-          {
-            "name": "customer_country"
-          },
-          {
-            "name": "provider"
-          },
-          {
-            "name": "customer_created_at"
-          },
-          {
-            "name": "customer_last_update"
-          },
-          {
-            "name": "customer_last_upgrade"
-          },
-          {
-            "name": "customer_last_export"
-          },
-          {
-            "name": "is_email_remover"
-          }
-        ]
-      },
-      {
-        "table": "seller_categories",
-        "fields": [
-          {
-            "name": "seller_category_name"
-          }
-        ]
-      },
-      {
-        "table": "parsers",
-        "fields": [
-          {
-            "name": "parser_name"
-          },
-          {
-            "name": "id_parser"
-          },
-          {
-            "name": "parser_lang"
-          },
-          {
-            "name": "merchant_name"
-          }
-        ]
-      },
-      {
-        "table": "payment_methods",
-        "fields": [
-          {
-            "name": "payment_method_name"
-          }
-        ]
-      }
-    ],
-    "where": [
-      {
-        "table": "parsers",
-        "fields": [
-          {
-            "name": "merchant_name",
-            "conditions": [
-              {
-                "operator": "IN",
-                "values": [
-                  "chauffeur prive",
-                  "g7",
-                  "heetch",
-                  "lecab",
-                  "marcel",
-                  "taxify",
-                  "uber"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "parser_name",
-            "conditions": [
-              {
-                "operator": "NOT IN",
-                "values": [
-                  "alloresto-new-fr-1",
-                  "alloresto-new-fr-2"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "table": "orders",
-        "fields": [
-          {
-            "name": "order_is_duplicate",
-            "conditions": [
-              {
-                "operator": "NOT IN",
-                "values": [
-                  "1"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "order_is_trash",
-            "conditions": [
-              {
-                "operator": "NOT IN",
-                "values": [
-                  "1"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "order_is_spam",
-            "conditions": [
-              {
-                "operator": "NOT IN",
-                "values": [
-                  "1"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "order_is_moved_duplicate",
-            "conditions": [
-              {
-                "operator": "NOT IN",
-                "values": [
-                  "1"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "order_currency",
-            "conditions": [
-              {
-                "operator": "IN",
-                "values": [
-                  "eur",
-                  "EUR"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "order_datetime",
-            "conditions": [
-              {
-                "method": "year",
-                "operator": ">",
-                "values": [
-                  2014
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "table": "customers",
-        "fields": [
-          {
-            "name": "is_invalid_grant",
-            "conditions": [
-              {
-                "operator": "NOT IN",
-                "values": [
-                  1
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "addOnWhere": ""
-  },
-  "modules": [
-    {
-      "name": "customerFoxbrainReady",
-      "parameters": {
-        "deltaInDays": 5
-      }
-    },
-    {
-      "name": "zipCodeFromAddress",
-      "parameters": [
-        {
-          "table": "order_items",
-          "fields": [
+    "industryType": "cab",
+    "tableName": "cab_uk",
+    "query": {
+        "select": [
             {
-              "name": "order_item_delivery_address"
+                "table": "brands",
+                "fields": [
+                    {
+                        "name": "id_brand"
+                    },
+                    {
+                        "name": "brand_name"
+                    }
+                ]
             },
             {
-              "name": "order_item_address"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "countryCode"
-    },
-    {
-      "name": "customerAgeRange"
-    },
-    {
-      "name": "cleanPromo"
-    },
-    {
-      "name": "buyOneGetOneFree",
-      "parameters": {
-        "regex": [
-          "offert",
-          "free",
-          " x2"
-        ]
-      }
-    },
-    {
-      "name": "cleanFields"
-    },
-    {
-      "name": "isGoogleProvider"
-    },
-    {
-      "name": "rankPerUser"
-    },
-    {
-      "name": "rankPerUserPerMerchant"
-    },
-    {
-      "name": "ventilateOrderTotalPaid"
-    },
-    {
-      "name": "idFlatTableOrderDatetime"
-    },
-    {
-      "name": "isWeekDay"
-    },
-    {
-      "name": "isWeekend"
-    },
-    {
-      "name": "weekDay"
-    },
-    {
-      "name": "loyaltyFood",
-      "parameters": {
-        "merchants": [
-          "deliveroo"
-        ]
-      }
-    },
-    {
-      "name": "foxwatchZone"
-    },
-    {
-      "name": "merchantNameCustomSushishop"
-    },
-    {
-      "name": "topRestaurantChain"
-    },
-    {
-      "name": "orderItemDeliveryTypeClean"
-    },
-    {
-      "name": "geolocationBusinessRulesOrderItems"
-    },
-    {
-      "name": "ponderation",
-      "parameters": {
-        "fieldName": "coeff_with_merch_food_cab_7_clusters"
-      }
-    },
-    {
-      "name": "contributions"
-    },
-    {
-      "name": "hourRange",
-      "parameters": [
-        {
-          "table": "orders",
-          "fields": [
-            {
-              "name": "order_datetime"
-            }
-          ],
-          "intervals": [
-            0,
-            4,
-            11,
-            15,
-            18,
-            23
-          ]
-        }
-      ]
-    },
-    {
-      "name": "priceRange",
-      "parameters": [
-        {
-          "table": "orders",
-          "fields": [
-            {
-              "name": "order_total_paid"
-            }
-          ],
-          "intervals": [
-            0,
-            15,
-            20,
-            25,
-            35,
-            50
-          ]
-        },
-        {
-          "table": "order_items",
-          "fields": [
-            {
-              "name": "order_item_total_price_paid"
-            }
-          ],
-          "intervals": [
-            0,
-            15,
-            20,
-            25,
-            35,
-            50
-          ]
-        },
-        {
-          "table": "order_items",
-          "fields": [
-            {
-              "name": "order_item_price_per_unit"
+                "table": "orders",
+                "fields": [
+                    {
+                        "name": "id_order"
+                    },
+                    {
+                        "name": "order_item_quantity"
+                    },
+                    {
+                        "name": "order_datetime"
+                    },
+                    {
+                        "name": "order_total_paid"
+                    },
+                    {
+                        "name": "order_currency"
+                    },
+                    {
+                        "name": "order_option_3"
+                    },
+                    {
+                        "name": "order_delivery_fee"
+                    },
+                    {
+                        "name": "order_processing_fee"
+                    },
+                    {
+                        "name": "order_total_fees"
+                    },
+                    {
+                        "name": "order_distinct_item_quantity"
+                    },
+                    {
+                        "name": "order_created_at"
+                    },
+                    {
+                        "name": "order_foxid"
+                    }
+                ]
             },
             {
-              "name": "order_item_price_per_unit_with_promo_contributions"
+                "table": "order_items",
+                "fields": [
+                    {
+                        "name": "id_order_item"
+                    },
+                    {
+                        "name": "order_item_total_price_paid"
+                    },
+                    {
+                        "name": "order_item_quantity"
+                    },
+                    {
+                        "name": "order_item_delivery_address"
+                    },
+                    {
+                        "name": "order_item_delivery_date_max"
+                    },
+                    {
+                        "name": "order_item_delivery_date_min"
+                    },
+                    {
+                        "name": "order_item_delivery_time_max"
+                    },
+                    {
+                        "name": "order_item_delivery_time_min"
+                    },
+                    {
+                        "name": "order_item_duration"
+                    },
+                    {
+                        "name": "order_item_delivery_address_zipcode"
+                    },
+                    {
+                        "name": "order_item_delivery_address_country_code"
+                    },
+                    {
+                        "name": "order_item_delivery_address_region"
+                    },
+                    {
+                        "name": "order_item_delivery_address_subregion"
+                    },
+                    {
+                        "name": "order_item_delivery_address_city"
+                    },
+                    {
+                        "name": "order_item_delivery_address_latitude"
+                    },
+                    {
+                        "name": "order_item_delivery_address_longitude"
+                    },
+                    {
+                        "name": "order_item_delivery_type"
+                    },
+                    {
+                        "name": "order_item_price_per_unit"
+                    },
+                    {
+                        "name": "order_item_address"
+                    },
+                    {
+                        "name": "order_item_address_zipcode"
+                    },
+                    {
+                        "name": "order_item_address_country_code"
+                    },
+                    {
+                        "name": "order_item_address_region"
+                    },
+                    {
+                        "name": "order_item_address_subregion"
+                    },
+                    {
+                        "name": "order_item_address_city"
+                    },
+                    {
+                        "name": "order_item_address_latitude"
+                    },
+                    {
+                        "name": "order_item_address_longitude"
+                    },
+                    {
+                        "name": "order_item_other_fee_1_name"
+                    },
+                    {
+                        "name": "order_item_other_fee_1"
+                    },
+                    {
+                        "name": "order_item_other_fee_2_name"
+                    },
+                    {
+                        "name": "order_item_other_fee_2"
+                    },
+                    {
+                        "name": "order_item_foxid"
+                    }
+                ]
+            },
+            {
+                "table": "products",
+                "fields": [
+                    {
+                        "name": "id_product"
+                    },
+                    {
+                        "name": "product_name"
+                    }
+                ]
+            },
+            {
+                "table": "sellers",
+                "fields": [
+                    {
+                        "name": "id_seller"
+                    },
+                    {
+                        "name": "seller_name"
+                    }
+                ]
+            },
+            {
+                "table": "customers",
+                "fields": [
+                    {
+                        "name": "id_customer"
+                    },
+                    {
+                        "name": "customer_birth_year"
+                    },
+                    {
+                        "name": "customer_gender"
+                    },
+                    {
+                        "name": "customer_hash"
+                    },
+                    {
+                        "name": "customer_region"
+                    },
+                    {
+                        "name": "customer_country"
+                    },
+                    {
+                        "name": "provider"
+                    },
+                    {
+                        "name": "customer_created_at"
+                    },
+                    {
+                        "name": "customer_last_update"
+                    },
+                    {
+                        "name": "customer_last_upgrade"
+                    },
+                    {
+                        "name": "customer_last_export"
+                    },
+                    {
+                        "name": "is_email_remover"
+                    }
+                ]
+            },
+            {
+                "table": "seller_categories",
+                "fields": [
+                    {
+                        "name": "seller_category_name"
+                    }
+                ]
+            },
+            {
+                "table": "parsers",
+                "fields": [
+                    {
+                        "name": "parser_name"
+                    },
+                    {
+                        "name": "id_parser"
+                    },
+                    {
+                        "name": "parser_lang"
+                    },
+                    {
+                        "name": "merchant_name"
+                    }
+                ]
+            },
+            {
+                "table": "payment_methods",
+                "fields": [
+                    {
+                        "name": "payment_method_name"
+                    }
+                ]
             }
-          ],
-          "intervals": [
-            0,
-            10,
-            20,
-            30,
-            40,
-            50
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cohorts",
-      "parameters": {
-        "years": [
-          2017,
-          2018,
-          2019
         ],
-        "merchants": [
-          "chauffeur prive",
-          "g7",
-          "heetch",
-          "lecab",
-          "marcel",
-          "taxify",
-          "uber"
-        ]
-      }
+        "where": [
+            {
+                "table": "parsers",
+                "fields": [
+                    {
+                        "name": "merchant_name",
+                        "conditions": [
+                            {
+                                "operator": "IN",
+                                "values": [
+                                    "cote sushi",
+                                    "deliveroo",
+                                    "dominos",
+                                    "foodcheri",
+                                    "foodora",
+                                    "frichti",
+                                    "glovo",
+                                    "pizza hut",
+                                    "planet sushi",
+                                    "popchef",
+                                    "restoin",
+                                    "speed rabbit pizza",
+                                    "sushishop",
+                                    "takeeateasy",
+                                    "uber eats",
+                                    "justeat",
+                                    "fetch",
+                                    "nestor",
+                                    "mcdonalds"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "parser_name",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "alloresto-new-fr-1",
+                                    "alloresto-new-fr-2"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "orders",
+                "fields": [
+                    {
+                        "name": "order_is_duplicate",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_trash",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_spam",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_currency",
+                        "conditions": [
+                            {
+                                "operator": "IN",
+                                "values": [
+                                    "eur",
+                                    "EUR"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_moved_duplicate",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "addOnWhere": ""
     },
-    {
-      "name": "loyalty",
-      "parameters": {
-        "merchants": [
-          "amazon"
-        ]
-      }
-    },
-    {
-      "name": "customerGender"
-    },
-    {
-      "name": "extraFields",
-      "parameters": [
+    "modules": [
         {
-          "name": "is_departure_airport",
-          "type": "string"
+            "name": "customerFoxbrainReady",
+            "parameters": {
+                "deltaInDays": 5
+            }
         },
         {
-          "name": "is_arrival_airport",
-          "type": "string"
+            "name": "zipCodeFromAddress",
+            "parameters": [
+                {
+                    "table": "order_items",
+                    "fields": [
+                        {
+                            "name": "order_item_delivery_address"
+                        },
+                        {
+                            "name": "order_item_address"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "countryCode"
+        },
+        {
+            "name": "customerAgeRange"
+        },
+        {
+            "name": "cleanPromo"
+        },
+        {
+            "name": "buyOneGetOneFree",
+            "parameters": {
+                "regex": [
+                    "offert",
+                    "free",
+                    " x2"
+                ]
+            }
+        },
+        {
+            "name": "cleanFields"
+        },
+        {
+            "name": "isGoogleProvider"
+        },
+        {
+            "name": "rankPerUser"
+        },
+        {
+            "name": "rankPerUserPerMerchant"
+        },
+        {
+            "name": "ventilateOrderTotalPaid"
+        },
+        {
+            "name": "idFlatTableOrderDatetime"
+        },
+        {
+            "name": "isWeekDay"
+        },
+        {
+            "name": "isWeekend"
+        },
+        {
+            "name": "weekDay"
+        },
+        {
+            "name": "loyaltyFood",
+            "parameters": {
+                "merchants": [
+                    "deliveroo"
+                ]
+            }
+        },
+        {
+            "name": "foxwatchZone"
+        },
+        {
+            "name": "merchantNameCustomSushishop"
+        },
+        {
+            "name": "topRestaurantChain"
+        },
+        {
+            "name": "orderItemDeliveryTypeClean"
+        },
+        {
+            "name": "geolocationBusinessRulesOrderItems"
+        },
+        {
+            "name": "ponderation",
+            "parameters": {
+                "fieldName": "coeff_with_merch_food_cab_7_clusters"
+            }
+        },
+        {
+            "name": "contributions"
+        },
+        {
+            "name": "hourRange",
+            "parameters": [
+                {
+                    "table": "orders",
+                    "fields": [
+                        {
+                            "name": "order_datetime"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        4,
+                        11,
+                        15,
+                        18,
+                        23
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "priceRange",
+            "parameters": [
+                {
+                    "table": "orders",
+                    "fields": [
+                        {
+                            "name": "order_total_paid"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        15,
+                        20,
+                        25,
+                        35,
+                        50
+                    ]
+                },
+                {
+                    "table": "order_items",
+                    "fields": [
+                        {
+                            "name": "order_item_total_price_paid"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        15,
+                        20,
+                        25,
+                        35,
+                        50
+                    ]
+                },
+                {
+                    "table": "order_items",
+                    "fields": [
+                        {
+                            "name": "order_item_price_per_unit"
+                        },
+                        {
+                            "name": "order_item_price_per_unit_with_promo_contributions"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        10,
+                        20,
+                        30,
+                        40,
+                        50
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cohorts",
+            "parameters": {
+                "years": [
+                    2017,
+                    2018,
+                    2019
+                ],
+                "merchants": [
+                    "cote sushi",
+                    "deliveroo",
+                    "dominos",
+                    "foodcheri",
+                    "foodora",
+                    "frichti",
+                    "glovo",
+                    "pizza hut",
+                    "planet sushi",
+                    "popchef",
+                    "restoin",
+                    "speed rabbit pizza",
+                    "sushishop",
+                    "takeeateasy",
+                    "uber eats",
+                    "just eat",
+                    "fetch",
+                    "nestor",
+                    "mcdonalds"
+                ]
+            }
+        },
+        {
+            "name": "loyalty",
+            "parameters": {
+                "merchants": [
+                    "amazon"
+                ]
+            }
         }
-      ]
-    }
-  ],
-  "userQueries": [
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%ory%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%orly%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%ory%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%orly%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%paray%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%cdg%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%roissy%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%cdg%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%roissy%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%charles de gaulle%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%roissy%' and order_item_arrival_address LIKE '%charles de gaulle%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '%roissy%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '% 77%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '%,77%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '% 77%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%,77%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '% 95%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '%,95%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '% 95%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%,95%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address_latitude BETWEEN 48.987923 and 49.027672) and (order_item_arrival_address_longitude BETWEEN 2.481632 and 2.619820)",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address_latitude BETWEEN 48.710719 AND 48.746161) and (order_item_arrival_address_longitude BETWEEN 2.305508 AND 2.412968)",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%depose minute%' and order_item_arrival_address LIKE '%paray-vieille-poste%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%depose minute%' and order_item_arrival_address LIKE '%mauregard%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%avenue o, 94390 paray-vieille-poste, france%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE order_item_arrival_address IN ('unnamed road, 77990 le mesnil-amelot, france','unnamed road, 93290 tremblay-en-france, france')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%ory%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%orly%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%ory%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%orly%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%paray%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%cdg%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%roissy%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%cdg%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%roissy%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%charles de gaulle%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%roissy%' and order_item_departure_address LIKE '%charles de gaulle%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '%roissy%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '% 77%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '%,77%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '% 77%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%,77%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '% 95%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '%,95%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '% 95%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%,95%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address_latitude BETWEEN 48.987923 and 49.027672) and (order_item_departure_address_longitude BETWEEN 2.481632 and 2.619820)",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address_latitude BETWEEN 48.710719 AND 48.746161) and (order_item_departure_address_longitude BETWEEN 2.305508 AND 2.412968)",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%depose minute%' and order_item_departure_address LIKE '%paray-vieille-poste%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%depose minute%' and order_item_departure_address LIKE '%mauregard%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%avenue o, 94390 paray-vieille-poste, france%')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE order_item_departure_address IN ('unnamed road, 77990 le mesnil-amelot, france','unnamed road, 93290 tremblay-en-france, france')"
-  ]
+    ],
+    "userQueries": []
 }
