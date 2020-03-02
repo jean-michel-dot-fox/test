@@ -111,6 +111,12 @@
           },
           {
             "name": "order_item_foxid"
+          },
+          {
+            "name": "order_item_type"
+          },
+          {
+            "name": "order_item_delivery_type"
           }
         ]
       },
