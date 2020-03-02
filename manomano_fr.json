@@ -584,9 +584,9 @@
     }
   ],
   "userQueries": [
-    "DELETE FROM temp_{{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
-    "DELETE FROM temp_{{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-    "DELETE FROM temp_{{destDatabase}}.{{tableName}} WHERE parser_name='amazon-new-fr-2'",
-    "UPDATE temp_{{destDatabase}}.{{tableName}} SET mm_category_0 = 'uncategorized' WHERE merchant_name = 'manomano' AND mm_category_0 IS NULL"
+    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
+    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
+    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='amazon-new-fr-2'",
+    "UPDATE {{destDatabase}}.{{tableName}} SET mm_category_0 = 'uncategorized' WHERE merchant_name = 'manomano' AND mm_category_0 IS NULL"
   ]
 }
