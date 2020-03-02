@@ -367,49 +367,157 @@
   },
   "modules": [
     {
+      "name": "brandNameFromProductName",
+      "parameters": {
+        "merchants": [
+          "boulanger",
+          "apple",
+          "back market",
+          "destocksource",
+          "recommerce",
+          "reconditionneneuf",
+          "smarter"
+        ]
+      }
+    },
+    {
+      "name": "categories",
+      "parameters": [
+        {
+          "name": "authorizedCategories"
+        },
+        {
+          "name": "concatenateCategory0And1"
+        },
+        {
+          "name": "mappingMacroCategories"
+        },
+        {
+          "name": "concatenateDefaultProductName",
+          "parameters": {
+            "table": "order_items",
+            "fields": [
+              {
+                "name": "order_item_price_per_unit"
+              }
+            ],
+            "intervals": [
+              0,
+              15,
+              30,
+              50,
+              100,
+              200,
+              500
+            ]
+          }
+        },
+        {
+          "name": "mappingCategories",
+          "merchants": [
+            "back market",
+            "manomano"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cleanFields"
+    },
+    {
+      "name": "cleanPromo"
+    },
+    {
+      "name": "cohorts",
+      "parameters": {
+        "years": [
+          2017,
+          2018,
+          2019
+        ],
+        "merchants": [
+          "amazon",
+          "apple",
+          "back market",
+          "boulanger",
+          "cdiscount",
+          "certideal",
+          "darty",
+          "destocksource",
+          "electrodepot",
+          "fnac",
+          "micromania",
+          "priceminister",
+          "recommerce",
+          "reconditionneneuf",
+          "rue du commerce",
+          "showroom prive",
+          "smarter",
+          "vente privee"
+        ]
+      }
+    },
+    {
+      "name": "contributions"
+    },
+    {
+      "name": "customerAgeRange"
+    },
+    {
+      "name": "customerBirthYear"
+    },
+    {
       "name": "customerFoxbrainReady",
       "parameters": {
         "deltaInDays": 3
       }
     },
     {
-      "name": "cleanPromo"
+      "name": "customerGender"
     },
     {
-      "name": "customerAgeRange"
-    },
-    {
-      "name": "cleanFields"
-    },
-    {
-      "name": "isGoogleProvider"
-    },
-    {
-      "name": "rankPerUser"
-    },
-    {
-      "name": "rankPerUserPerMerchant"
-    },
-    {
-      "name": "ventilateOrderTotalPaid"
-    },
-    {
-      "name": "idFlatTableOrderDatetime"
-    },
-    {
-      "name": "isWeekDay"
-    },
-    {
-      "name": "isWeekend"
-    },
-    {
-      "name": "weekDay"
-    },
-    {
-      "name": "ponderation",
+      "name": "deliveryDateType",
       "parameters": {
-        "fieldName": "coeff_with_merch_food_cab_7_clusters"
+        "mode": "average",
+        "intervals": [
+          1,
+          2,
+          3,
+          6,
+          11,
+          21
+        ],
+        "values": [
+          "0 D",
+          "1 D",
+          "2 D",
+          "3-5 D",
+          "6-10 D",
+          "11-20 D",
+          "> 20 D"
+        ]
       }
+    },
+    {
+      "name": "extraFields",
+      "parameters": [
+        {
+          "name": "is_reconditioned",
+          "type": "string"
+        },
+        {
+          "name": "is_seller_reconditioning",
+          "type": "string"
+        },
+        {
+          "name": "is_seller_reconditioning_extended",
+          "type": "string"
+        },
+        {
+          "name": "bm_category_2",
+          "type": "string"
+        }
+      ]
     },
     {
       "name": "geolocationBusinessRulesOrderItems",
@@ -424,15 +532,13 @@
       }
     },
     {
-      "name": "contributions"
-    },
-    {
       "name": "hourRange",
       "parameters": [
         {
-          "table": "orders",
+          "columnPrefix": "order_item_departure_time",
           "fields": [
             {
+              "table": "orders",
               "name": "order_datetime"
             }
           ],
@@ -447,6 +553,49 @@
           ]
         }
       ]
+    },
+    {
+      "name": "idFlatTableOrderDatetime"
+    },
+    {
+      "name": "isGoogleProvider"
+    },
+    {
+      "name": "isWeekDay"
+    },
+    {
+      "name": "isWeekend"
+    },
+    {
+      "name": "loyalty",
+      "parameters": {
+        "merchants": [
+          "amazon",
+          "cdiscount",
+          "la redoute",
+          "vente privee",
+          "showroom prive"
+        ]
+      }
+    },
+    {
+      "name": "marketplace"
+    },
+    {
+      "name": "merchantType",
+      "parameters": {
+        "merchants": [
+          "bricoprive",
+          "showroom prive",
+          "vente privee"
+        ]
+      }
+    },
+    {
+      "name": "ponderation",
+      "parameters": {
+        "fieldName": "coeff_with_merch_food_cab_7_clusters"
+      }
     },
     {
       "name": "priceRange",
@@ -494,160 +643,16 @@
       ]
     },
     {
-      "name": "marketplace"
+      "name": "rankPerUser"
     },
     {
-      "name": "categories",
-      "parameters": [
-        {
-          "name": "authorizedCategories"
-        },
-        {
-          "name": "concatenateCategory0And1"
-        },
-        {
-          "name": "concatenateDefaultProductName",
-          "parameters": {
-            "table": "order_items",
-            "fields": [
-              {
-                "name": "order_item_price_per_unit_with_promo_contributions"
-              }
-            ],
-            "intervals": [
-              0,
-              15,
-              30,
-              50,
-              100,
-              200,
-              500
-            ]
-          }
-        },
-        {
-          "name": "mappingMacroCategories"
-        },
-        {
-          "name": "mappingCategories",
-          "merchants": [
-            "back market"
-          ]
-        }
-      ]
+      "name": "rankPerUserPerMerchant"
     },
     {
-      "name": "cohorts",
-      "parameters": {
-        "years": [
-          2017,
-          2018,
-          2019
-        ],
-        "merchants": [
-          "amazon",
-          "apple",
-          "back market",
-          "boulanger",
-          "cdiscount",
-          "certideal",
-          "darty",
-          "destocksource",
-          "electrodepot",
-          "fnac",
-          "micromania",
-          "priceminister",
-          "recommerce",
-          "reconditionneneuf",
-          "rue du commerce",
-          "showroom prive",
-          "smarter",
-          "vente privee"
-        ]
-      }
+      "name": "ventilateOrderTotalPaid"
     },
     {
-      "name": "loyalty",
-      "parameters": {
-        "merchants": [
-          "amazon",
-          "cdiscount",
-          "la redoute",
-          "vente privee",
-          "showroom prive"
-        ]
-      }
-    },
-    {
-      "name": "merchantType",
-      "parameters": {
-        "merchants": [
-          "bricoprive",
-          "showroom prive",
-          "vente privee"
-        ]
-      }
-    },
-    {
-      "name": "brandNameFromProductName",
-      "parameters": {
-        "merchants": [
-          "boulanger",
-          "apple",
-          "back market",
-          "destocksource",
-          "recommerce",
-          "reconditionneneuf",
-          "smarter"
-        ]
-      }
-    },
-    {
-      "name": "deliveryDateType",
-      "parameters": {
-        "mode": "average",
-        "intervals": [
-          1,
-          2,
-          3,
-          6,
-          11,
-          21
-        ],
-        "values": [
-          "0 D",
-          "1 D",
-          "2 D",
-          "3-5 D",
-          "6-10 D",
-          "11-20 D",
-          "> 20 D"
-        ]
-      }
-    },
-    {
-      "name": "customerGender"
-    },
-    {
-      "name": "extraFields",
-      "parameters": [
-        {
-          "name": "is_reconditioned",
-          "type": "string"
-        },
-        {
-          "name": "is_seller_reconditioning",
-          "type": "string"
-        },
-        {
-          "name": "is_seller_reconditioning_extended",
-          "type": "string"
-        },
-        {
-          "name": "bm_category_2",
-          "type": "string"
-        }
-      ]
+      "name": "weekDay"
     }
   ],
   "userQueries": [
