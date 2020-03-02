@@ -244,6 +244,55 @@
             ]
           }
         ]
+      },
+      {
+        "table": "orders",
+        "fields": [
+          {
+            "name": "order_is_duplicate",
+            "conditions": [
+              {
+                "operator": "NOT IN",
+                "values": [
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "name": "order_is_trash",
+            "conditions": [
+              {
+                "operator": "NOT IN",
+                "values": [
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "name": "order_is_spam",
+            "conditions": [
+              {
+                "operator": "NOT IN",
+                "values": [
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "name": "order_is_moved_duplicate",
+            "conditions": [
+              {
+                "operator": "NOT IN",
+                "values": [
+                  1
+                ]
+              }
+            ]
+          }
+        ]
       }
     ],
     "addOnWhere": ""
