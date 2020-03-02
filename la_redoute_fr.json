@@ -45,6 +45,9 @@
             "name": "order_total_fees"
           },
           {
+            "name": "order_tip"
+          },
+          {
             "name": "order_distinct_item_quantity"
           },
           {
@@ -594,6 +597,19 @@
       }
     },
     {
+      "name": "brandNameFromProductName",
+      "parameters": {
+        "merchants": [
+          "sephora",
+          "marionnaud",
+          "boulanger",
+          "conforama",
+          "apple",
+          "back market"
+        ]
+      }
+    },
+    {
       "name": "deliveryDateType",
       "parameters": {
         "mode": "average",
@@ -618,11 +634,22 @@
     },
     {
       "name": "customerGender"
+    },
+    {
+      "name": "extraFields",
+      "parameters": [
+        {
+          "name": "product_name_stock",
+          "type": "string"
+        }
+      ]
     }
   ],
   "userQueries": [
     "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
     "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'"
+    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'",
+    "UPDATE {{destDatabase}}.{{tableName}} SET product_name_stock = product_name WHERE merchant_name = 'ikea'",
+    "UPDATE {{destDatabase}}.{{tableName}} SET product_name = CONCAT(product_name_stock, '_', product_description) WHERE merchant_name = 'ikea'"
   ]
 }
