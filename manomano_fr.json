@@ -545,17 +545,6 @@
             }
         },
         {
-            "name": "brandNameFromProductName",
-            "parameters": {
-                "merchants": [
-                    "sephora",
-                    "marionnaud",
-                    "boulanger",
-                    "conforama"
-                ]
-            }
-        },
-        {
             "name": "deliveryDateType",
             "parameters": {
                 "mode": "average",
