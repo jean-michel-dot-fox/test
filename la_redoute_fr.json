@@ -594,19 +594,6 @@
             }
         },
         {
-            "name": "brandNameFromProductName",
-            "parameters": {
-                "merchants": [
-                    "sephora",
-                    "marionnaud",
-                    "boulanger",
-                    "conforama",
-                    "apple",
-                    "back market"
-                ]
-            }
-        },
-        {
             "name": "deliveryDateType",
             "parameters": {
                 "mode": "average",
