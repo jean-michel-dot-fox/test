@@ -394,11 +394,5 @@
             }
         }
     ],
-    "userQueries": [
-        "DROP TABLE IF EXISTS customer_is_amazon_prime_temp",
-        "CREATE TABLE customer_is_amazon_prime_temp select distinct id_customer, is_loyalty_amazon, start_loyalty_amazon from temp_customer_is_amazon_prime where is_loyalty_amazon = 1 order by id_customer",
-        "ALTER TABLE customer_is_amazon_prime_temp ADD PRIMARY KEY (id_customer)",
-        "DROP TABLE IF EXISTS temp_customer_is_amazon_prime",
-        "RENAME TABLE customer_is_amazon_prime_temp to temp_customer_is_amazon_prime"
-    ]
+    "userQueries": []
 }
