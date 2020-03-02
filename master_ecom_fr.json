@@ -45,6 +45,9 @@
             "name": "order_total_fees"
           },
           {
+            "name": "order_tip"
+          },
+          {
             "name": "order_distinct_item_quantity"
           },
           {
