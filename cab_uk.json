@@ -260,25 +260,16 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "cote sushi",
-                                    "deliveroo",
-                                    "dominos",
-                                    "foodcheri",
-                                    "foodora",
-                                    "frichti",
-                                    "glovo",
-                                    "pizza hut",
-                                    "planet sushi",
-                                    "popchef",
-                                    "restoin",
-                                    "speed rabbit pizza",
-                                    "sushishop",
-                                    "takeeateasy",
-                                    "uber eats",
-                                    "justeat",
-                                    "fetch",
-                                    "nestor",
-                                    "mcdonalds"
+                                    "uber",
+                                    "addisonlee",
+                                    "freenow",
+                                    "gett",
+                                    "kabbee",
+                                    "mytaxi",
+                                    "ola",
+                                    "viavan",
+                                    "chauffeur prive",
+                                    "taxify"
                                 ]
                             }
                         ]
@@ -548,25 +539,16 @@
                     2019
                 ],
                 "merchants": [
-                    "cote sushi",
-                    "deliveroo",
-                    "dominos",
-                    "foodcheri",
-                    "foodora",
-                    "frichti",
-                    "glovo",
-                    "pizza hut",
-                    "planet sushi",
-                    "popchef",
-                    "restoin",
-                    "speed rabbit pizza",
-                    "sushishop",
-                    "takeeateasy",
-                    "uber eats",
-                    "just eat",
-                    "fetch",
-                    "nestor",
-                    "mcdonalds"
+                    "uber",
+                    "addisonlee",
+                    "freenow",
+                    "gett",
+                    "kabbee",
+                    "mytaxi",
+                    "ola",
+                    "viavan",
+                    "chauffeur prive",
+                    "taxify"
                 ]
             }
         },
