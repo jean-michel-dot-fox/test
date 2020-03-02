@@ -1,6 +1,6 @@
 {
   "industryType": "ecom",
-  "tableName": "dsadadasdas",
+  "tableName": "test",
   "query": {
     "select": [
       {
