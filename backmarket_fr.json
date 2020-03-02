@@ -696,10 +696,10 @@
   ],
   "userQueries": [
     "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished', is_reconditioned_extended = 'refurbished (extended)' WHERE (merchant_name IN ('back market', 'certideal','destocksource','recommerce','reconditionneneuf','smarter') OR product_name LIKE '%reconditionne%' OR product_description LIKE '%reconditionne%' OR product_name_default LIKE '%reconditionne%' OR product_name LIKE '% grade a%' OR product_name LIKE '% grade a+%' OR product_name LIKE '% grade b%' OR product_name LIKE '% grade b+%' OR seller_name_raw LIKE '%reconditionne%' OR seller_name LIKE '%reconditionne%' OR seller_name LIKE '%refurb%' OR order_item_state LIKE '%reconditionne%')",
-    "UPDATE {{destDatabase}}.{{tableName}} AS ft LEFT JOIN {{assetDatabase}}.sellers_reconditioner AS s ON ft.seller_name = s.seller_name SET is_seller_reconditioning = 1 WHERE ft.seller_name = s.seller_name",
+    "UPDATE {{destDatabase}}.{{tableName}} AS ft SET is_seller_reconditioning = 1 FROM {{assetDatabase}}.sellers_reconditioner AS s  WHERE ft.seller_name = s.seller_name",
     "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished' WHERE is_seller_reconditioning = 1",
     "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'new' WHERE is_reconditioned IS NULL",
-    "UPDATE {{destDatabase}}.{{tableName}} AS ft LEFT JOIN {{assetDatabase}}.sellers_reconditioner_extended AS s ON ft.seller_name = s.seller_name SET is_seller_reconditioning_extended = 1 WHERE ft.seller_name = s.seller_name",
+    "UPDATE {{destDatabase}}.{{tableName}} AS ft SET is_seller_reconditioning_extended = 1 FROM {{assetDatabase}}.sellers_reconditioner_extended AS s WHERE ft.seller_name = s.seller_name",
     "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned_extended = 'refurbished' WHERE is_seller_reconditioning_extended = 1",
     "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned_extended = 'new' WHERE is_reconditioned_extended IS NULL",
     "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE (brand_name='iphones reconditionnes' OR brand_name='imac et macbook reconditionnes' OR brand_name='apple watch reconditionnees' OR brand_name='airpods reconditionnes' OR brand_name='ipad 2 et 4 reconditionnes' OR brand_name='apple watch reconditionnees' OR brand_name='apple reconditionnes')",
