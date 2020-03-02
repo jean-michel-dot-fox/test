@@ -590,6 +590,12 @@
             }
         },
         {
+            "name": "segmentation",
+            "parameters": {
+                "startDate": "2017-01-01"
+            }
+        },
+        {
             "name": "loyalty",
             "parameters": {
                 "merchants": [
