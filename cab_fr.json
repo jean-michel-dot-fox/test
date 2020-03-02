@@ -673,7 +673,7 @@
                 },
                 {
                     "name": "is_arrival_airport",
-                    "type": "string"
+                    "type": "integer"
                 }
             ]
         }
