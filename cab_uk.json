@@ -661,7 +661,7 @@
   ],
   "userQueries": [
     "DELETE FROM {{destDatabase}}.{{tableName}} WHERE merchant_name = 'uber' AND order_currency IN ('GBP', 'gbp') AND order_item_departure_address LIKE '%, egypt%'",
-    "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.start_loyalty_amazon = c.start_loyalty_amazon FROM {{sourceDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
-    "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (date(order_datetime) > c.start_loyalty_amazon, 1, 0)) FROM {{sourceDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer"
+    "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.start_loyalty_amazon = c.start_loyalty_amazon FROM {{assetDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
+    "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (date(order_datetime) > c.start_loyalty_amazon, 1, 0)) FROM {{assetDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer"
   ]
 }
