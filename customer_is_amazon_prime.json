@@ -4,10 +4,24 @@
     "query": {
         "select": [
             {
+                "table": "brands",
+                "fields": [
+                    {
+                        "name": "id_brand"
+                    },
+                    {
+                        "name": "brand_name"
+                    }
+                ]
+            },
+            {
                 "table": "orders",
                 "fields": [
                     {
                         "name": "id_order"
+                    },
+                    {
+                        "name": "order_item_quantity"
                     },
                     {
                         "name": "order_datetime"
@@ -16,19 +30,31 @@
                         "name": "order_total_paid"
                     },
                     {
+                        "name": "order_currency"
+                    },
+                    {
                         "name": "order_option_3"
                     },
                     {
                         "name": "order_delivery_fee"
                     },
                     {
+                        "name": "order_processing_fee"
+                    },
+                    {
+                        "name": "order_total_fees"
+                    },
+                    {
+                        "name": "order_tip"
+                    },
+                    {
+                        "name": "order_distinct_item_quantity"
+                    },
+                    {
                         "name": "order_created_at"
                     },
                     {
                         "name": "order_foxid"
-                    },
-                    {
-                        "name": "order_tip"
                     }
                 ]
             },
@@ -39,19 +65,52 @@
                         "name": "id_order_item"
                     },
                     {
-                        "name": "order_item_delivery_address_city"
+                        "name": "order_item_total_price_paid"
                     },
                     {
-                        "name": "order_item_delivery_address_country_code"
+                        "name": "order_item_quantity"
+                    },
+                    {
+                        "name": "order_item_delivery_address"
+                    },
+                    {
+                        "name": "order_item_departure_address"
+                    },
+                    {
+                        "name": "order_item_delivery_date_max"
+                    },
+                    {
+                        "name": "order_item_delivery_date_min"
                     },
                     {
                         "name": "order_item_delivery_address_region"
                     },
                     {
+                        "name": "order_item_delivery_address_subregion"
+                    },
+                    {
                         "name": "order_item_delivery_address_zipcode"
                     },
                     {
-                        "name": "order_item_total_price_paid"
+                        "name": "order_item_delivery_address_country_code"
+                    },
+                    {
+                        "name": "order_item_delivery_address_country"
+                    },
+                    {
+                        "name": "order_item_delivery_address_city"
+                    },
+                    {
+                        "name": "order_item_delivery_address_latitude"
+                    },
+                    {
+                        "name": "order_item_delivery_address_longitude"
+                    },
+                    {
+                        "name": "order_item_price_per_unit"
+                    },
+                    {
+                        "name": "order_item_foxid"
                     }
                 ]
             },
@@ -63,6 +122,20 @@
                     },
                     {
                         "name": "product_name"
+                    },
+                    {
+                        "name": "product_description"
+                    }
+                ]
+            },
+            {
+                "table": "sellers",
+                "fields": [
+                    {
+                        "name": "id_seller"
+                    },
+                    {
+                        "name": "seller_name"
                     }
                 ]
             },
@@ -85,6 +158,9 @@
                         "name": "customer_region"
                     },
                     {
+                        "name": "customer_country"
+                    },
+                    {
                         "name": "provider"
                     },
                     {
@@ -101,6 +177,39 @@
                     },
                     {
                         "name": "is_email_remover"
+                    }
+                ]
+            },
+            {
+                "table": "seller_categories",
+                "fields": [
+                    {
+                        "name": "seller_category_name"
+                    }
+                ]
+            },
+            {
+                "table": "parsers",
+                "fields": [
+                    {
+                        "name": "parser_name"
+                    },
+                    {
+                        "name": "id_parser"
+                    },
+                    {
+                        "name": "parser_lang"
+                    },
+                    {
+                        "name": "merchant_name"
+                    }
+                ]
+            },
+            {
+                "table": "payment_methods",
+                "fields": [
+                    {
+                        "name": "payment_method_name"
                     }
                 ]
             }
@@ -394,5 +503,11 @@
             }
         }
     ],
-    "userQueries": []
+    "userQueries": [
+        "DROP TABLE IF EXISTS customer_is_amazon_prime_temp",
+        "CREATE TABLE customer_is_amazon_prime_temp select distinct id_customer, is_loyalty_amazon, start_loyalty_amazon from temp_customer_is_amazon_prime where is_loyalty_amazon = 1 order by id_customer",
+        "ALTER TABLE customer_is_amazon_prime_temp ADD PRIMARY KEY (id_customer)",
+        "DROP TABLE IF EXISTS temp_customer_is_amazon_prime",
+        "RENAME TABLE customer_is_amazon_prime_temp to temp_customer_is_amazon_prime"
+    ]
 }
