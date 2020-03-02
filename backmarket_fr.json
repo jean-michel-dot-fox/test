@@ -706,7 +706,7 @@
     "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE brand_name LIKE '%ipad%reconditionnes%' AND merchant_name IN ('vente privee','showroom prive')",
     "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'lenovo' WHERE brand_name LIKE '%lenovo reconditionne%' AND merchant_name IN ('vente privee','showroom prive')",
     "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'samsung' WHERE brand_name='s7 et s7 edge reconditionnes' AND merchant_name IN ('vente privee','showroom prive')",
-    "UPDATE {{destDatabase}}.{{tableName}} SET product_name_default = CONCAT(bm_category_0, ' - ', bm_category_1, ' - ', brand_name, ' - ', order_item_price_per_unit_with_promo_contributions_range)",
+    "UPDATE {{destDatabase}}.{{tableName}} SET product_name_default = CONCAT(bm_category_0, ' - ', bm_category_1, ' - ', brand_name, ' - ', order_item_price_per_unit_with_promo_contributions_price_range)",
     "UPDATE {{destDatabase}}.{{tableName}} SET bm_category_0='uncategorized' WHERE merchant_name = 'certideal'"
   ]
 }
