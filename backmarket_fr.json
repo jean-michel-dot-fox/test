@@ -45,6 +45,9 @@
             "name": "order_total_fees"
           },
           {
+            "name": "order_tip"
+          },
+          {
             "name": "order_distinct_item_quantity"
           },
           {
@@ -671,11 +674,42 @@
     },
     {
       "name": "customerGender"
+    },
+    {
+      "name": "extraFields",
+      "parameters": [
+        {
+          "name": "is_reconditioned",
+          "type": "string"
+        },
+        {
+          "name": "is_seller_reconditioning",
+          "type": "integer"
+        },
+        {
+          "name": "is_reconditioned_extended",
+          "type": "string"
+        },
+        {
+          "name": "is_seller_reconditioning_extended",
+          "type": "integer"
+        }
+      ]
     }
   ],
   "userQueries": [
-    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
-    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3' OR parser_name='apple-new-fr-2'"
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished', is_reconditioned_extended = 'refurbished (extended)' WHERE (merchant_name IN ('back market', 'certideal','destocksource','recommerce','reconditionneneuf','smarter') OR product_name LIKE '%reconditionne%' OR product_description LIKE '%reconditionne%' OR product_name_default LIKE '%reconditionne%' OR product_name LIKE '% grade a%' OR product_name LIKE '% grade a+%' OR product_name LIKE '% grade b%' OR product_name LIKE '% grade b+%' OR seller_name_raw LIKE '%reconditionne%' OR seller_name LIKE '%reconditionne%' OR seller_name LIKE '%refurb%' OR order_item_state LIKE '%reconditionne%')",
+    "UPDATE {{destDatabase}}.{{tableName}} AS ft LEFT JOIN {{assetDatabase}}.sellers_reconditioner AS s ON ft.seller_name = s.seller_name SET is_seller_reconditioning = 1 WHERE ft.seller_name = s.seller_name",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished' WHERE is_seller_reconditioning = 1",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'new' WHERE is_reconditioned IS NULL",
+    "UPDATE {{destDatabase}}.{{tableName}} AS ft LEFT JOIN {{assetDatabase}}.sellers_reconditioner_extended AS s ON ft.seller_name = s.seller_name SET is_seller_reconditioning_extended = 1 WHERE ft.seller_name = s.seller_name",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned_extended = 'refurbished' WHERE is_seller_reconditioning_extended = 1",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned_extended = 'new' WHERE is_reconditioned_extended IS NULL",
+    "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE (brand_name='iphones reconditionnes' OR brand_name='imac et macbook reconditionnes' OR brand_name='apple watch reconditionnees' OR brand_name='airpods reconditionnes' OR brand_name='ipad 2 et 4 reconditionnes' OR brand_name='apple watch reconditionnees' OR brand_name='apple reconditionnes')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE brand_name LIKE '%ipad%reconditionnes%' AND merchant_name IN ('vente privee','showroom prive')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'lenovo' WHERE brand_name LIKE '%lenovo reconditionne%' AND merchant_name IN ('vente privee','showroom prive')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'samsung' WHERE brand_name='s7 et s7 edge reconditionnes' AND merchant_name IN ('vente privee','showroom prive')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET product_name_default = CONCAT(bm_category_0, ' - ', bm_category_1, ' - ', brand_name, ' - ', order_item_price_per_unit_with_promo_contributions_range)",
+    "UPDATE {{destDatabase}}.{{tableName}} SET bm_category_0='uncategorized' WHERE merchant_name = 'certideal'"
   ]
 }
