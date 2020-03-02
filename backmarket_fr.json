@@ -411,13 +411,6 @@
                             500
                         ]
                     }
-                },
-                {
-                    "name": "mappingCategories",
-                    "merchants": [
-                        "back market",
-                        "manomano"
-                    ]
                 }
             ]
         },
