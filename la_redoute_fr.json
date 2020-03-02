@@ -380,7 +380,7 @@
     {
       "name": "customerFoxbrainReady",
       "parameters": {
-        "deltaInDays": 15
+        "deltaInDays": 5
       }
     },
     {
