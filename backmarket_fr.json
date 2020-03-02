@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "backmarket_fr",
+    "tableName": "flat_table_ecom_hightech_fr_backmarket_fb3",
     "query": {
         "select": [
             {
@@ -80,6 +80,9 @@
                         "name": "order_item_delivery_date_min"
                     },
                     {
+                        "name": "order_item_delivery_address"
+                    },
+                    {
                         "name": "order_item_delivery_address_region"
                     },
                     {
@@ -107,7 +110,7 @@
                         "name": "order_item_price_per_unit"
                     },
                     {
-                        "name": "order_item_foxid"
+                        "name": "order_item_state"
                     }
                 ]
             },
@@ -242,52 +245,28 @@
                                 ]
                             }
                         ]
-                    }
-                ]
-            },
-            {
-                "table": "orders",
-                "fields": [
+                    },
                     {
-                        "name": "order_is_duplicate",
+                        "name": "parser_name",
                         "conditions": [
                             {
-                                "operator": "NOT IN",
+                                "operator": "LIKE",
                                 "values": [
-                                    "1"
+                                    "%-new-fr-%"
                                 ]
                             }
                         ]
                     },
                     {
-                        "name": "order_is_trash",
+                        "name": "parser_name",
                         "conditions": [
                             {
                                 "operator": "NOT IN",
                                 "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_spam",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_moved_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
+                                    "venteprivee-new-fr-3",
+                                    "amazon-new-fr-2",
+                                    "showroomprive-new-fr-3",
+                                    "apple-new-fr-2"
                                 ]
                             }
                         ]
@@ -360,7 +339,7 @@
                                 "method": "year",
                                 "operator": ">",
                                 "values": [
-                                    2014
+                                    2016
                                 ]
                             }
                         ]
@@ -390,21 +369,8 @@
         {
             "name": "customerFoxbrainReady",
             "parameters": {
-                "deltaInDays": 5
+                "deltaInDays": 3
             }
-        },
-        {
-            "name": "zipCodeFromAddress",
-            "parameters": [
-                {
-                    "table": "order_items",
-                    "fields": [
-                        {
-                            "name": "order_item_delivery_address"
-                        }
-                    ]
-                }
-            ]
         },
         {
             "name": "cleanPromo"
@@ -446,6 +412,18 @@
             }
         },
         {
+            "name": "geolocationBusinessRulesOrderItems",
+            "parameters": {
+                "requiredFields": [
+                    "order_item_main_country",
+                    "order_item_main_zipcode"
+                ],
+                "additionalFields": [
+                    "order_item_delivery_address"
+                ]
+            }
+        },
+        {
             "name": "contributions"
         },
         {
@@ -465,7 +443,7 @@
                         15,
                         18,
                         20,
-                        23
+                        24
                     ]
                 }
             ]
@@ -516,23 +494,7 @@
             ]
         },
         {
-            "name": "marketplace",
-            "parameters": {
-                "merchants": [
-                    "amazon",
-                    "cdiscount",
-                    "darty",
-                    "la redoute",
-                    "priceminister",
-                    "fnac",
-                    "wish",
-                    "vinted",
-                    "vente privee",
-                    "boulanger",
-                    "conforama",
-                    "rue du commerce"
-                ]
-            }
+            "name": "marketplace"
         },
         {
             "name": "categories",
@@ -549,7 +511,7 @@
                         "table": "order_items",
                         "fields": [
                             {
-                                "name": "order_item_price_per_unit"
+                                "name": "order_item_price_per_unit_with_promo_contributions"
                             }
                         ],
                         "intervals": [
@@ -562,6 +524,15 @@
                             500
                         ]
                     }
+                },
+                {
+                    "name": "mappingMacroCategories"
+                },
+                {
+                    "name": "mappingCategories",
+                    "merchants": [
+                        "back market"
+                    ]
                 }
             ]
         },
@@ -569,39 +540,29 @@
             "name": "cohorts",
             "parameters": {
                 "years": [
-                    2015,
-                    2016,
                     2017,
                     2018,
                     2019
                 ],
                 "merchants": [
-                    "3 suisses",
-                    "alibaba",
-                    "alltricks",
                     "amazon",
+                    "apple",
                     "back market",
                     "boulanger",
-                    "conforama",
                     "cdiscount",
+                    "certideal",
                     "darty",
-                    "ebay",
+                    "destocksource",
+                    "electrodepot",
                     "fnac",
-                    "gearbest",
-                    "joom",
-                    "la redoute",
-                    "ldlc",
-                    "leroy merlin",
-                    "manomano",
+                    "micromania",
                     "priceminister",
+                    "recommerce",
+                    "reconditionneneuf",
                     "rue du commerce",
-                    "vente privee",
                     "showroom prive",
-                    "samsung",
-                    "ubaldi",
-                    "wish",
-                    "zalando",
-                    "zooplus"
+                    "smarter",
+                    "vente privee"
                 ]
             }
         },
@@ -612,9 +573,8 @@
                     "amazon",
                     "cdiscount",
                     "la redoute",
-                    "showroom prive",
-                    "asos",
-                    "vente privee"
+                    "vente privee",
+                    "showroom prive"
                 ]
             }
         },
@@ -622,13 +582,9 @@
             "name": "merchantType",
             "parameters": {
                 "merchants": [
-                    "vente privee",
+                    "bricoprive",
                     "showroom prive",
-                    "limango",
-                    "private sport shop",
-                    "beaute privee",
-                    "westwing",
-                    "bricoprive"
+                    "vente privee"
                 ]
             }
         },
@@ -681,32 +637,35 @@
                 },
                 {
                     "name": "is_seller_reconditioning",
-                    "type": "integer"
-                },
-                {
-                    "name": "is_reconditioned_extended",
                     "type": "string"
                 },
                 {
                     "name": "is_seller_reconditioning_extended",
-                    "type": "integer"
+                    "type": "string"
+                },
+                {
+                    "name": "bm_category_2",
+                    "type": "string"
                 }
             ]
         }
     ],
     "userQueries": [
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished', is_reconditioned_extended = 'refurbished (extended)' WHERE (merchant_name IN ('back market', 'certideal','destocksource','recommerce','reconditionneneuf','smarter') OR product_name LIKE '%reconditionne%' OR product_description LIKE '%reconditionne%' OR product_name_default LIKE '%reconditionne%' OR product_name LIKE '% grade a%' OR product_name LIKE '% grade a+%' OR product_name LIKE '% grade b%' OR product_name LIKE '% grade b+%' OR seller_name_raw LIKE '%reconditionne%' OR seller_name LIKE '%reconditionne%' OR seller_name LIKE '%refurb%' OR order_item_state LIKE '%reconditionne%')",
-        "UPDATE {{destDatabase}}.{{tableName}} AS ft SET is_seller_reconditioning = 1 FROM {{assetDatabase}}.sellers_reconditioner AS s  WHERE ft.seller_name = s.seller_name",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished' WHERE is_seller_reconditioning = 1",
+        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = brand_name_from_product_name WHERE brand_name_from_product_name IS NOT NULL AND brand_name_from_product_name <> '' AND (brand_name IS NULL OR brand_name = '' OR brand_name = 'brand not captured')",
+        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE brand_name = 'brand not captured' AND merchant_name IN ('back market','destocksource','recommerce','reconditionneneuf','smarter', 'apple') AND (product_name LIKE '%mac%' OR product_name LIKE '%iphone%' OR product_name LIKE '%earpods%'OR product_name LIKE '%airpods%' OR product_name LIKE '%ipad%' OR product_name LIKE '%imac%' OR product_name LIKE '%apple%' OR product_name LIKE '%mac mini%') AND order_item_price_per_unit>100 ",
+        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = brand_name_from_product_name WHERE merchant_name IN ('back market','apple','boulanger') AND brand_name = 'brand not captured' AND (brand_name_from_product_name IS NOT NULL OR brand_name_from_product_name <> '' )",
+        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished' WHERE (merchant_name IN ('back market', 'certideal','destocksource','recommerce','reconditionneneuf','smarter') OR product_name LIKE '%reconditionne%' OR product_description LIKE '%reconditionne%' OR product_name_default LIKE '%reconditionne%' OR product_name LIKE '% grade a%' OR product_name LIKE '% grade b%' OR seller_name_raw LIKE '%reconditionne%' OR seller_name LIKE '%reconditionne%' OR seller_name LIKE '%refurb%' OR order_item_state LIKE '%reconditionne%')",
+        "UPDATE {{destDatabase}}.{{tableName}} AS ft SET is_seller_reconditioning = '1' FROM {{assetDatabase}}.seller_reconditioner AS s WHERE ft.seller_name = s.seller_name",
+        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished' WHERE is_seller_reconditioning = '1'",
+        "UPDATE {{destDatabase}}.{{tableName}} AS ft SET is_seller_reconditioning_extended = '1' FROM {{assetDatabase}}.seller_reconditioner_extended AS s  WHERE ft.seller_name = s.seller_name",
+        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished (extended)' WHERE is_seller_reconditioning_extended = '1' and is_seller_reconditioning IS NULL",
+        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished (extended)' WHERE is_reconditioned IS NULL AND (product_name LIKE '%occasion %' OR product_description LIKE '%occasion %') ",
         "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'new' WHERE is_reconditioned IS NULL",
-        "UPDATE {{destDatabase}}.{{tableName}} AS ft SET is_seller_reconditioning_extended = 1 FROM {{assetDatabase}}.sellers_reconditioner_extended AS s WHERE ft.seller_name = s.seller_name",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned_extended = 'refurbished' WHERE is_seller_reconditioning_extended = 1",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned_extended = 'new' WHERE is_reconditioned_extended IS NULL",
         "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE (brand_name='iphones reconditionnes' OR brand_name='imac et macbook reconditionnes' OR brand_name='apple watch reconditionnees' OR brand_name='airpods reconditionnes' OR brand_name='ipad 2 et 4 reconditionnes' OR brand_name='apple watch reconditionnees' OR brand_name='apple reconditionnes')",
         "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE brand_name LIKE '%ipad%reconditionnes%' AND merchant_name IN ('vente privee','showroom prive')",
         "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'lenovo' WHERE brand_name LIKE '%lenovo reconditionne%' AND merchant_name IN ('vente privee','showroom prive')",
         "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'samsung' WHERE brand_name='s7 et s7 edge reconditionnes' AND merchant_name IN ('vente privee','showroom prive')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET product_name_default = CONCAT(bm_category_0, ' - ', bm_category_1, ' - ', brand_name, ' - ', order_item_price_per_unit_with_promo_contributions_price_range)",
+        "UPDATE {{destDatabase}}.{{tableName}} SET product_name_default = CONCAT(bm_category_0,' - ',bm_category_1,' - ',brand_name,' - ', order_item_price_per_unit_with_promo_contributions_price_range) WHERE bm_category_0 is not null and bm_category_1 is not null",
         "UPDATE {{destDatabase}}.{{tableName}} SET bm_category_0='uncategorized' WHERE merchant_name = 'certideal'"
     ]
 }
