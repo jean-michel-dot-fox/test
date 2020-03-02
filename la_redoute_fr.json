@@ -25,7 +25,7 @@
           },
           {
             "name": "order_datetime",
-            "value": "CAST(TIMESTAMP(CAST(REPLACE(CAST(order_datetime AS string),'T',' ') AS datetime),'Europe/Paris') AS timestamp)"
+            "value": "CAST(TIMESTAMP(CAST(REPLACE(CAST(order_datetime AS string),'T',' ') AS datetime),'Europe/Paris') AS datetime)"
           },
           {
             "name": "order_total_paid"
