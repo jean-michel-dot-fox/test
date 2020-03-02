@@ -503,10 +503,6 @@
                     "type": "string"
                 },
                 {
-                    "name": "is_seller_reconditioning_extended",
-                    "type": "string"
-                },
-                {
                     "name": "bm_category_2",
                     "type": "string"
                 }
