@@ -1,27 +1,13 @@
 {
   "industryType": "ecom",
-  "tableName": "test_teddy",
+  "tableName": "customer_is_amazon_prime",
   "query": {
     "select": [
-      {
-        "table": "brands",
-        "fields": [
-          {
-            "name": "id_brand"
-          },
-          {
-            "name": "brand_name"
-          }
-        ]
-      },
       {
         "table": "orders",
         "fields": [
           {
             "name": "id_order"
-          },
-          {
-            "name": "order_item_quantity"
           },
           {
             "name": "order_datetime"
@@ -30,87 +16,19 @@
             "name": "order_total_paid"
           },
           {
-            "name": "order_currency"
-          },
-          {
             "name": "order_option_3"
           },
           {
             "name": "order_delivery_fee"
           },
           {
-            "name": "order_processing_fee"
-          },
-          {
-            "name": "order_total_fees"
-          },
-          {
-            "name": "order_tip"
-          },
-          {
-            "name": "order_distinct_item_quantity"
-          },
-          {
             "name": "order_created_at"
           },
           {
             "name": "order_foxid"
-          }
-        ]
-      },
-      {
-        "table": "order_items",
-        "fields": [
-          {
-            "name": "id_order_item"
           },
           {
-            "name": "order_item_total_price_paid"
-          },
-          {
-            "name": "order_item_quantity"
-          },
-          {
-            "name": "order_item_delivery_address"
-          },
-          {
-            "name": "order_item_departure_address"
-          },
-          {
-            "name": "order_item_delivery_date_max"
-          },
-          {
-            "name": "order_item_delivery_date_min"
-          },
-          {
-            "name": "order_item_delivery_address_region"
-          },
-          {
-            "name": "order_item_delivery_address_subregion"
-          },
-          {
-            "name": "order_item_delivery_address_zipcode"
-          },
-          {
-            "name": "order_item_delivery_address_country_code"
-          },
-          {
-            "name": "order_item_delivery_address_country"
-          },
-          {
-            "name": "order_item_delivery_address_city"
-          },
-          {
-            "name": "order_item_delivery_address_latitude"
-          },
-          {
-            "name": "order_item_delivery_address_longitude"
-          },
-          {
-            "name": "order_item_price_per_unit"
-          },
-          {
-            "name": "order_item_foxid"
+            "name": "order_tip"
           }
         ]
       },
@@ -122,20 +40,6 @@
           },
           {
             "name": "product_name"
-          },
-          {
-            "name": "product_description"
-          }
-        ]
-      },
-      {
-        "table": "sellers",
-        "fields": [
-          {
-            "name": "id_seller"
-          },
-          {
-            "name": "seller_name"
           }
         ]
       },
@@ -158,9 +62,6 @@
             "name": "customer_region"
           },
           {
-            "name": "customer_country"
-          },
-          {
             "name": "provider"
           },
           {
@@ -179,39 +80,6 @@
             "name": "is_email_remover"
           }
         ]
-      },
-      {
-        "table": "seller_categories",
-        "fields": [
-          {
-            "name": "seller_category_name"
-          }
-        ]
-      },
-      {
-        "table": "parsers",
-        "fields": [
-          {
-            "name": "parser_name"
-          },
-          {
-            "name": "id_parser"
-          },
-          {
-            "name": "parser_lang"
-          },
-          {
-            "name": "merchant_name"
-          }
-        ]
-      },
-      {
-        "table": "payment_methods",
-        "fields": [
-          {
-            "name": "payment_method_name"
-          }
-        ]
       }
     ],
     "where": [
@@ -224,32 +92,37 @@
               {
                 "operator": "IN",
                 "values": [
-                  "3 suisses",
-                  "alibaba",
-                  "alltricks",
-                  "amazon",
-                  "back market",
-                  "boulanger",
-                  "conforama",
-                  "cdiscount",
-                  "darty",
-                  "ebay",
-                  "fnac",
-                  "gearbest",
-                  "joom",
-                  "la redoute",
-                  "ldlc",
-                  "leroy merlin",
-                  "manomano",
-                  "priceminister",
-                  "rue du commerce",
-                  "vente privee",
-                  "showroom prive",
-                  "samsung",
-                  "ubaldi",
-                  "wish",
-                  "zalando",
-                  "zooplus"
+                  "cote sushi",
+                  "deliveroo",
+                  "dominos",
+                  "foodcheri",
+                  "foodora",
+                  "frichti",
+                  "glovo",
+                  "pizza hut",
+                  "planet sushi",
+                  "popchef",
+                  "restoin",
+                  "speed rabbit pizza",
+                  "sushishop",
+                  "takeeateasy",
+                  "uber eats",
+                  "justeat",
+                  "fetch",
+                  "nestor",
+                  "mcdonalds"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "parser_name",
+            "conditions": [
+              {
+                "operator": "NOT IN",
+                "values": [
+                  "alloresto-new-fr-1",
+                  "alloresto-new-fr-2"
                 ]
               }
             ]
@@ -293,17 +166,6 @@
             ]
           },
           {
-            "name": "order_is_moved_duplicate",
-            "conditions": [
-              {
-                "operator": "NOT IN",
-                "values": [
-                  "1"
-                ]
-              }
-            ]
-          },
-          {
             "name": "order_currency",
             "conditions": [
               {
@@ -316,29 +178,12 @@
             ]
           },
           {
-            "name": "order_datetime",
-            "conditions": [
-              {
-                "method": "year",
-                "operator": ">",
-                "values": [
-                  2014
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "table": "customers",
-        "fields": [
-          {
-            "name": "is_invalid_grant",
+            "name": "order_is_moved_duplicate",
             "conditions": [
               {
                 "operator": "NOT IN",
                 "values": [
-                  1
+                  "1"
                 ]
               }
             ]
@@ -349,6 +194,9 @@
     "addOnWhere": ""
   },
   "modules": [
+    {
+      "name": "customerGender"
+    },
     {
       "name": "customerFoxbrainReady",
       "parameters": {
@@ -363,152 +211,13 @@
           "fields": [
             {
               "name": "order_item_delivery_address"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "cleanPromo"
-    },
-    {
-      "name": "customerAgeRange"
-    },
-    {
-      "name": "cleanFields"
-    },
-    {
-      "name": "isGoogleProvider"
-    },
-    {
-      "name": "rankPerUser"
-    },
-    {
-      "name": "rankPerUserPerMerchant"
-    },
-    {
-      "name": "ventilateOrderTotalPaid"
-    },
-    {
-      "name": "idFlatTableOrderDatetime"
-    },
-    {
-      "name": "isWeekDay"
-    },
-    {
-      "name": "isWeekend"
-    },
-    {
-      "name": "weekDay"
-    },
-    {
-      "name": "ponderation",
-      "parameters": {
-        "fieldName": "coeff_with_merch_food_cab_7_clusters"
-      }
-    },
-    {
-      "name": "contributions"
-    },
-    {
-      "name": "hourRange",
-      "parameters": [
-        {
-          "table": "orders",
-          "fields": [
-            {
-              "name": "order_datetime"
-            }
-          ],
-          "intervals": [
-            0,
-            7,
-            11,
-            15,
-            18,
-            20,
-            23
-          ]
-        }
-      ]
-    },
-    {
-      "name": "priceRange",
-      "parameters": [
-        {
-          "table": "orders",
-          "fields": [
-            {
-              "name": "order_total_paid"
-            }
-          ],
-          "intervals": [
-            0,
-            15,
-            30,
-            50,
-            100,
-            200,
-            500
-          ]
-        },
-        {
-          "table": "order_items",
-          "fields": [
-            {
-              "name": "order_item_total_price_paid"
             },
             {
-              "name": "order_item_price_per_unit"
-            },
-            {
-              "name": "order_item_price_per_unit_with_promo_contributions"
+              "name": "order_item_address"
             }
-          ],
-          "intervals": [
-            0,
-            15,
-            30,
-            50,
-            100,
-            200,
-            500
           ]
         }
       ]
-    },
-    {
-      "name": "marketplace",
-      "parameters": {
-        "merchants": [
-          "3 suisses",
-          "alibaba",
-          "alltricks",
-          "amazon",
-          "back market",
-          "boulanger",
-          "conforama",
-          "cdiscount",
-          "darty",
-          "ebay",
-          "fnac",
-          "gearbest",
-          "joom",
-          "la redoute",
-          "ldlc",
-          "leroy merlin",
-          "manomano",
-          "priceminister",
-          "rue du commerce",
-          "vente privee",
-          "showroom prive",
-          "samsung",
-          "ubaldi",
-          "wish",
-          "zalando",
-          "zooplus"
-        ]
-      }
     },
     {
       "name": "categories",
@@ -542,42 +251,157 @@
       ]
     },
     {
+      "name": "customerAgeRange"
+    },
+    {
+      "name": "cleanPromo"
+    },
+    {
+      "name": "cleanFields"
+    },
+    {
+      "name": "isGoogleProvider"
+    },
+    {
+      "name": "rankPerUser"
+    },
+    {
+      "name": "rankPerUserPerMerchant"
+    },
+    {
+      "name": "ventilateOrderTotalPaid"
+    },
+    {
+      "name": "idFlatTableOrderDatetime"
+    },
+    {
+      "name": "isWeekDay"
+    },
+    {
+      "name": "isWeekend"
+    },
+    {
+      "name": "weekDay"
+    },
+    {
+      "name": "geolocationBusinessRulesOrderItems"
+    },
+    {
+      "name": "ponderation",
+      "parameters": {
+        "fieldName": "coeff_with_merch_food_cab_7_clusters"
+      }
+    },
+    {
+      "name": "contributions"
+    },
+    {
+      "name": "hourRange",
+      "parameters": [
+        {
+          "table": "orders",
+          "fields": [
+            {
+              "name": "order_datetime"
+            }
+          ],
+          "intervals": [
+            0,
+            4,
+            11,
+            15,
+            18,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "name": "priceRange",
+      "parameters": [
+        {
+          "table": "orders",
+          "fields": [
+            {
+              "name": "order_total_paid"
+            }
+          ],
+          "intervals": [
+            0,
+            15,
+            30,
+            50,
+            100,
+            200,
+            500
+          ]
+        },
+        {
+          "table": "order_items",
+          "fields": [
+            {
+              "name": "order_item_total_price_paid"
+            }
+          ],
+          "intervals": [
+            0,
+            15,
+            30,
+            50,
+            100,
+            200,
+            500
+          ]
+        },
+        {
+          "table": "order_items",
+          "fields": [
+            {
+              "name": "order_item_price_per_unit"
+            },
+            {
+              "name": "order_item_price_per_unit_with_promo_contributions"
+            }
+          ],
+          "intervals": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50
+          ]
+        }
+      ]
+    },
+    {
       "name": "cohorts",
       "parameters": {
         "years": [
-          2015,
-          2016,
           2017,
           2018,
           2019
         ],
         "merchants": [
-          "3 suisses",
-          "alibaba",
-          "alltricks",
-          "amazon",
-          "back market",
-          "boulanger",
-          "conforama",
-          "cdiscount",
-          "darty",
-          "ebay",
-          "fnac",
-          "gearbest",
-          "joom",
-          "la redoute",
-          "ldlc",
-          "leroy merlin",
-          "manomano",
-          "priceminister",
-          "rue du commerce",
-          "vente privee",
-          "showroom prive",
-          "samsung",
-          "ubaldi",
-          "wish",
-          "zalando",
-          "zooplus"
+          "cote sushi",
+          "deliveroo",
+          "dominos",
+          "foodcheri",
+          "foodora",
+          "frichti",
+          "glovo",
+          "pizza hut",
+          "planet sushi",
+          "popchef",
+          "restoin",
+          "speed rabbit pizza",
+          "sushishop",
+          "takeeateasy",
+          "uber eats",
+          "just eat",
+          "fetch",
+          "nestor",
+          "mcdonalds"
         ]
       }
     },
@@ -590,97 +414,39 @@
       }
     },
     {
+      "name": "marketplace",
+      "parameters": {
+        "merchants": [
+          "amazon",
+          "back market",
+          "boulanger",
+          "cdiscount",
+          "conforama",
+          "darty",
+          "la redoute",
+          "rue du commerce",
+          "priceminister",
+          "fnac",
+          "manomano",
+          "vente privee",
+          "wish"
+        ]
+      }
+    },
+    {
       "name": "merchantType",
       "parameters": {
         "merchants": [
-          "3 suisses",
-          "alibaba",
-          "alltricks",
-          "amazon",
-          "back market",
-          "boulanger",
-          "conforama",
-          "cdiscount",
-          "darty",
-          "ebay",
-          "fnac",
-          "gearbest",
-          "joom",
-          "la redoute",
-          "ldlc",
-          "leroy merlin",
-          "manomano",
-          "priceminister",
-          "rue du commerce",
-          "vente privee",
-          "showroom prive",
-          "samsung",
-          "ubaldi",
-          "wish",
-          "zalando",
-          "zooplus"
+          "amazon"
         ]
       }
-    },
-    {
-      "name": "brandNameFromProductName",
-      "parameters": {
-        "merchants": [
-          "3 suisses",
-          "alibaba",
-          "alltricks",
-          "amazon",
-          "back market",
-          "boulanger",
-          "conforama",
-          "cdiscount",
-          "darty",
-          "ebay",
-          "fnac",
-          "gearbest",
-          "joom",
-          "la redoute",
-          "ldlc",
-          "leroy merlin",
-          "manomano",
-          "priceminister",
-          "rue du commerce",
-          "vente privee",
-          "showroom prive",
-          "samsung",
-          "ubaldi",
-          "wish",
-          "zalando",
-          "zooplus"
-        ]
-      }
-    },
-    {
-      "name": "deliveryDateType",
-      "parameters": {
-        "mode": "average",
-        "intervals": [
-          1,
-          2,
-          3,
-          6,
-          11,
-          21
-        ],
-        "values": [
-          "0 D",
-          "1 D",
-          "2 D",
-          "3-5 D",
-          "6-10 D",
-          "11-20 D",
-          "> 20 D"
-        ]
-      }
-    },
-    {
-      "name": "customerGender"
     }
   ],
-  "userQueries": []
+  "userQueries": [
+    "DROP TABLE IF EXISTS customer_is_amazon_prime_temp",
+    "CREATE TABLE customer_is_amazon_prime_temp select distinct id_customer, is_loyalty_amazon, start_loyalty_amazon from temp_customer_is_amazon_prime where is_loyalty_amazon = 1 order by id_customer",
+    "ALTER TABLE customer_is_amazon_prime_temp ADD PRIMARY KEY (id_customer)",
+    "DROP TABLE IF EXISTS temp_customer_is_amazon_prime",
+    "RENAME TABLE customer_is_amazon_prime_temp to temp_customer_is_amazon_prime"
+  ]
 }
