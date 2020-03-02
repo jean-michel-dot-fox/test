@@ -1,1 +1,550 @@
-"{\"industryType\":\"ecom\",\"tableName\":\"maisons_du_monde_fr\",\"query\":{\"select\":[{\"table\":\"brands\",\"fields\":[{\"name\":\"id_brand\"},{\"name\":\"brand_name\"}]},{\"table\":\"orders\",\"fields\":[{\"name\":\"id_order\"},{\"name\":\"order_item_quantity\"},{\"name\":\"order_datetime\"},{\"name\":\"order_total_paid\"},{\"name\":\"order_currency\"},{\"name\":\"order_option_3\"},{\"name\":\"order_delivery_fee\"},{\"name\":\"order_processing_fee\"},{\"name\":\"order_total_fees\"},{\"name\":\"order_tip\"},{\"name\":\"order_distinct_item_quantity\"},{\"name\":\"order_created_at\"},{\"name\":\"order_foxid\"}]},{\"table\":\"order_items\",\"fields\":[{\"name\":\"id_order_item\"},{\"name\":\"order_item_total_price_paid\"},{\"name\":\"order_item_quantity\"},{\"name\":\"order_item_delivery_address\"},{\"name\":\"order_item_departure_address\"},{\"name\":\"order_item_delivery_date_max\"},{\"name\":\"order_item_delivery_date_min\"},{\"name\":\"order_item_delivery_address_region\"},{\"name\":\"order_item_delivery_address_subregion\"},{\"name\":\"order_item_delivery_address_zipcode\"},{\"name\":\"order_item_delivery_address_country_code\"},{\"name\":\"order_item_delivery_address_country\"},{\"name\":\"order_item_delivery_address_city\"},{\"name\":\"order_item_delivery_address_latitude\"},{\"name\":\"order_item_delivery_address_longitude\"},{\"name\":\"order_item_price_per_unit\"},{\"name\":\"order_item_foxid\"}]},{\"table\":\"products\",\"fields\":[{\"name\":\"id_product\"},{\"name\":\"product_name\"},{\"name\":\"product_description\"}]},{\"table\":\"sellers\",\"fields\":[{\"name\":\"id_seller\"},{\"name\":\"seller_name\"}]},{\"table\":\"customers\",\"fields\":[{\"name\":\"id_customer\"},{\"name\":\"customer_birth_year\"},{\"name\":\"customer_gender\"},{\"name\":\"customer_hash\"},{\"name\":\"customer_region\"},{\"name\":\"customer_country\"},{\"name\":\"provider\"},{\"name\":\"customer_created_at\"},{\"name\":\"customer_last_update\"},{\"name\":\"customer_last_upgrade\"},{\"name\":\"customer_last_export\"},{\"name\":\"is_email_remover\"}]},{\"table\":\"seller_categories\",\"fields\":[{\"name\":\"seller_category_name\"}]},{\"table\":\"parsers\",\"fields\":[{\"name\":\"parser_name\"},{\"name\":\"id_parser\"},{\"name\":\"parser_lang\"},{\"name\":\"merchant_name\"}]},{\"table\":\"payment_methods\",\"fields\":[{\"name\":\"payment_method_name\"}]}],\"where\":[{\"table\":\"parsers\",\"fields\":[{\"name\":\"merchant_name\",\"conditions\":[{\"operator\":\"IN\",\"values\":[\"alinea\",\"amazon\",\"but\",\"castorama\",\"cdiscount\",\"conforama\",\"delamaison\",\"habitat\",\"ikea\",\"la redoute\",\"leroy merlin\",\"made\",\"maisons du monde\",\"manomano\",\"rue du commerce\",\"showroom prive\",\"vente privee\",\"westwing\",\"zarahome\"]}]}]},{\"table\":\"orders\",\"fields\":[{\"name\":\"order_is_duplicate\",\"conditions\":[{\"operator\":\"NOT IN\",\"values\":[\"1\"]}]},{\"name\":\"order_is_trash\",\"conditions\":[{\"operator\":\"NOT IN\",\"values\":[\"1\"]}]},{\"name\":\"order_is_spam\",\"conditions\":[{\"operator\":\"NOT IN\",\"values\":[\"1\"]}]},{\"name\":\"order_is_moved_duplicate\",\"conditions\":[{\"operator\":\"NOT IN\",\"values\":[\"1\"]}]},{\"name\":\"order_currency\",\"conditions\":[{\"operator\":\"IN\",\"values\":[\"eur\",\"EUR\"]}]},{\"name\":\"order_datetime\",\"conditions\":[{\"method\":\"year\",\"operator\":\">\",\"values\":[2014]}]}]},{\"table\":\"customers\",\"fields\":[{\"name\":\"is_invalid_grant\",\"conditions\":[{\"operator\":\"NOT IN\",\"values\":[1]}]}]}],\"addOnWhere\":\"order_items.id_order_item IN (SELECT id_flat_table FROM `flat_table_assets`.`temporary_mdm_id`) \"},\"modules\":[{\"name\":\"customerFoxbrainReady\",\"parameters\":{\"deltaInDays\":5}},{\"name\":\"zipCodeFromAddress\",\"parameters\":[{\"table\":\"order_items\",\"fields\":[{\"name\":\"order_item_delivery_address\"}]}]},{\"name\":\"cleanPromo\"},{\"name\":\"customerAgeRange\"},{\"name\":\"cleanFields\"},{\"name\":\"isGoogleProvider\"},{\"name\":\"rankPerUser\"},{\"name\":\"rankPerUserPerMerchant\"},{\"name\":\"ventilateOrderTotalPaid\"},{\"name\":\"idFlatTableOrderDatetime\"},{\"name\":\"isWeekDay\"},{\"name\":\"isWeekend\"},{\"name\":\"weekDay\"},{\"name\":\"ponderation\",\"parameters\":{\"fieldName\":\"coeff_with_merch_food_cab_7_clusters\"}},{\"name\":\"contributions\"},{\"name\":\"hourRange\",\"parameters\":[{\"table\":\"orders\",\"fields\":[{\"name\":\"order_datetime\"}],\"intervals\":[0,7,11,15,18,20,23]}]},{\"name\":\"priceRange\",\"parameters\":[{\"table\":\"orders\",\"fields\":[{\"name\":\"order_total_paid\"}],\"intervals\":[0,15,30,50,100,200,500]},{\"table\":\"order_items\",\"fields\":[{\"name\":\"order_item_total_price_paid\"},{\"name\":\"order_item_price_per_unit\"},{\"name\":\"order_item_price_per_unit_with_promo_contributions\"}],\"intervals\":[0,15,30,50,100,200,500]}]},{\"name\":\"marketplace\",\"parameters\":{\"merchants\":[\"amazon\",\"cdiscount\",\"darty\",\"la redoute\",\"priceminister\",\"fnac\",\"wish\",\"vinted\",\"vente privee\",\"boulanger\",\"conforama\"]}},{\"name\":\"categories\",\"parameters\":[{\"name\":\"authorizedCategories\"},{\"name\":\"concatenateCategory0And1\"},{\"name\":\"concatenateDefaultProductName\",\"parameters\":{\"table\":\"order_items\",\"fields\":[{\"name\":\"order_item_price_per_unit\"}],\"intervals\":[0,15,30,50,100,200,500]}}]},{\"name\":\"cohorts\",\"parameters\":{\"years\":[2015,2016,2017,2018,2019],\"merchants\":[\"alinea\",\"amazon\",\"but\",\"castorama\",\"cdiscount\",\"conforama\",\"delamaison\",\"habitat\",\"ikea\",\"la redoute\",\"leroy merlin\",\"made\",\"maisons du monde\",\"manomano\",\"rue du commerce\",\"showroom prive\",\"vente privee\",\"westwing\",\"zarahome\"]}},{\"name\":\"loyalty\",\"parameters\":{\"merchants\":[\"amazon\",\"cdiscount\",\"la redoute\",\"showroom prive\",\"asos\",\"vente privee\"]}},{\"name\":\"merchantType\",\"parameters\":{\"merchants\":[\"vente privee\",\"showroom prive\",\"limango\",\"private sport shop\",\"beaute privee\",\"westwing\",\"bricoprive\"]}},{\"name\":\"deliveryDateType\",\"parameters\":{\"mode\":\"average\",\"intervals\":[1,2,3,6,11,21],\"values\":[\"0 D\",\"1 D\",\"2 D\",\"3-5 D\",\"6-10 D\",\"11-20 D\",\"> 20 D\"]}},{\"name\":\"customerGender\"},{\"name\":\"extraFields\",\"parameters\":[{\"name\":\"product_name_stock\",\"type\":\"string\"}]}],\"userQueries\":[\"DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000\",\"DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0\",\"DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'\",\"UPDATE {{destDatabase}}.{{tableName}} SET product_name_stock = product_name WHERE merchant_name = 'ikea'\",\"UPDATE {{destDatabase}}.{{tableName}} SET product_name = CONCAT(product_name_stock, '_', product_description) WHERE merchant_name = 'ikea'\"]}"
+{
+  "industryType": "ecom",
+  "tableName": "maisons_du_monde_fr",
+  "query": {
+    "select": [
+      {
+        "table": "brands",
+        "fields": [
+          {
+            "name": "id_brand"
+          },
+          {
+            "name": "brand_name"
+          }
+        ]
+      },
+      {
+        "table": "orders",
+        "fields": [
+          {
+            "name": "id_order"
+          },
+          {
+            "name": "order_item_quantity"
+          },
+          {
+            "name": "order_datetime"
+          },
+          {
+            "name": "order_total_paid"
+          },
+          {
+            "name": "order_currency"
+          },
+          {
+            "name": "order_option_3"
+          },
+          {
+            "name": "order_delivery_fee"
+          },
+          {
+            "name": "order_processing_fee"
+          },
+          {
+            "name": "order_total_fees"
+          },
+          {
+            "name": "order_distinct_item_quantity"
+          },
+          {
+            "name": "order_created_at"
+          },
+          {
+            "name": "order_foxid"
+          }
+        ]
+      },
+      {
+        "table": "order_items",
+        "fields": [
+          {
+            "name": "id_order_item"
+          },
+          {
+            "name": "order_item_total_price_paid"
+          },
+          {
+            "name": "order_item_quantity"
+          },
+          {
+            "name": "order_item_delivery_address"
+          },
+          {
+            "name": "order_item_departure_address"
+          },
+          {
+            "name": "order_item_delivery_date_max"
+          },
+          {
+            "name": "order_item_delivery_date_min"
+          },
+          {
+            "name": "order_item_delivery_address_region"
+          },
+          {
+            "name": "order_item_delivery_address_subregion"
+          },
+          {
+            "name": "order_item_delivery_address_zipcode"
+          },
+          {
+            "name": "order_item_delivery_address_country_code"
+          },
+          {
+            "name": "order_item_delivery_address_country"
+          },
+          {
+            "name": "order_item_delivery_address_city"
+          },
+          {
+            "name": "order_item_delivery_address_latitude"
+          },
+          {
+            "name": "order_item_delivery_address_longitude"
+          },
+          {
+            "name": "order_item_price_per_unit"
+          },
+          {
+            "name": "order_item_foxid"
+          }
+        ]
+      },
+      {
+        "table": "products",
+        "fields": [
+          {
+            "name": "id_product"
+          },
+          {
+            "name": "product_name"
+          },
+          {
+            "name": "product_description"
+          }
+        ]
+      },
+      {
+        "table": "sellers",
+        "fields": [
+          {
+            "name": "id_seller"
+          },
+          {
+            "name": "seller_name"
+          }
+        ]
+      },
+      {
+        "table": "customers",
+        "fields": [
+          {
+            "name": "id_customer"
+          },
+          {
+            "name": "customer_birth_year"
+          },
+          {
+            "name": "customer_gender"
+          },
+          {
+            "name": "customer_hash"
+          },
+          {
+            "name": "customer_region"
+          },
+          {
+            "name": "customer_country"
+          },
+          {
+            "name": "provider"
+          },
+          {
+            "name": "customer_created_at"
+          },
+          {
+            "name": "customer_last_update"
+          },
+          {
+            "name": "customer_last_upgrade"
+          },
+          {
+            "name": "customer_last_export"
+          },
+          {
+            "name": "is_email_remover"
+          }
+        ]
+      },
+      {
+        "table": "seller_categories",
+        "fields": [
+          {
+            "name": "seller_category_name"
+          }
+        ]
+      },
+      {
+        "table": "parsers",
+        "fields": [
+          {
+            "name": "parser_name"
+          },
+          {
+            "name": "id_parser"
+          },
+          {
+            "name": "parser_lang"
+          },
+          {
+            "name": "merchant_name"
+          }
+        ]
+      },
+      {
+        "table": "payment_methods",
+        "fields": [
+          {
+            "name": "payment_method_name"
+          }
+        ]
+      }
+    ],
+    "where": [
+      {
+        "table": "parsers",
+        "fields": [
+          {
+            "name": "merchant_name",
+            "conditions": [
+              {
+                "operator": "IN",
+                "values": [
+                  "3 suisses",
+                  "alibaba",
+                  "alltricks",
+                  "amazon",
+                  "back market",
+                  "boulanger",
+                  "conforama",
+                  "cdiscount",
+                  "darty",
+                  "ebay",
+                  "fnac",
+                  "gearbest",
+                  "joom",
+                  "la redoute",
+                  "ldlc",
+                  "leroy merlin",
+                  "manomano",
+                  "priceminister",
+                  "rue du commerce",
+                  "vente privee",
+                  "showroom prive",
+                  "samsung",
+                  "ubaldi",
+                  "wish",
+                  "zalando",
+                  "zooplus"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "addOnWhere": ""
+  },
+  "modules": [
+    {
+      "name": "segmentation",
+      "parameters": {
+        "startDate": "2017-01-01"
+      }
+    },
+    {
+      "name": "customerFoxbrainReady",
+      "parameters": {
+        "deltaInDays": 5
+      }
+    },
+    {
+      "name": "zipCodeFromAddress",
+      "parameters": [
+        {
+          "table": "order_items",
+          "fields": [
+            {
+              "name": "order_item_delivery_address"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cleanPromo"
+    },
+    {
+      "name": "customerAgeRange"
+    },
+    {
+      "name": "cleanFields"
+    },
+    {
+      "name": "isGoogleProvider"
+    },
+    {
+      "name": "rankPerUser"
+    },
+    {
+      "name": "rankPerUserPerMerchant"
+    },
+    {
+      "name": "ventilateOrderTotalPaid"
+    },
+    {
+      "name": "idFlatTableOrderDatetime"
+    },
+    {
+      "name": "isWeekDay"
+    },
+    {
+      "name": "isWeekend"
+    },
+    {
+      "name": "weekDay"
+    },
+    {
+      "name": "ponderation",
+      "parameters": {
+        "fieldName": "coeff_with_merch_food_cab_7_clusters"
+      }
+    },
+    {
+      "name": "contributions"
+    },
+    {
+      "name": "hourRange",
+      "parameters": [
+        {
+          "table": "orders",
+          "fields": [
+            {
+              "name": "order_datetime"
+            }
+          ],
+          "intervals": [
+            0,
+            7,
+            11,
+            15,
+            18,
+            20,
+            24
+          ]
+        }
+      ]
+    },
+    {
+      "name": "priceRange",
+      "parameters": [
+        {
+          "table": "orders",
+          "fields": [
+            {
+              "name": "order_total_paid"
+            }
+          ],
+          "intervals": [
+            0,
+            15,
+            30,
+            50,
+            100,
+            200,
+            500
+          ]
+        },
+        {
+          "table": "order_items",
+          "fields": [
+            {
+              "name": "order_item_total_price_paid"
+            },
+            {
+              "name": "order_item_price_per_unit"
+            },
+            {
+              "name": "order_item_price_per_unit_with_promo_contributions"
+            }
+          ],
+          "intervals": [
+            0,
+            15,
+            30,
+            50,
+            100,
+            200,
+            500
+          ]
+        }
+      ]
+    },
+    {
+      "name": "marketplace",
+      "parameters": {
+        "merchants": [
+          "amazon",
+          "cdiscount",
+          "darty",
+          "la redoute",
+          "priceminister",
+          "fnac",
+          "wish",
+          "vinted",
+          "vente privee",
+          "boulanger",
+          "conforama"
+        ]
+      }
+    },
+    {
+      "name": "categories",
+      "parameters": [
+        {
+          "name": "authorizedCategories"
+        },
+        {
+          "name": "concatenateCategory0And1"
+        },
+        {
+          "name": "concatenateDefaultProductName",
+          "parameters": {
+            "table": "order_items",
+            "fields": [
+              {
+                "name": "order_item_price_per_unit"
+              }
+            ],
+            "intervals": [
+              0,
+              15,
+              30,
+              50,
+              100,
+              200,
+              500
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "cohorts",
+      "parameters": {
+        "years": [
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "merchants": [
+          "3 suisses",
+          "alibaba",
+          "alltricks",
+          "amazon",
+          "back market",
+          "boulanger",
+          "conforama",
+          "cdiscount",
+          "darty",
+          "ebay",
+          "fnac",
+          "gearbest",
+          "joom",
+          "la redoute",
+          "ldlc",
+          "leroy merlin",
+          "manomano",
+          "priceminister",
+          "rue du commerce",
+          "vente privee",
+          "showroom prive",
+          "samsung",
+          "ubaldi",
+          "wish",
+          "zalando",
+          "zooplus"
+        ]
+      }
+    },
+    {
+      "name": "loyalty",
+      "parameters": {
+        "merchants": [
+          "amazon",
+          "cdiscount",
+          "la redoute",
+          "showroom prive",
+          "asos",
+          "vente privee"
+        ]
+      }
+    },
+    {
+      "name": "merchantType",
+      "parameters": {
+        "merchants": [
+          "vente privee",
+          "showroom prive",
+          "limango",
+          "private sport shop",
+          "beaute privee",
+          "westwing",
+          "bricoprive"
+        ]
+      }
+    },
+    {
+      "name": "brandNameFromProductName",
+      "parameters": {
+        "merchants": [
+          "sephora",
+          "marionnaud",
+          "boulanger",
+          "conforama"
+        ]
+      }
+    },
+    {
+      "name": "deliveryDateType",
+      "parameters": {
+        "mode": "average",
+        "intervals": [
+          1,
+          2,
+          3,
+          6,
+          11,
+          21
+        ],
+        "values": [
+          "0 D",
+          "1 D",
+          "2 D",
+          "3-5 D",
+          "6-10 D",
+          "11-20 D",
+          "> 20 D"
+        ]
+      }
+    }
+  ],
+  "userQueries": [
+    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
+    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
+    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'"
+  ]
+}
