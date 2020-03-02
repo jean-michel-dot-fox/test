@@ -501,7 +501,10 @@
           "vinted",
           "vente privee",
           "boulanger",
-          "conforama"
+          "conforama",
+          "back market",
+          "rue du commerce",
+          "manomano"
         ]
       }
     },
@@ -660,6 +663,9 @@
   "userQueries": [
     "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
     "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'"
+    "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'",
+    "UPDATE temp_flat_table_ecom_all_fr_Fevad_fb3_preprod SET `vente privee_category_0_vente privee_category_1` = 'uncategorized_uncategorized' WHERE merchant_name = 'wish'",
+    "UPDATE temp_flat_table_ecom_all_fr_Fevad_fb3_preprod SET `vente privee_category_0` = 'uncategorized' WHERE merchant_name = 'wish'",
+    "UPDATE temp_flat_table_ecom_all_fr_Fevad_fb3_preprod SET `vente privee_category_1` = 'uncategorized' WHERE merchant_name = 'wish'"
   ]
 }
