@@ -648,6 +648,9 @@
                     "amazon"
                 ]
             }
+        },
+        {
+            "name": "customerGender"
         }
     ],
     "userQueries": [
