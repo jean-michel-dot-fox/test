@@ -617,6 +617,27 @@
         },
         {
             "name": "customerGender"
+        },
+        {
+            "name": "extraFields",
+            "parameters": [
+                {
+                    "name": "is_reconditioned",
+                    "type": "integer"
+                },
+                {
+                    "name": "is_seller_reconditioning",
+                    "type": "integer"
+                },
+                {
+                    "name": "is_reconditioned_extended",
+                    "type": "integer"
+                },
+                {
+                    "name": "product_name_stock",
+                    "type": "string"
+                }
+            ]
         }
     ],
     "userQueries": [
