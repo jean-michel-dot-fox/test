@@ -45,6 +45,9 @@
             "name": "order_total_fees"
           },
           {
+            "name": "order_tip"
+          },
+          {
             "name": "order_distinct_item_quantity"
           },
           {
@@ -645,7 +648,75 @@
     },
     {
       "name": "customerGender"
+    },
+    {
+      "name": "extraFields",
+      "parameters": [
+        {
+          "name": "is_seller_reconditioning_extended",
+          "type": "integer"
+        },
+        {
+          "name": "is_arrival_airport",
+          "type": "string"
+        }
+      ]
     }
   ],
-  "userQueries": []
+  "userQueries": [
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%ory%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%orly%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%ory%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%orly%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%paray%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%cdg%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%roissy%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%cdg%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%roissy%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%charles de gaulle%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%roissy%' and order_item_arrival_address LIKE '%charles de gaulle%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '%roissy%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '% 77%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '%,77%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '% 77%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%,77%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '% 95%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '%,95%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '% 95%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%,95%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address_latitude BETWEEN 48.987923 and 49.027672) and (order_item_arrival_address_longitude BETWEEN 2.481632 and 2.619820)",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address_latitude BETWEEN 48.710719 AND 48.746161) and (order_item_arrival_address_longitude BETWEEN 2.305508 AND 2.412968)",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%depose minute%' and order_item_arrival_address LIKE '%paray-vieille-poste%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%depose minute%' and order_item_arrival_address LIKE '%mauregard%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%avenue o, 94390 paray-vieille-poste, france%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE order_item_arrival_address IN ('unnamed road, 77990 le mesnil-amelot, france','unnamed road, 93290 tremblay-en-france, france')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%ory%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%orly%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%ory%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%orly%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%paray%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%cdg%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%roissy%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%cdg%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%roissy%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%charles de gaulle%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%roissy%' and order_item_departure_address LIKE '%charles de gaulle%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '%roissy%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '% 77%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '%,77%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '% 77%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%,77%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '% 95%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '%,95%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '% 95%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%,95%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address_latitude BETWEEN 48.987923 and 49.027672) and (order_item_departure_address_longitude BETWEEN 2.481632 and 2.619820)",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address_latitude BETWEEN 48.710719 AND 48.746161) and (order_item_departure_address_longitude BETWEEN 2.305508 AND 2.412968)",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%depose minute%' and order_item_departure_address LIKE '%paray-vieille-poste%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%depose minute%' and order_item_departure_address LIKE '%mauregard%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%avenue o, 94390 paray-vieille-poste, france%')",
+    "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE order_item_departure_address IN ('unnamed road, 77990 le mesnil-amelot, france','unnamed road, 93290 tremblay-en-france, france')",
+    "UPDATE {{destDatabase}}.{{tableName}} ft LEFT JOIN {{sourceDatabase}}.customer_is_amazon_prime c on ft.id_customer = c.id_customer SET ft.start_loyalty_amazon = c.start_loyalty_amazon",
+    "UPDATE {{destDatabase}}.{{tableName}} ft LEFT JOIN {{sourceDatabase}}.customer_is_amazon_prime c on ft.id_customer = c.id_customer SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (order_datetime > c.start_loyalty_amazon, 1, 0))"
+  ]
 }
