@@ -152,7 +152,10 @@
             "name": "order_item_other_fee_2"
           },
           {
-            "name": "order_item_foxid"
+            "name": "order_item_departure_address"
+          },
+          {
+            "name": "order_item_arrival_address"
           }
         ]
       },
