@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "cdiscount_fr",
+    "tableName": "veepee",
     "query": {
         "select": [
             {
@@ -437,12 +437,6 @@
                             500
                         ]
                     }
-                },
-                {
-                    "name": "mappingCategories",
-                    "merchants": [
-                        "vente privee"
-                    ]
                 }
             ]
         },
