@@ -521,6 +521,15 @@
             "name": "cleanFields"
         },
         {
+            "name": "sellerNameToMerchantName",
+            "parameters": {
+                "merchants": [
+                    "just eat",
+                    "justeat"
+                ]
+            }
+        },
+        {
             "name": "isGoogleProvider"
         },
         {
