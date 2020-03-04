@@ -1,0 +1,608 @@
+{
+    "industryType": "food",
+    "tableName": "food_fr",
+    "query": {
+        "select": [
+            {
+                "table": "brands",
+                "fields": [
+                    {
+                        "name": "id_brand"
+                    },
+                    {
+                        "name": "brand_name"
+                    }
+                ]
+            },
+            {
+                "table": "orders",
+                "fields": [
+                    {
+                        "name": "id_order"
+                    },
+                    {
+                        "name": "order_item_quantity"
+                    },
+                    {
+                        "name": "order_datetime"
+                    },
+                    {
+                        "name": "order_total_paid"
+                    },
+                    {
+                        "name": "order_currency"
+                    },
+                    {
+                        "name": "order_option_3"
+                    },
+                    {
+                        "name": "order_delivery_fee"
+                    },
+                    {
+                        "name": "order_processing_fee"
+                    },
+                    {
+                        "name": "order_total_fees"
+                    },
+                    {
+                        "name": "order_distinct_item_quantity"
+                    },
+                    {
+                        "name": "order_created_at"
+                    },
+                    {
+                        "name": "order_foxid"
+                    }
+                ]
+            },
+            {
+                "table": "order_items",
+                "fields": [
+                    {
+                        "name": "id_order_item"
+                    },
+                    {
+                        "name": "order_item_total_price_paid"
+                    },
+                    {
+                        "name": "order_item_quantity"
+                    },
+                    {
+                        "name": "order_item_delivery_address"
+                    },
+                    {
+                        "name": "order_item_delivery_date_max"
+                    },
+                    {
+                        "name": "order_item_delivery_date_min"
+                    },
+                    {
+                        "name": "order_item_delivery_time_max"
+                    },
+                    {
+                        "name": "order_item_delivery_time_min"
+                    },
+                    {
+                        "name": "order_item_duration"
+                    },
+                    {
+                        "name": "order_item_delivery_address_zipcode"
+                    },
+                    {
+                        "name": "order_item_delivery_address_country_code"
+                    },
+                    {
+                        "name": "order_item_delivery_address_region"
+                    },
+                    {
+                        "name": "order_item_delivery_address_subregion"
+                    },
+                    {
+                        "name": "order_item_delivery_address_city"
+                    },
+                    {
+                        "name": "order_item_delivery_address_latitude"
+                    },
+                    {
+                        "name": "order_item_delivery_address_longitude"
+                    },
+                    {
+                        "name": "order_item_delivery_type"
+                    },
+                    {
+                        "name": "order_item_price_per_unit"
+                    },
+                    {
+                        "name": "order_item_address"
+                    },
+                    {
+                        "name": "order_item_address_zipcode"
+                    },
+                    {
+                        "name": "order_item_address_country_code"
+                    },
+                    {
+                        "name": "order_item_address_region"
+                    },
+                    {
+                        "name": "order_item_address_subregion"
+                    },
+                    {
+                        "name": "order_item_address_city"
+                    },
+                    {
+                        "name": "order_item_address_latitude"
+                    },
+                    {
+                        "name": "order_item_address_longitude"
+                    },
+                    {
+                        "name": "order_item_other_fee_1_name"
+                    },
+                    {
+                        "name": "order_item_other_fee_1"
+                    },
+                    {
+                        "name": "order_item_other_fee_2_name"
+                    },
+                    {
+                        "name": "order_item_other_fee_2"
+                    },
+                    {
+                        "name": "order_item_foxid"
+                    }
+                ]
+            },
+            {
+                "table": "products",
+                "fields": [
+                    {
+                        "name": "id_product"
+                    },
+                    {
+                        "name": "product_name"
+                    }
+                ]
+            },
+            {
+                "table": "sellers",
+                "fields": [
+                    {
+                        "name": "id_seller"
+                    },
+                    {
+                        "name": "seller_name"
+                    }
+                ]
+            },
+            {
+                "table": "customers",
+                "fields": [
+                    {
+                        "name": "id_customer"
+                    },
+                    {
+                        "name": "customer_birth_year"
+                    },
+                    {
+                        "name": "customer_gender"
+                    },
+                    {
+                        "name": "customer_hash"
+                    },
+                    {
+                        "name": "customer_region"
+                    },
+                    {
+                        "name": "customer_country"
+                    },
+                    {
+                        "name": "provider"
+                    },
+                    {
+                        "name": "customer_created_at"
+                    },
+                    {
+                        "name": "customer_last_update"
+                    },
+                    {
+                        "name": "customer_last_upgrade"
+                    },
+                    {
+                        "name": "customer_last_export"
+                    },
+                    {
+                        "name": "is_email_remover"
+                    }
+                ]
+            },
+            {
+                "table": "seller_categories",
+                "fields": [
+                    {
+                        "name": "seller_category_name"
+                    }
+                ]
+            },
+            {
+                "table": "parsers",
+                "fields": [
+                    {
+                        "name": "parser_name"
+                    },
+                    {
+                        "name": "id_parser"
+                    },
+                    {
+                        "name": "parser_lang"
+                    },
+                    {
+                        "name": "merchant_name"
+                    }
+                ]
+            },
+            {
+                "table": "payment_methods",
+                "fields": [
+                    {
+                        "name": "payment_method_name"
+                    }
+                ]
+            }
+        ],
+        "where": [
+            {
+                "table": "parsers",
+                "fields": [
+                    {
+                        "name": "merchant_name",
+                        "conditions": [
+                            {
+                                "operator": "IN",
+                                "values": [
+                                    "cote sushi",
+                                    "deliveroo",
+                                    "dominos",
+                                    "foodcheri",
+                                    "foodora",
+                                    "frichti",
+                                    "glovo",
+                                    "pizza hut",
+                                    "planet sushi",
+                                    "popchef",
+                                    "restoin",
+                                    "speed rabbit pizza",
+                                    "sushishop",
+                                    "takeeateasy",
+                                    "uber eats",
+                                    "justeat",
+                                    "fetch",
+                                    "nestor",
+                                    "mcdonalds"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "parser_name",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "alloresto-new-fr-1",
+                                    "alloresto-new-fr-2"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "orders",
+                "fields": [
+                    {
+                        "name": "order_is_duplicate",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_trash",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_spam",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_currency",
+                        "conditions": [
+                            {
+                                "operator": "IN",
+                                "values": [
+                                    "eur",
+                                    "EUR"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_moved_duplicate",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "addOnWhere": ""
+    },
+    "modules": [
+        {
+            "name": "customerFoxbrainReady",
+            "parameters": {
+                "deltaInDays": 5
+            }
+        },
+        {
+            "name": "zipCodeFromAddress",
+            "parameters": [
+                {
+                    "table": "order_items",
+                    "fields": [
+                        {
+                            "name": "order_item_delivery_address"
+                        },
+                        {
+                            "name": "order_item_address"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "customerAgeRange"
+        },
+        {
+            "name": "countryCode"
+        },
+        {
+            "name": "cleanPromo"
+        },
+        {
+            "name": "buyOneGetOneFree",
+            "parameters": {
+                "regex": [
+                    "offert",
+                    "free",
+                    " x2"
+                ]
+            }
+        },
+        {
+            "name": "cleanFields"
+        },
+        {
+            "name": "isGoogleProvider"
+        },
+        {
+            "name": "rankPerUser"
+        },
+        {
+            "name": "rankPerUserPerMerchant"
+        },
+        {
+            "name": "ventilateOrderTotalPaid"
+        },
+        {
+            "name": "idFlatTableOrderDatetime"
+        },
+        {
+            "name": "isWeekDay"
+        },
+        {
+            "name": "isWeekend"
+        },
+        {
+            "name": "weekDay"
+        },
+        {
+            "name": "sellerNameToMerchantName",
+            "parameters": {
+                "merchants": [
+                    "justeat",
+                    "frichti"
+                ]
+            }
+        },
+        {
+            "name": "deliveryArea",
+            "parameters": {
+                "merchants": [
+                    "deliveroo"
+                ]
+            }
+        },
+        {
+            "name": "loyaltyFood",
+            "parameters": {
+                "merchants": [
+                    "deliveroo"
+                ]
+            }
+        },
+        {
+            "name": "foxwatchZone"
+        },
+        {
+            "name": "merchantNameCustomSushishop"
+        },
+        {
+            "name": "topRestaurantChain"
+        },
+        {
+            "name": "orderItemDeliveryTypeClean"
+        },
+        {
+            "name": "geolocationBusinessRulesOrderItems"
+        },
+        {
+            "name": "sanitizeJustEatMerchantName"
+        },
+        {
+            "name": "ponderation",
+            "parameters": {
+                "fieldName": "coeff_with_merch_food_cab_7_clusters"
+            }
+        },
+        {
+            "name": "contributions"
+        },
+        {
+            "name": "orderItemDurationMinutes"
+        },
+        {
+            "name": "hourRange",
+            "parameters": [
+                {
+                    "table": "orders",
+                    "fields": [
+                        {
+                            "name": "order_datetime"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        4,
+                        11,
+                        15,
+                        18,
+                        23
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "priceRange",
+            "parameters": [
+                {
+                    "table": "orders",
+                    "fields": [
+                        {
+                            "name": "order_total_paid"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        15,
+                        20,
+                        25,
+                        35,
+                        50
+                    ]
+                },
+                {
+                    "table": "order_items",
+                    "fields": [
+                        {
+                            "name": "order_item_total_price_paid"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        15,
+                        20,
+                        25,
+                        35,
+                        50
+                    ]
+                },
+                {
+                    "table": "order_items",
+                    "fields": [
+                        {
+                            "name": "order_item_price_per_unit"
+                        },
+                        {
+                            "name": "order_item_price_per_unit_with_promo_contributions"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        10,
+                        20,
+                        30,
+                        40,
+                        50
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cohorts",
+            "parameters": {
+                "years": [
+                    2017,
+                    2018,
+                    2019
+                ],
+                "merchants": [
+                    "cote sushi",
+                    "deliveroo",
+                    "dominos",
+                    "foodcheri",
+                    "foodora",
+                    "frichti",
+                    "glovo",
+                    "pizza hut",
+                    "planet sushi",
+                    "popchef",
+                    "restoin",
+                    "speed rabbit pizza",
+                    "sushishop",
+                    "takeeateasy",
+                    "uber eats",
+                    "just eat",
+                    "fetch",
+                    "nestor",
+                    "mcdonalds"
+                ]
+            }
+        },
+        {
+            "name": "loyalty",
+            "parameters": {
+                "merchants": [
+                    "amazon"
+                ]
+            }
+        }
+    ],
+    "userQueries": [
+        "temp_flat_table_food_fr_foxbrain3_preprod.country not in ('fr') or temp_flat_table_food_fr_foxbrain3_preprod.country is null"
+    ]
+}
