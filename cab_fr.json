@@ -260,25 +260,13 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "cote sushi",
-                                    "deliveroo",
-                                    "dominos",
-                                    "foodcheri",
-                                    "foodora",
-                                    "frichti",
-                                    "glovo",
-                                    "pizza hut",
-                                    "planet sushi",
-                                    "popchef",
-                                    "restoin",
-                                    "speed rabbit pizza",
-                                    "sushishop",
-                                    "takeeateasy",
-                                    "uber eats",
-                                    "justeat",
-                                    "fetch",
-                                    "nestor",
-                                    "mcdonalds"
+                                    "chauffeur prive",
+                                    "g7",
+                                    "heetch",
+                                    "lecab",
+                                    "marcel",
+                                    "taxify",
+                                    "uber"
                                 ]
                             }
                         ]
@@ -548,25 +536,13 @@
                     2019
                 ],
                 "merchants": [
-                    "cote sushi",
-                    "deliveroo",
-                    "dominos",
-                    "foodcheri",
-                    "foodora",
-                    "frichti",
-                    "glovo",
-                    "pizza hut",
-                    "planet sushi",
-                    "popchef",
-                    "restoin",
-                    "speed rabbit pizza",
-                    "sushishop",
-                    "takeeateasy",
-                    "uber eats",
-                    "just eat",
-                    "fetch",
-                    "nestor",
-                    "mcdonalds"
+                    "chauffeur prive",
+                    "g7",
+                    "heetch",
+                    "lecab",
+                    "marcel",
+                    "taxify",
+                    "uber"
                 ]
             }
         },
