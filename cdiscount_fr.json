@@ -252,6 +252,79 @@
                         ]
                     }
                 ]
+            },
+            {
+                "table": "orders",
+                "fields": [
+                    {
+                        "name": "order_is_duplicate",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_trash",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_spam",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_moved_duplicate",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_currency",
+                        "conditions": [
+                            {
+                                "operator": "IN",
+                                "values": [
+                                    "eur",
+                                    "EUR"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_datetime",
+                        "conditions": [
+                            {
+                                "method": "year",
+                                "operator": ">",
+                                "values": [
+                                    2014
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ],
         "addOnWhere": ""
