@@ -695,8 +695,8 @@
         }
     ],
     "userQueries": [
-        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.start_loyalty_amazon = c.start_loyalty_amazon FROM {{assetDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
-        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (date(order_datetime) > c.start_loyalty_amazon, 1, 0)) FROM {{assetDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
+        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.start_loyalty_amazon = c.start_loyalty_amazon FROM {{sourceDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
+        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (date(order_datetime) > c.start_loyalty_amazon, 1, 0)) FROM {{sourceDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
         "UPDATE {{destDatabase}}.{{tableName}} ft SET sport_competition = sd.concat_name FROM {{assetDatabase}}.special_days_sport_competitions_demo sd WHERE CAST(sd.event_date AS DATE) = date(ft.order_datetime)"
     ]
 }
