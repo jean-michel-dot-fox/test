@@ -455,6 +455,28 @@
     },
     "modules": [
         {
+            "name": "customerGender"
+        },
+        {
+            "name": "deliveryArea",
+            "parameters": {
+                "merchants": [
+                    "deliveroo"
+                ]
+            }
+        },
+        {
+            "name": "loyaltyFood",
+            "parameters": {
+                "merchants": [
+                    "deliveroo"
+                ]
+            }
+        },
+        {
+            "name": "sanitizeJustEatMerchantName"
+        },
+        {
             "name": "customerFoxbrainReady",
             "parameters": {
                 "deltaInDays": 5
