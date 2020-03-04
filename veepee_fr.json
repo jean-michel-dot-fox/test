@@ -446,6 +446,9 @@
             "name": "weekDay"
         },
         {
+            "name": "geolocationBusinessRulesOrderItems"
+        },
+        {
             "name": "ponderation",
             "parameters": {
                 "fieldName": "coeff_with_merch_food_cab_7_clusters"
