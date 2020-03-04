@@ -192,6 +192,9 @@
                         "name": "parser_name"
                     },
                     {
+                        "name": "id_parser"
+                    },
+                    {
                         "name": "parser_lang"
                     },
                     {
@@ -210,7 +213,7 @@
         ],
         "where": [
             {
-                "table": "parsers",
+                "table": "order_items",
                 "fields": [
                     {
                         "name": "merchant_name",
@@ -241,126 +244,9 @@
                         ]
                     }
                 ]
-            },
-            {
-                "table": "orders",
-                "fields": [
-                    {
-                        "name": "order_currency",
-                        "conditions": [
-                            {
-                                "operator": "IN",
-                                "values": [
-                                    "eur",
-                                    "EUR"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_datetime",
-                        "conditions": [
-                            {
-                                "method": "year",
-                                "operator": ">",
-                                "values": [
-                                    2014
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_trash",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_spam",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_moved_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "parsers",
-                "fields": [
-                    {
-                        "name": "parser_name",
-                        "conditions": [
-                            {
-                                "operator": "LIKE",
-                                "values": [
-                                    "%-new-fr-%"
-                                ]
-                            },
-                            {
-                                "operator": "NOT LIKE",
-                                "values": [
-                                    "%-offline-%"
-                                ]
-                            },
-                            {
-                                "operator": "NOT LIKE",
-                                "values": [
-                                    "%-shop-%"
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "customers",
-                "fields": [
-                    {
-                        "name": "is_invalid_grant",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    1
-                                ]
-                            }
-                        ]
-                    }
-                ]
             }
         ],
-        "addOnWhere": "parsers.parser_name LIKE '%-new-fr-%' AND parsers.parser_name NOT LIKE '%-offline-%' AND parsers.parser_name NOT LIKE '%-shop-%'"
+        "addOnWhere": "order_items.id_order_item IN (SELECT id_flat_table FROM `flat_table_assets`.`flat_table_ecom_all_fr_vp_201908051130`) "
     },
     "modules": [
         {
@@ -384,6 +270,9 @@
         },
         {
             "name": "cleanPromo"
+        },
+        {
+            "name": "customerAgeRange"
         },
         {
             "name": "cleanFields"
@@ -417,29 +306,6 @@
         },
         {
             "name": "contributions"
-        },
-        {
-            "name": "audiences",
-            "parameters": {
-                "audiences": [
-                    "Foodies",
-                    "Cooking Enthusiasts",
-                    "Shutterbugs",
-                    "Savvy Parents",
-                    "Pet lovers",
-                    "Do-it-yourselfers",
-                    "Auto enthusiasts",
-                    "Fashionistas",
-                    "Beauty Mavens",
-                    "Home decor enthusiasts",
-                    "Technophiles",
-                    "Night life enthusiasts",
-                    "Political junkies",
-                    "Fast food cravers",
-                    "Avid Investors",
-                    "Sports fans"
-                ]
-            }
         },
         {
             "name": "hourRange",
