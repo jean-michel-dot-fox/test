@@ -706,8 +706,8 @@
         "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
         "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
         "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'",
-        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.start_loyalty_amazon = c.start_loyalty_amazon FROM {{sourceDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
-        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (order_datetime > c.start_loyalty_amazon, 1, 0)) FROM {{sourceDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
+        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.start_loyalty_amazon = c.start_loyalty_amazon FROM {{assetDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
+        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (order_datetime > c.start_loyalty_amazon, 1, 0)) FROM {{assetDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
         "UPDATE {{destDatabase}}.{{tableName}} a SET a.customer_is_first_time_buyer = b.customer_is_first_time_buyer, a.customer_acquisition_source = b.customer_acquisition_source, a.year_acquisition = b.year_acquisition FROM {{assetDatabase}}.first_time_buyer_2018_2019_foxbrain3 b WHERE a.id_customer = b.id_customer "
     ]
 }
