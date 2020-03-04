@@ -1,6 +1,6 @@
 {
     "industryType": "cab",
-    "tableName": "cab_fr",
+    "tableName": "cab_uk",
     "query": {
         "select": [
             {
@@ -43,9 +43,6 @@
                     },
                     {
                         "name": "order_total_fees"
-                    },
-                    {
-                        "name": "order_tip"
                     },
                     {
                         "name": "order_distinct_item_quantity"
@@ -152,22 +149,7 @@
                         "name": "order_item_other_fee_2"
                     },
                     {
-                        "name": "order_item_departure_address"
-                    },
-                    {
-                        "name": "order_item_departure_address_latitude"
-                    },
-                    {
-                        "name": "order_item_departure_address_longitude"
-                    },
-                    {
-                        "name": "order_item_arrival_address"
-                    },
-                    {
-                        "name": "order_item_arrival_address_latitude"
-                    },
-                    {
-                        "name": "order_item_arrival_address_longitude"
+                        "name": "order_item_foxid"
                     }
                 ]
             },
@@ -278,13 +260,25 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "chauffeur prive",
-                                    "g7",
-                                    "heetch",
-                                    "lecab",
-                                    "marcel",
-                                    "taxify",
-                                    "uber"
+                                    "cote sushi",
+                                    "deliveroo",
+                                    "dominos",
+                                    "foodcheri",
+                                    "foodora",
+                                    "frichti",
+                                    "glovo",
+                                    "pizza hut",
+                                    "planet sushi",
+                                    "popchef",
+                                    "restoin",
+                                    "speed rabbit pizza",
+                                    "sushishop",
+                                    "takeeateasy",
+                                    "uber eats",
+                                    "justeat",
+                                    "fetch",
+                                    "nestor",
+                                    "mcdonalds"
                                 ]
                             }
                         ]
@@ -340,17 +334,6 @@
                         ]
                     },
                     {
-                        "name": "order_is_moved_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
                         "name": "order_currency",
                         "conditions": [
                             {
@@ -363,29 +346,12 @@
                         ]
                     },
                     {
-                        "name": "order_datetime",
-                        "conditions": [
-                            {
-                                "method": "year",
-                                "operator": ">",
-                                "values": [
-                                    2014
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "customers",
-                "fields": [
-                    {
-                        "name": "is_invalid_grant",
+                        "name": "order_is_moved_duplicate",
                         "conditions": [
                             {
                                 "operator": "NOT IN",
                                 "values": [
-                                    1
+                                    "1"
                                 ]
                             }
                         ]
@@ -582,13 +548,25 @@
                     2019
                 ],
                 "merchants": [
-                    "chauffeur prive",
-                    "g7",
-                    "heetch",
-                    "lecab",
-                    "marcel",
-                    "taxify",
-                    "uber"
+                    "cote sushi",
+                    "deliveroo",
+                    "dominos",
+                    "foodcheri",
+                    "foodora",
+                    "frichti",
+                    "glovo",
+                    "pizza hut",
+                    "planet sushi",
+                    "popchef",
+                    "restoin",
+                    "speed rabbit pizza",
+                    "sushishop",
+                    "takeeateasy",
+                    "uber eats",
+                    "just eat",
+                    "fetch",
+                    "nestor",
+                    "mcdonalds"
                 ]
             }
         },
@@ -599,76 +577,7 @@
                     "amazon"
                 ]
             }
-        },
-        {
-            "name": "customerGender"
-        },
-        {
-            "name": "extraFields",
-            "parameters": [
-                {
-                    "name": "is_departure_airport",
-                    "type": "string"
-                },
-                {
-                    "name": "is_arrival_airport",
-                    "type": "string"
-                }
-            ]
         }
     ],
-    "userQueries": [
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%ory%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%orly%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%ory%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%orly%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%paray%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%cdg%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%adp%' and order_item_arrival_address LIKE '%roissy%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%cdg%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%roissy%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%charles de gaulle%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%roissy%' and order_item_arrival_address LIKE '%charles de gaulle%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '%roissy%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '% 77%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '%,77%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '% 77%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%,77%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '% 95%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%cdg%' and order_item_arrival_address LIKE '%,95%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '% 95%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%aeroport%' and order_item_arrival_address LIKE '%,95%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address_latitude BETWEEN 48.987923 and 49.027672) and (order_item_arrival_address_longitude BETWEEN 2.481632 and 2.619820)",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address_latitude BETWEEN 48.710719 AND 48.746161) and (order_item_arrival_address_longitude BETWEEN 2.305508 AND 2.412968)",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%depose minute%' and order_item_arrival_address LIKE '%paray-vieille-poste%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE (order_item_arrival_address LIKE '%depose minute%' and order_item_arrival_address LIKE '%mauregard%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'ory' WHERE (order_item_arrival_address LIKE '%avenue o, 94390 paray-vieille-poste, france%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_arrival_airport = 'cdg' WHERE order_item_arrival_address IN ('unnamed road, 77990 le mesnil-amelot, france','unnamed road, 93290 tremblay-en-france, france')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%ory%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%orly%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%ory%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%orly%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%paray%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%cdg%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%adp%' and order_item_departure_address LIKE '%roissy%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%cdg%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%roissy%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%charles de gaulle%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%roissy%' and order_item_departure_address LIKE '%charles de gaulle%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '%roissy%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '% 77%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '%,77%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '% 77%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%,77%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '% 95%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%cdg%' and order_item_departure_address LIKE '%,95%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '% 95%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%aeroport%' and order_item_departure_address LIKE '%,95%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address_latitude BETWEEN 48.987923 and 49.027672) and (order_item_departure_address_longitude BETWEEN 2.481632 and 2.619820)",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address_latitude BETWEEN 48.710719 AND 48.746161) and (order_item_departure_address_longitude BETWEEN 2.305508 AND 2.412968)",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%depose minute%' and order_item_departure_address LIKE '%paray-vieille-poste%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE (order_item_departure_address LIKE '%depose minute%' and order_item_departure_address LIKE '%mauregard%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%avenue o, 94390 paray-vieille-poste, france%')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE order_item_departure_address IN ('unnamed road, 77990 le mesnil-amelot, france','unnamed road, 93290 tremblay-en-france, france')"
-    ]
+    "userQueries": []
 }
