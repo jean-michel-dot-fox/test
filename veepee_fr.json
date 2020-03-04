@@ -275,7 +275,7 @@
                             {
                                 "operator": "NOT IN",
                                 "values": [
-                                    "1"
+                                    1
                                 ]
                             }
                         ]
@@ -286,7 +286,7 @@
                             {
                                 "operator": "NOT IN",
                                 "values": [
-                                    "1"
+                                    1
                                 ]
                             }
                         ]
@@ -297,7 +297,7 @@
                             {
                                 "operator": "NOT IN",
                                 "values": [
-                                    "1"
+                                    1
                                 ]
                             }
                         ]
@@ -308,7 +308,7 @@
                             {
                                 "operator": "NOT IN",
                                 "values": [
-                                    "1"
+                                    1
                                 ]
                             }
                         ]
@@ -352,7 +352,7 @@
                             {
                                 "operator": "NOT IN",
                                 "values": [
-                                    "1"
+                                    1
                                 ]
                             }
                         ]
@@ -594,9 +594,6 @@
         },
         {
             "name": "orderPlacedBeforeAndDuringLoyaltyYear"
-        },
-        {
-            "name": "sanitizeShowroomPriveBrandName"
         },
         {
             "name": "merchantType",
