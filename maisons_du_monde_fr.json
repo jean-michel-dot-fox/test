@@ -45,9 +45,6 @@
                         "name": "order_total_fees"
                     },
                     {
-                        "name": "order_tip"
-                    },
-                    {
                         "name": "order_distinct_item_quantity"
                     },
                     {
@@ -224,114 +221,32 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "alinea",
+                                    "3 suisses",
+                                    "alibaba",
+                                    "alltricks",
                                     "amazon",
-                                    "but",
-                                    "castorama",
-                                    "cdiscount",
+                                    "back market",
+                                    "boulanger",
                                     "conforama",
-                                    "delamaison",
-                                    "habitat",
-                                    "ikea",
+                                    "cdiscount",
+                                    "darty",
+                                    "ebay",
+                                    "fnac",
+                                    "gearbest",
+                                    "joom",
                                     "la redoute",
+                                    "ldlc",
                                     "leroy merlin",
-                                    "made",
-                                    "maisons du monde",
                                     "manomano",
+                                    "priceminister",
                                     "rue du commerce",
-                                    "showroom prive",
                                     "vente privee",
-                                    "westwing",
-                                    "zarahome"
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "orders",
-                "fields": [
-                    {
-                        "name": "order_is_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_trash",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_spam",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_moved_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_currency",
-                        "conditions": [
-                            {
-                                "operator": "IN",
-                                "values": [
-                                    "eur",
-                                    "EUR"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_datetime",
-                        "conditions": [
-                            {
-                                "method": "year",
-                                "operator": ">",
-                                "values": [
-                                    2014
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "customers",
-                "fields": [
-                    {
-                        "name": "is_invalid_grant",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    1
+                                    "showroom prive",
+                                    "samsung",
+                                    "ubaldi",
+                                    "wish",
+                                    "zalando",
+                                    "zooplus"
                                 ]
                             }
                         ]
@@ -339,9 +254,15 @@
                 ]
             }
         ],
-        "addOnWhere": "order_items.id_order_item IN (SELECT id_flat_table FROM `flat_table_assets`.`temporary_mdm_id`) "
+        "addOnWhere": ""
     },
     "modules": [
+        {
+            "name": "segmentation",
+            "parameters": {
+                "startDate": "2017-01-01"
+            }
+        },
         {
             "name": "customerFoxbrainReady",
             "parameters": {
@@ -420,7 +341,7 @@
                         15,
                         18,
                         20,
-                        23
+                        24
                     ]
                 }
             ]
@@ -530,25 +451,32 @@
                     2019
                 ],
                 "merchants": [
-                    "alinea",
+                    "3 suisses",
+                    "alibaba",
+                    "alltricks",
                     "amazon",
-                    "but",
-                    "castorama",
-                    "cdiscount",
+                    "back market",
+                    "boulanger",
                     "conforama",
-                    "delamaison",
-                    "habitat",
-                    "ikea",
+                    "cdiscount",
+                    "darty",
+                    "ebay",
+                    "fnac",
+                    "gearbest",
+                    "joom",
                     "la redoute",
+                    "ldlc",
                     "leroy merlin",
-                    "made",
-                    "maisons du monde",
                     "manomano",
+                    "priceminister",
                     "rue du commerce",
-                    "showroom prive",
                     "vente privee",
-                    "westwing",
-                    "zarahome"
+                    "showroom prive",
+                    "samsung",
+                    "ubaldi",
+                    "wish",
+                    "zalando",
+                    "zooplus"
                 ]
             }
         },
@@ -580,6 +508,17 @@
             }
         },
         {
+            "name": "brandNameFromProductName",
+            "parameters": {
+                "merchants": [
+                    "sephora",
+                    "marionnaud",
+                    "boulanger",
+                    "conforama"
+                ]
+            }
+        },
+        {
             "name": "deliveryDateType",
             "parameters": {
                 "mode": "average",
@@ -601,25 +540,11 @@
                     "> 20 D"
                 ]
             }
-        },
-        {
-            "name": "customerGender"
-        },
-        {
-            "name": "extraFields",
-            "parameters": [
-                {
-                    "name": "product_name_stock",
-                    "type": "string"
-                }
-            ]
         }
     ],
     "userQueries": [
         "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
         "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'",
-        "UPDATE {{destDatabase}}.{{tableName}} SET product_name_stock = product_name WHERE merchant_name = 'ikea'",
-        "UPDATE {{destDatabase}}.{{tableName}} SET product_name = CONCAT(product_name_stock, '_', product_description) WHERE merchant_name = 'ikea'"
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'"
     ]
 }
