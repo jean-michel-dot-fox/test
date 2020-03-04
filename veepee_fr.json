@@ -352,7 +352,7 @@
                             {
                                 "operator": "NOT IN",
                                 "values": [
-                                    "1"
+                                    1
                                 ]
                             }
                         ]
