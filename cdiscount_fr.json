@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "flat_table_ecom_all_fr_cdiscount_fb3_preprod_TEST",
+    "tableName": "cdiscount_fr",
     "query": {
         "select": [
             {
