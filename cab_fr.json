@@ -732,6 +732,6 @@
         "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'ory' WHERE (order_item_departure_address LIKE '%avenue o, 94390 paray-vieille-poste, france%')",
         "UPDATE {{destDatabase}}.{{tableName}} SET is_departure_airport = 'cdg' WHERE order_item_departure_address IN ('unnamed road, 77990 le mesnil-amelot, france','unnamed road, 93290 tremblay-en-france, france')",
         "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.start_loyalty_amazon = c.start_loyalty_amazon FROM {{sourceDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
-        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (order_datetime > c.start_loyalty_amazon, 1, 0)) FROM {{sourceDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer"
+        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (date(order_datetime) > c.start_loyalty_amazon, 1, 0)) FROM {{sourceDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer"
     ]
 }
