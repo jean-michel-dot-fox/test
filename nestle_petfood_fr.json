@@ -45,9 +45,6 @@
                         "name": "order_total_fees"
                     },
                     {
-                        "name": "order_tip"
-                    },
-                    {
                         "name": "order_distinct_item_quantity"
                     },
                     {
@@ -224,102 +221,32 @@
                             {
                                 "operator": "IN",
                                 "values": [
+                                    "3 suisses",
+                                    "alibaba",
+                                    "alltricks",
                                     "amazon",
+                                    "back market",
+                                    "boulanger",
+                                    "conforama",
                                     "cdiscount",
-                                    "zooplus",
-                                    "bitiba",
-                                    "croquetteland",
-                                    "compagniedesanimaux",
-                                    "wanimo"
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "orders",
-                "fields": [
-                    {
-                        "name": "order_is_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_trash",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_spam",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_moved_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_currency",
-                        "conditions": [
-                            {
-                                "operator": "IN",
-                                "values": [
-                                    "eur",
-                                    "EUR"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_datetime",
-                        "conditions": [
-                            {
-                                "method": "year",
-                                "operator": ">",
-                                "values": [
-                                    2014
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "customers",
-                "fields": [
-                    {
-                        "name": "is_invalid_grant",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    1
+                                    "darty",
+                                    "ebay",
+                                    "fnac",
+                                    "gearbest",
+                                    "joom",
+                                    "la redoute",
+                                    "ldlc",
+                                    "leroy merlin",
+                                    "manomano",
+                                    "priceminister",
+                                    "rue du commerce",
+                                    "vente privee",
+                                    "showroom prive",
+                                    "samsung",
+                                    "ubaldi",
+                                    "wish",
+                                    "zalando",
+                                    "zooplus"
                                 ]
                             }
                         ]
@@ -330,6 +257,12 @@
         "addOnWhere": ""
     },
     "modules": [
+        {
+            "name": "segmentation",
+            "parameters": {
+                "startDate": "2017-01-01"
+            }
+        },
         {
             "name": "customerFoxbrainReady",
             "parameters": {
@@ -357,9 +290,6 @@
         },
         {
             "name": "cleanFields"
-        },
-        {
-            "name": "geolocationBusinessRulesOrderItems"
         },
         {
             "name": "isGoogleProvider"
@@ -411,7 +341,7 @@
                         15,
                         18,
                         20,
-                        23
+                        24
                     ]
                 }
             ]
@@ -466,7 +396,16 @@
             "parameters": {
                 "merchants": [
                     "amazon",
-                    "cdiscount"
+                    "cdiscount",
+                    "darty",
+                    "la redoute",
+                    "priceminister",
+                    "fnac",
+                    "wish",
+                    "vinted",
+                    "vente privee",
+                    "boulanger",
+                    "conforama"
                 ]
             }
         },
@@ -512,13 +451,32 @@
                     2019
                 ],
                 "merchants": [
+                    "3 suisses",
+                    "alibaba",
+                    "alltricks",
                     "amazon",
+                    "back market",
+                    "boulanger",
+                    "conforama",
                     "cdiscount",
-                    "zooplus",
-                    "bitiba",
-                    "croquetteland",
-                    "compagniedesanimaux",
-                    "wanimo"
+                    "darty",
+                    "ebay",
+                    "fnac",
+                    "gearbest",
+                    "joom",
+                    "la redoute",
+                    "ldlc",
+                    "leroy merlin",
+                    "manomano",
+                    "priceminister",
+                    "rue du commerce",
+                    "vente privee",
+                    "showroom prive",
+                    "samsung",
+                    "ubaldi",
+                    "wish",
+                    "zalando",
+                    "zooplus"
                 ]
             }
         },
@@ -550,6 +508,17 @@
             }
         },
         {
+            "name": "brandNameFromProductName",
+            "parameters": {
+                "merchants": [
+                    "sephora",
+                    "marionnaud",
+                    "boulanger",
+                    "conforama"
+                ]
+            }
+        },
+        {
             "name": "deliveryDateType",
             "parameters": {
                 "mode": "average",
@@ -571,9 +540,6 @@
                     "> 20 D"
                 ]
             }
-        },
-        {
-            "name": "customerGender"
         }
     ],
     "userQueries": [
