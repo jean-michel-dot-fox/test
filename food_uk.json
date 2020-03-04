@@ -466,6 +466,9 @@
             "name": "customerAgeRange"
         },
         {
+            "name": "customerGender"
+        },
+        {
             "name": "cleanPromo"
         },
         {
@@ -514,6 +517,14 @@
             }
         },
         {
+            "name": "deliveryArea",
+            "parameters": {
+                "merchants": [
+                    "deliveroo"
+                ]
+            }
+        },
+        {
             "name": "foxwatchZone"
         },
         {
@@ -521,6 +532,9 @@
         },
         {
             "name": "topRestaurantChain"
+        },
+        {
+            "name": "sanitizeJustEatMerchantName"
         },
         {
             "name": "orderItemDeliveryTypeClean"
