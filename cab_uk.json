@@ -62,6 +62,9 @@
                         "name": "id_order_item"
                     },
                     {
+                        "name": "order_item_departure_address"
+                    },
+                    {
                         "name": "order_item_total_price_paid"
                     },
                     {
