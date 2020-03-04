@@ -1,6 +1,6 @@
 {
     "industryType": "cab",
-    "tableName": "cab_uk",
+    "tableName": "cab_fr",
     "query": {
         "select": [
             {
