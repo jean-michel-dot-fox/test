@@ -632,11 +632,11 @@
         }
     ],
     "userQueries": [
-        "DELETE FROM temp_{{destDatabase}}.{{tableName}} WHERE id_order IN (15878940, 15683755)",
-        "DELETE FROM temp_{{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' OR parser_name='amazon-new-fr-2' OR parser_name='Showroomprive-new-fr-3'",
-        "DELETE FROM temp_{{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
-        "DELETE FROM temp_{{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-        "DELETE FROM temp_{{destDatabase}}.{{tableName}} WHERE Id_customer = 1426654",
-        "UPDATE temp_{{destDatabase}}.{{tableName}} SET category_0_category_1_authorized = 'uncategorized_uncategorized', category_0_authorized = 'uncategorized', category_1_authorized = 'uncategorized' WHERE merchant_name IN ('wish','joom')"
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE id_order IN (15878940, 15683755)",
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' OR parser_name='amazon-new-fr-2' OR parser_name='Showroomprive-new-fr-3'",
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE Id_customer = 1426654",
+        "UPDATE {{destDatabase}}.{{tableName}} SET category_0_category_1_authorized = 'uncategorized_uncategorized', category_0_authorized = 'uncategorized', category_1_authorized = 'uncategorized' WHERE merchant_name IN ('wish','joom')"
     ]
 }
