@@ -403,9 +403,6 @@
             "name": "customerAgeRange"
         },
         {
-            "name": "customerGender"
-        },
-        {
             "name": "customerFoxbrainReady",
             "parameters": {
                 "deltaInDays": 5
@@ -593,24 +590,32 @@
                     2019
                 ],
                 "merchants": [
+                    "3 suisses",
+                    "alibaba",
+                    "alltricks",
                     "amazon",
-                    "asos",
+                    "back market",
                     "boulanger",
-                    "bricoprive",
+                    "conforama",
                     "cdiscount",
                     "darty",
+                    "ebay",
                     "fnac",
+                    "gearbest",
+                    "joom",
                     "la redoute",
+                    "ldlc",
                     "leroy merlin",
                     "manomano",
                     "priceminister",
-                    "private sport shop",
-                    "sarenza",
-                    "showroom prive",
+                    "rue du commerce",
                     "vente privee",
-                    "vinted",
+                    "showroom prive",
+                    "samsung",
+                    "ubaldi",
                     "wish",
-                    "zalando"
+                    "zalando",
+                    "zooplus"
                 ]
             }
         },
