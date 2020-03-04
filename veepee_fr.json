@@ -683,6 +683,23 @@
         },
         {
             "name": "customerGender"
+        },
+        {
+            "name": "extraFields",
+            "parameters": [
+                {
+                    "name": "customer_acquisition_source",
+                    "type": "string"
+                },
+                {
+                    "name": "customer_is_first_time_buyer",
+                    "type": "integer"
+                },
+                {
+                    "name": "year_acquisition",
+                    "type": "integer"
+                }
+            ]
         }
     ],
     "userQueries": [
