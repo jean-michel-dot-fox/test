@@ -1,6 +1,6 @@
 {
     "industryType": "food",
-    "tableName": "food",
+    "tableName": "food-fr",
     "query": {
         "select": [
             {
