@@ -260,25 +260,11 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "cote sushi",
+                                    "hungry house",
                                     "deliveroo",
                                     "dominos",
-                                    "foodcheri",
-                                    "foodora",
-                                    "frichti",
-                                    "glovo",
-                                    "pizza hut",
-                                    "planet sushi",
-                                    "popchef",
-                                    "restoin",
-                                    "speed rabbit pizza",
-                                    "sushishop",
-                                    "takeeateasy",
                                     "uber eats",
-                                    "justeat",
-                                    "fetch",
-                                    "nestor",
-                                    "mcdonalds"
+                                    "justeat"
                                 ]
                             }
                         ]
@@ -548,25 +534,11 @@
                     2019
                 ],
                 "merchants": [
-                    "cote sushi",
+                    "hungry house",
                     "deliveroo",
                     "dominos",
-                    "foodcheri",
-                    "foodora",
-                    "frichti",
-                    "glovo",
-                    "pizza hut",
-                    "planet sushi",
-                    "popchef",
-                    "restoin",
-                    "speed rabbit pizza",
-                    "sushishop",
-                    "takeeateasy",
                     "uber eats",
-                    "just eat",
-                    "fetch",
-                    "nestor",
-                    "mcdonalds"
+                    "justeat"
                 ]
             }
         },
