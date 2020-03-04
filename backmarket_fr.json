@@ -221,32 +221,24 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "3 suisses",
-                                    "alibaba",
-                                    "alltricks",
                                     "amazon",
+                                    "apple",
                                     "back market",
                                     "boulanger",
-                                    "conforama",
                                     "cdiscount",
+                                    "certideal",
                                     "darty",
-                                    "ebay",
+                                    "destocksource",
+                                    "electrodepot",
                                     "fnac",
-                                    "gearbest",
-                                    "joom",
-                                    "la redoute",
-                                    "ldlc",
-                                    "leroy merlin",
-                                    "manomano",
+                                    "micromania",
                                     "priceminister",
+                                    "recommerce",
+                                    "reconditionneneuf",
                                     "rue du commerce",
-                                    "vente privee",
                                     "showroom prive",
-                                    "samsung",
-                                    "ubaldi",
-                                    "wish",
-                                    "zalando",
-                                    "zooplus"
+                                    "smarter",
+                                    "vente privee"
                                 ]
                             }
                         ]
@@ -257,12 +249,6 @@
         "addOnWhere": ""
     },
     "modules": [
-        {
-            "name": "segmentation",
-            "parameters": {
-                "startDate": "2017-01-01"
-            }
-        },
         {
             "name": "customerFoxbrainReady",
             "parameters": {
