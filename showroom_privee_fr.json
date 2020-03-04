@@ -361,14 +361,6 @@
             "name": "cleanPromo"
         },
         {
-            "name": "sellerNameToMerchantName",
-            "parameters": {
-                "merchants": [
-                    "showroom privee"
-                ]
-            }
-        },
-        {
             "name": "customerAgeRange"
         },
         {
