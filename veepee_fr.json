@@ -302,7 +302,10 @@
             "name": "weekDay"
         },
         {
-            "name": "ponderation"
+            "name": "ponderation",
+            "parameters": {
+                "fieldName": "coeff_with_merch_food_cab_7_clusters"
+            }
         },
         {
             "name": "contributions"
