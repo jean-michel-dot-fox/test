@@ -325,6 +325,22 @@
                         ]
                     }
                 ]
+            },
+            {
+                "table": "customers",
+                "fields": [
+                    {
+                        "name": "is_invalid_grant",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    1
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ],
         "addOnWhere": ""
