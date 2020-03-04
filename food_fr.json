@@ -469,14 +469,6 @@
             }
         },
         {
-            "name": "loyaltyFood",
-            "parameters": {
-                "merchants": [
-                    "deliveroo"
-                ]
-            }
-        },
-        {
             "name": "sanitizeJustEatMerchantName"
         },
         {
