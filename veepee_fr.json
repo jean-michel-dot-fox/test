@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "veepee",
+    "tableName": "veepee_jm",
     "query": {
         "select": [
             {
