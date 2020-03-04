@@ -394,6 +394,15 @@
             }
         },
         {
+            "name": "geolocationBusinessRulesCustomers",
+            "parameters": {
+                "countries": [
+                    "france",
+                    "united kingdom"
+                ]
+            }
+        },
+        {
             "name": "customerFoxbrainReady",
             "parameters": {
                 "deltaInDays": 5
