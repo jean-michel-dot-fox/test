@@ -21,6 +21,9 @@
                         "name": "id_order"
                     },
                     {
+                        "name": "order_tip"
+                    },
+                    {
                         "name": "order_item_quantity"
                     },
                     {
