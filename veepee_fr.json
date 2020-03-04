@@ -45,6 +45,9 @@
                         "name": "order_total_fees"
                     },
                     {
+                        "name": "order_tip"
+                    },
+                    {
                         "name": "order_distinct_item_quantity"
                     },
                     {
@@ -685,6 +688,9 @@
     "userQueries": [
         "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
         "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'"
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'",
+        "UPDATE {{destDatabase}}.{{tableName}} ft LEFT JOIN {{sourceDatabase}}.customer_is_amazon_prime c on ft.id_customer = c.id_customer SET ft.start_loyalty_amazon = c.start_loyalty_amazon",
+        "UPDATE {{destDatabase}}.{{tableName}} ft LEFT JOIN {{sourceDatabase}}.customer_is_amazon_prime c on ft.id_customer = c.id_customer SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (order_datetime > c.start_loyalty_amazon, 1, 0))",
+        "UPDATE {{destDatabase}}.{{tableName}} a INNER JOIN {{assetDatabase}}.client_segmentation_vente_privee_macro_foxbrain3.first_time_buyer_2018_2019_foxbrain3 b ON a.id_customer = b.id_customer SET a.customer_is_first_time_buyer = b.customer_is_first_time_buyer, a.customer_acquisition_source = b.customer_acquisition_source, a.year_acquisition = b.year_acquisition"
     ]
 }
