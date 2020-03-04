@@ -370,6 +370,19 @@
             }
         },
         {
+            "name": "zipCodeFromAddress",
+            "parameters": [
+                {
+                    "table": "order_items",
+                    "fields": [
+                        {
+                            "name": "order_item_delivery_address"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "cleanPromo"
         },
         {
