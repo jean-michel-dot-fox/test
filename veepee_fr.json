@@ -268,6 +268,50 @@
                                 ]
                             }
                         ]
+                    },
+                    {
+                        "name": "order_is_duplicate",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_trash",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_spam",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_is_moved_duplicate",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -298,9 +342,25 @@
                         ]
                     }
                 ]
+            },
+            {
+                "table": "customers",
+                "fields": [
+                    {
+                        "name": "is_invalid_grant",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "1"
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ],
-        "addOnWhere": ""
+        "addOnWhere": "parsers.parser_name LIKE '%-new-fr-%' AND parsers.parser_name NOT LIKE '%-offline-%' AND parsers.parser_name NOT LIKE '%-shop-%'"
     },
     "modules": [
         {
