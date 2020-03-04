@@ -1,6 +1,6 @@
 {
     "industryType": "food",
-    "tableName": "food_fr",
+    "tableName": "food",
     "query": {
         "select": [
             {
@@ -385,10 +385,10 @@
             ]
         },
         {
-            "name": "customerAgeRange"
+            "name": "countryCode"
         },
         {
-            "name": "countryCode"
+            "name": "customerAgeRange"
         },
         {
             "name": "cleanPromo"
