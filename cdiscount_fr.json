@@ -679,12 +679,6 @@
                     "> 20 D"
                 ]
             }
-        },
-        {
-            "name": "segmentation",
-            "parameters": {
-                "startDate": "2017-01-01"
-            }
         }
     ],
     "userQueries": []
