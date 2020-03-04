@@ -373,6 +373,9 @@
             "name": "cleanPromo"
         },
         {
+            "name": "cleanFields"
+        },
+        {
             "name": "isGoogleProvider"
         },
         {
@@ -539,8 +542,7 @@
                 {
                     "name": "mappingCategories",
                     "merchants": [
-                        "vente privee",
-                        "showroom prive"
+                        "vente privee"
                     ]
                 }
             ]
@@ -558,6 +560,7 @@
                 "merchants": [
                     "amazon",
                     "asos",
+                    "boulanger",
                     "bricoprive",
                     "cdiscount",
                     "darty",
@@ -566,20 +569,13 @@
                     "leroy merlin",
                     "manomano",
                     "priceminister",
+                    "private sport shop",
                     "sarenza",
                     "showroom prive",
                     "vente privee",
-                    "zalando",
+                    "vinted",
                     "wish",
-                    "boulanger",
-                    "private sport shop",
-                    "sephora",
-                    "marionnaud",
-                    "yves rocher",
-                    "beaute privee",
-                    "conforama",
-                    "ikea",
-                    "maisons du monde"
+                    "zalando"
                 ]
             }
         },
@@ -598,6 +594,9 @@
         },
         {
             "name": "orderPlacedBeforeAndDuringLoyaltyYear"
+        },
+        {
+            "name": "sanitizeShowroomPriveBrandName"
         },
         {
             "name": "merchantType",
@@ -661,5 +660,9 @@
             ]
         }
     ],
-    "userQueries": []
+    "userQueries": [
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'"
+    ]
 }
