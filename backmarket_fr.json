@@ -55,6 +55,9 @@
                     },
                     {
                         "name": "order_foxid"
+                    },
+                    {
+                        "name": "order_fidelity_additionnal_points"
                     }
                 ]
             },
@@ -404,9 +407,7 @@
                 {
                     "name": "mappingCategories",
                     "merchants": [
-                        "back market",
-                        "maisons du monde",
-                        "manomano"
+                        "back market"
                     ]
                 }
             ]
