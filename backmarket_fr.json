@@ -415,7 +415,9 @@
                 {
                     "name": "mappingCategories",
                     "merchants": [
-                        "back market"
+                        "back market",
+                        "mano mano",
+                        "maisons du monde"
                     ]
                 }
             ]
