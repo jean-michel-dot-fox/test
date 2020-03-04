@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "veepee_jm_3",
+    "tableName": "veepee",
     "query": {
         "select": [
             {
@@ -46,6 +46,12 @@
                     },
                     {
                         "name": "order_distinct_item_quantity"
+                    },
+                    {
+                        "name": "order_created_at"
+                    },
+                    {
+                        "name": "order_foxid"
                     }
                 ]
             },
@@ -153,6 +159,21 @@
                     },
                     {
                         "name": "provider"
+                    },
+                    {
+                        "name": "customer_created_at"
+                    },
+                    {
+                        "name": "customer_last_update"
+                    },
+                    {
+                        "name": "customer_last_upgrade"
+                    },
+                    {
+                        "name": "customer_last_export"
+                    },
+                    {
+                        "name": "is_email_remover"
                     }
                 ]
             },
@@ -197,30 +218,24 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "vente privee",
-                                    "showroom prive",
                                     "amazon",
-                                    "fnac",
-                                    "darty",
-                                    "cdiscount",
-                                    "zalando",
-                                    "sarenza",
                                     "asos",
-                                    "la redoute",
-                                    "sephora",
-                                    "marionnaud",
-                                    "yves rocher",
-                                    "beaute privee",
                                     "boulanger",
-                                    "conforama",
-                                    "ikea",
-                                    "maisons du monde",
                                     "bricoprive",
+                                    "cdiscount",
+                                    "darty",
+                                    "fnac",
+                                    "la redoute",
                                     "leroy merlin",
                                     "manomano",
                                     "priceminister",
+                                    "private sport shop",
+                                    "sarenza",
+                                    "showroom prive",
+                                    "vente privee",
+                                    "vinted",
                                     "wish",
-                                    "private sport shop"
+                                    "zalando"
                                 ]
                             }
                         ]
