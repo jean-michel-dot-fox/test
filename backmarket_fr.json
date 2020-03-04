@@ -1,6 +1,6 @@
 {
-    "industryType": "ecom",
-    "tableName": "flat_table_ecom_hightech_fr_backmarket_fb3",
+    "industryType": "cab",
+    "tableName": "flat_table_cab_all_fr_foxbrain3",
     "query": {
         "select": [
             {
@@ -11,9 +11,6 @@
                     },
                     {
                         "name": "brand_name"
-                    },
-                    {
-                        "name": "brand_clean_name"
                     }
                 ]
             },
@@ -25,9 +22,6 @@
                     },
                     {
                         "name": "order_item_quantity"
-                    },
-                    {
-                        "name": "order_datetime"
                     },
                     {
                         "name": "order_total_paid"
@@ -51,13 +45,14 @@
                         "name": "order_tip"
                     },
                     {
-                        "name": "order_distinct_item_quantity"
-                    },
-                    {
                         "name": "order_created_at"
                     },
                     {
                         "name": "order_foxid"
+                    },
+                    {
+                        "name": "order_datetime",
+                        "value": "DATETIME(TIMESTAMP(order_datetime), 'Europe/Paris')"
                     }
                 ]
             },
@@ -74,46 +69,85 @@
                         "name": "order_item_quantity"
                     },
                     {
-                        "name": "order_item_departure_address"
-                    },
-                    {
-                        "name": "order_item_delivery_date_max"
-                    },
-                    {
-                        "name": "order_item_delivery_date_min"
-                    },
-                    {
-                        "name": "order_item_delivery_address"
-                    },
-                    {
-                        "name": "order_item_delivery_address_region"
-                    },
-                    {
-                        "name": "order_item_delivery_address_subregion"
-                    },
-                    {
                         "name": "order_item_delivery_address_zipcode"
                     },
                     {
                         "name": "order_item_delivery_address_country_code"
                     },
                     {
-                        "name": "order_item_delivery_address_country"
+                        "name": "order_item_delivery_address_region"
                     },
                     {
                         "name": "order_item_delivery_address_city"
                     },
                     {
-                        "name": "order_item_delivery_address_latitude"
-                    },
-                    {
-                        "name": "order_item_delivery_address_longitude"
-                    },
-                    {
                         "name": "order_item_price_per_unit"
                     },
                     {
-                        "name": "order_item_state"
+                        "name": "order_item_delivery_date_min"
+                    },
+                    {
+                        "name": "order_item_delivery_date_max"
+                    },
+                    {
+                        "name": "order_item_departure_address"
+                    },
+                    {
+                        "name": "order_item_delivery_address"
+                    },
+                    {
+                        "name": "order_item_departure_address_latitude"
+                    },
+                    {
+                        "name": "order_item_departure_address_longitude"
+                    },
+                    {
+                        "name": "order_item_arrival_address"
+                    },
+                    {
+                        "name": "order_item_arrival_address_latitude"
+                    },
+                    {
+                        "name": "order_item_arrival_address_longitude"
+                    },
+                    {
+                        "name": "order_item_departure_address_country"
+                    },
+                    {
+                        "name": "order_item_departure_address_country_code"
+                    },
+                    {
+                        "name": "order_item_departure_address_region"
+                    },
+                    {
+                        "name": "order_item_departure_address_subregion"
+                    },
+                    {
+                        "name": "order_item_departure_address_city"
+                    },
+                    {
+                        "name": "order_item_arrival_address_zipcode"
+                    },
+                    {
+                        "name": "order_item_arrival_address_country"
+                    },
+                    {
+                        "name": "order_item_arrival_address_country_code"
+                    },
+                    {
+                        "name": "order_item_arrival_address_region"
+                    },
+                    {
+                        "name": "order_item_arrival_address_subregion"
+                    },
+                    {
+                        "name": "order_item_arrival_address_city"
+                    },
+                    {
+                        "name": "order_item_departure_address_zipcode"
+                    },
+                    {
+                        "name": "order_item_duration"
                     }
                 ]
             },
@@ -128,6 +162,9 @@
                     },
                     {
                         "name": "product_description"
+                    },
+                    {
+                        "name": "product_class"
                     }
                 ]
             },
@@ -161,9 +198,6 @@
                         "name": "customer_region"
                     },
                     {
-                        "name": "customer_country"
-                    },
-                    {
                         "name": "provider"
                     },
                     {
@@ -180,6 +214,9 @@
                     },
                     {
                         "name": "is_email_remover"
+                    },
+                    {
+                        "name": "customer_zipcode"
                     }
                 ]
             },
@@ -227,50 +264,13 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "amazon",
-                                    "apple",
-                                    "back market",
-                                    "boulanger",
-                                    "cdiscount",
-                                    "certideal",
-                                    "darty",
-                                    "destocksource",
-                                    "electrodepot",
-                                    "fnac",
-                                    "micromania",
-                                    "priceminister",
-                                    "recommerce",
-                                    "reconditionneneuf",
-                                    "rue du commerce",
-                                    "showroom prive",
-                                    "smarter",
-                                    "vente privee",
-                                    "test"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "parser_name",
-                        "conditions": [
-                            {
-                                "operator": "LIKE",
-                                "values": [
-                                    "%-new-fr-%"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "parser_name",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "venteprivee-new-fr-3",
-                                    "amazon-new-fr-2",
-                                    "showroomprive-new-fr-3",
-                                    "apple-new-fr-2"
+                                    "chauffeur prive",
+                                    "g7",
+                                    "heetch",
+                                    "lecab",
+                                    "marcel",
+                                    "taxify",
+                                    "uber"
                                 ]
                             }
                         ]
@@ -325,18 +325,6 @@
                         ]
                     },
                     {
-                        "name": "order_currency",
-                        "conditions": [
-                            {
-                                "operator": "IN",
-                                "values": [
-                                    "eur",
-                                    "EUR"
-                                ]
-                            }
-                        ]
-                    },
-                    {
                         "name": "order_datetime",
                         "conditions": [
                             {
@@ -365,6 +353,22 @@
                         ]
                     }
                 ]
+            },
+            {
+                "table": "brands",
+                "fields": [
+                    {
+                        "name": "brand_clean_name",
+                        "conditions": [
+                            {
+                                "operator": "LIKE",
+                                "values": [
+                                    "toto"
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ],
         "addOnWhere": ""
@@ -373,14 +377,22 @@
         {
             "name": "customerFoxbrainReady",
             "parameters": {
-                "deltaInDays": 3
+                "deltaInDays": 5
             }
         },
         {
-            "name": "cleanPromo"
+            "name": "countryCode",
+            "parameters": {
+                "addressesFields": [
+                    "order_item_arrival_address"
+                ]
+            }
         },
         {
             "name": "customerAgeRange"
+        },
+        {
+            "name": "cleanPromo"
         },
         {
             "name": "cleanFields"
@@ -410,9 +422,13 @@
             "name": "weekDay"
         },
         {
-            "name": "ponderation",
+            "name": "foxwatchZone",
             "parameters": {
-                "fieldName": "coeff_with_merch_food_cab_7_clusters"
+                "countryCode": "fr",
+                "addressesFields": [
+                    "order_item_arrival_address_zipcode_business_rules",
+                    "order_item_arrival_address_zipcode"
+                ]
             }
         },
         {
@@ -423,12 +439,38 @@
                     "order_item_main_zipcode"
                 ],
                 "additionalFields": [
-                    "order_item_delivery_address"
+                    "order_item_arrival_address",
+                    "order_item_departure_address"
                 ]
             }
         },
         {
+            "name": "ponderation",
+            "parameters": {
+                "fieldName": "coeff_with_merch_food_cab_7_clusters"
+            }
+        },
+        {
             "name": "contributions"
+        },
+        {
+            "name": "deliveryDateType",
+            "parameters": {
+                "mode": "average",
+                "intervals": [
+                    1,
+                    2,
+                    3,
+                    6
+                ],
+                "values": [
+                    "0 D",
+                    "1 D",
+                    "2 D",
+                    "3-5 D",
+                    "> 5 D"
+                ]
+            }
         },
         {
             "name": "hourRange",
@@ -442,11 +484,16 @@
                     ],
                     "intervals": [
                         0,
-                        7,
-                        11,
-                        15,
+                        2,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14,
+                        16,
                         18,
                         20,
+                        22,
                         24
                     ]
                 }
@@ -464,12 +511,11 @@
                     ],
                     "intervals": [
                         0,
-                        15,
+                        10,
+                        20,
                         30,
-                        50,
-                        100,
-                        200,
-                        500
+                        40,
+                        50
                     ]
                 },
                 {
@@ -477,7 +523,20 @@
                     "fields": [
                         {
                             "name": "order_item_total_price_paid"
-                        },
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        10,
+                        20,
+                        30,
+                        40,
+                        50
+                    ]
+                },
+                {
+                    "table": "order_items",
+                    "fields": [
                         {
                             "name": "order_item_price_per_unit"
                         },
@@ -487,64 +546,11 @@
                     ],
                     "intervals": [
                         0,
-                        15,
+                        10,
+                        20,
                         30,
-                        50,
-                        100,
-                        200,
-                        500
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "marketplace",
-            "parameters": {
-                "merchants": [
-                    "amazon",
-                    "back market",
-                    "cdiscount",
-                    "darty",
-                    "priceminister",
-                    "rue du commerce",
-                    "fnac",
-                    "boulanger"
-                ]
-            }
-        },
-        {
-            "name": "categories",
-            "parameters": [
-                {
-                    "name": "authorizedCategories"
-                },
-                {
-                    "name": "concatenateCategory0And1"
-                },
-                {
-                    "name": "concatenateDefaultProductName",
-                    "parameters": {
-                        "table": "order_items",
-                        "fields": [
-                            {
-                                "name": "order_item_price_per_unit_with_promo_contributions"
-                            }
-                        ],
-                        "intervals": [
-                            0,
-                            15,
-                            30,
-                            50,
-                            100,
-                            200,
-                            500
-                        ]
-                    }
-                },
-                {
-                    "name": "mappingCategories",
-                    "merchants": [
-                        "back market"
+                        40,
+                        50
                     ]
                 }
             ]
@@ -558,24 +564,13 @@
                     2019
                 ],
                 "merchants": [
-                    "amazon",
-                    "apple",
-                    "back market",
-                    "boulanger",
-                    "cdiscount",
-                    "certideal",
-                    "darty",
-                    "destocksource",
-                    "electrodepot",
-                    "fnac",
-                    "micromania",
-                    "priceminister",
-                    "recommerce",
-                    "reconditionneneuf",
-                    "rue du commerce",
-                    "showroom prive",
-                    "smarter",
-                    "vente privee"
+                    "chauffeur prive",
+                    "g7",
+                    "heetch",
+                    "lecab",
+                    "marcel",
+                    "taxify",
+                    "uber"
                 ]
             }
         },
@@ -583,58 +578,7 @@
             "name": "loyalty",
             "parameters": {
                 "merchants": [
-                    "amazon",
-                    "cdiscount",
-                    "la redoute",
-                    "vente privee",
-                    "showroom prive"
-                ]
-            }
-        },
-        {
-            "name": "merchantType",
-            "parameters": {
-                "merchants": [
-                    "bricoprive",
-                    "showroom prive",
-                    "vente privee"
-                ]
-            }
-        },
-        {
-            "name": "brandNameFromProductName",
-            "parameters": {
-                "merchants": [
-                    "boulanger",
-                    "apple",
-                    "back market",
-                    "destocksource",
-                    "recommerce",
-                    "reconditionneneuf",
-                    "smarter"
-                ]
-            }
-        },
-        {
-            "name": "deliveryDateType",
-            "parameters": {
-                "mode": "average",
-                "intervals": [
-                    1,
-                    2,
-                    3,
-                    6,
-                    11,
-                    21
-                ],
-                "values": [
-                    "0 D",
-                    "1 D",
-                    "2 D",
-                    "3-5 D",
-                    "6-10 D",
-                    "11-20 D",
-                    "> 20 D"
+                    "amazon"
                 ]
             }
         },
@@ -645,42 +589,19 @@
             "name": "extraFields",
             "parameters": [
                 {
-                    "name": "is_reconditioned",
+                    "name": "is_departure_airport",
                     "type": "string"
                 },
                 {
-                    "name": "is_seller_reconditioning",
-                    "type": "string"
-                },
-                {
-                    "name": "is_seller_reconditioning_extended",
-                    "type": "string"
-                },
-                {
-                    "name": "bm_category_2",
+                    "name": "is_arrival_airport",
                     "type": "string"
                 }
             ]
         }
     ],
     "userQueries": [
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = brand_name_from_product_name WHERE brand_name_from_product_name IS NOT NULL AND brand_name_from_product_name <> '' AND (brand_name IS NULL OR brand_name = '' OR brand_name = 'brand not captured')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE brand_name = 'brand not captured' AND merchant_name IN ('back market','destocksource','recommerce','reconditionneneuf','smarter', 'apple') AND (product_name LIKE '%mac%' OR product_name LIKE '%iphone%' OR product_name LIKE '%earpods%'OR product_name LIKE '%airpods%' OR product_name LIKE '%ipad%' OR product_name LIKE '%imac%' OR product_name LIKE '%apple%' OR product_name LIKE '%mac mini%') AND order_item_price_per_unit>100 ",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = brand_name_from_product_name WHERE merchant_name IN ('back market','apple','boulanger') AND brand_name = 'brand not captured' AND (brand_name_from_product_name IS NOT NULL OR brand_name_from_product_name <> '' )",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE brand_name = 'brand not captured' AND merchant_name IN ('back market','destocksource','recommerce','reconditionneneuf','smarter', 'apple') AND (product_name LIKE '%mac%' OR product_name LIKE '%iphone%' OR product_name LIKE '%earpods%'OR product_name LIKE '%airpods%' OR product_name LIKE '%ipad%' OR product_name LIKE '%imac%' OR product_name LIKE '%apple%' OR product_name LIKE '%mac mini%') AND order_item_price_per_unit>100 ",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = brand_name_from_product_name WHERE merchant_name IN ('back market','apple','boulanger') AND brand_name = 'brand not captured' AND (brand_name_from_product_name IS NOT NULL OR brand_name_from_product_name <> '' )",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished' WHERE (merchant_name IN ('back market', 'certideal','destocksource','recommerce','reconditionneneuf','smarter') OR product_name LIKE '%reconditionne%' OR product_description LIKE '%reconditionne%' OR product_name_default LIKE '%reconditionne%' OR product_name LIKE '% grade a%' OR product_name LIKE '% grade b%' OR seller_name_raw LIKE '%reconditionne%' OR seller_name LIKE '%reconditionne%' OR seller_name LIKE '%refurb%' OR order_item_state LIKE '%reconditionne%')",
-        "UPDATE {{destDatabase}}.{{tableName}} AS ft SET is_seller_reconditioning = '1' FROM {{assetDatabase}}.seller_reconditioner AS s WHERE ft.seller_name = s.seller_name",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished' WHERE is_seller_reconditioning = '1'",
-        "UPDATE {{destDatabase}}.{{tableName}} AS ft SET is_seller_reconditioning_extended = '1' FROM {{assetDatabase}}.seller_reconditioner_extended AS s  WHERE ft.seller_name = s.seller_name",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished (extended)' WHERE is_seller_reconditioning_extended = '1' and is_seller_reconditioning IS NULL",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished (extended)' WHERE is_reconditioned IS NULL AND (product_name LIKE '%occasion %' OR product_description LIKE '%occasion %') ",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'new' WHERE is_reconditioned IS NULL",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE (brand_name='iphones reconditionnes' OR brand_name='imac et macbook reconditionnes' OR brand_name='apple watch reconditionnees' OR brand_name='airpods reconditionnes' OR brand_name='ipad 2 et 4 reconditionnes' OR brand_name='apple watch reconditionnees' OR brand_name='apple reconditionnes')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE brand_name LIKE '%ipad%reconditionnes%' AND merchant_name IN ('vente privee','showroom prive')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'lenovo' WHERE brand_name LIKE '%lenovo reconditionne%' AND merchant_name IN ('vente privee','showroom prive')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'samsung' WHERE brand_name='s7 et s7 edge reconditionnes' AND merchant_name IN ('vente privee','showroom prive')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET product_name_default = CONCAT(bm_category_0,' - ',bm_category_1,' - ',brand_name,' - ', order_item_price_per_unit_with_promo_contributions_price_range) WHERE bm_category_0 is not null and bm_category_1 is not null",
-        "UPDATE {{destDatabase}}.{{tableName}} SET bm_category_0='uncategorized' WHERE merchant_name = 'certideal'"
+        "DELETE {{destDatabase}}.{{tableName}} WHERE country not in ('fr') or country is null",
+        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.start_loyalty_amazon = c.start_loyalty_amazon FROM {{assetDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer",
+        "UPDATE {{destDatabase}}.{{tableName}} ft SET ft.is_loyalty_amazon = IF (ft.start_loyalty_amazon IS NULL, NULL, IF (cast(order_datetime as date) > c.start_loyalty_amazon, 1, 0)) FROM {{assetDatabase}}.customer_is_amazon_prime c WHERE ft.id_customer = c.id_customer"
     ]
 }
