@@ -213,7 +213,7 @@
         ],
         "where": [
             {
-                "table": "order_items",
+                "table": "parsers",
                 "fields": [
                     {
                         "name": "merchant_name",
