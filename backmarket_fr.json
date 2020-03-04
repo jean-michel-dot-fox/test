@@ -11,6 +11,9 @@
                     },
                     {
                         "name": "brand_name"
+                    },
+                    {
+                        "name": "last_update"
                     }
                 ]
             },
