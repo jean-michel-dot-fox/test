@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "showroom_privee_fr",
+    "tableName": "flat_table_ecom_fr_srp_beta_fb3",
     "query": {
         "select": [
             {
@@ -177,6 +177,9 @@
                     },
                     {
                         "name": "is_email_remover"
+                    },
+                    {
+                        "name": "customer_zipcode"
                     }
                 ]
             },
@@ -242,6 +245,19 @@
                                     "conforama",
                                     "ikea",
                                     "maisons du monde"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "parser_name",
+                        "conditions": [
+                            {
+                                "operator": "NOT IN",
+                                "values": [
+                                    "venteprivee-new-fr-3",
+                                    "amazon-new-fr-2",
+                                    "showroomprive-new-fr-3"
                                 ]
                             }
                         ]
@@ -314,7 +330,7 @@
                                 "method": "year",
                                 "operator": ">",
                                 "values": [
-                                    2014
+                                    2016
                                 ]
                             }
                         ]
@@ -338,27 +354,14 @@
                 ]
             }
         ],
-        "addOnWhere": ""
+        "addOnWhere": "parser_name LIKE '%-new-fr-%' AND parser_name NOT LIKE '%-offline-%' AND parser_name NOT LIKE '%-shop-%'"
     },
     "modules": [
         {
             "name": "customerFoxbrainReady",
             "parameters": {
-                "deltaInDays": 5
+                "deltaInDays": 999
             }
-        },
-        {
-            "name": "zipCodeFromAddress",
-            "parameters": [
-                {
-                    "table": "order_items",
-                    "fields": [
-                        {
-                            "name": "order_item_delivery_address"
-                        }
-                    ]
-                }
-            ]
         },
         {
             "name": "cleanPromo"
@@ -391,7 +394,19 @@
             "name": "isWeekend"
         },
         {
-            "name": "geolocationBusinessRulesOrderItems"
+            "name": "geolocationBusinessRulesOrderItems",
+            "parameters": {
+                "requiredFields": [
+                    "order_item_main_country",
+                    "order_item_main_zipcode"
+                ],
+                "additionalFields": [
+                    "order_item_delivery_address"
+                ]
+            }
+        },
+        {
+            "name": "geolocationBusinessRulesCustomers"
         },
         {
             "name": "weekDay"
@@ -404,6 +419,9 @@
         },
         {
             "name": "contributions"
+        },
+        {
+            "name": "customerAgeRange"
         },
         {
             "name": "hourRange",
@@ -422,7 +440,7 @@
                         15,
                         18,
                         20,
-                        23
+                        24
                     ]
                 }
             ]
@@ -505,7 +523,7 @@
                         "table": "order_items",
                         "fields": [
                             {
-                                "name": "order_item_price_per_unit"
+                                "name": "order_item_price_per_unit_with_promo_contributions"
                             }
                         ],
                         "intervals": [
@@ -518,6 +536,12 @@
                             500
                         ]
                     }
+                },
+                {
+                    "name": "mappingCategories",
+                    "merchants": [
+                        "showroom prive"
+                    ]
                 }
             ]
         },
@@ -525,7 +549,6 @@
             "name": "cohorts",
             "parameters": {
                 "years": [
-                    2015,
                     2016,
                     2017,
                     2018,
@@ -599,18 +622,14 @@
                     1,
                     2,
                     3,
-                    6,
-                    11,
-                    21
+                    6
                 ],
                 "values": [
                     "0 D",
                     "1 D",
                     "2 D",
                     "3-5 D",
-                    "6-10 D",
-                    "11-20 D",
-                    "> 20 D"
+                    "> 5 D"
                 ]
             }
         },
@@ -623,15 +642,40 @@
                 {
                     "name": "product_name_stock",
                     "type": "string"
+                },
+                {
+                    "name": "customer_gender_customer_age_range",
+                    "type": "string"
+                },
+                {
+                    "name": "customer_segment",
+                    "type": "integer"
+                },
+                {
+                    "name": "order_item_total_price_paid_with_contributions_ponderated",
+                    "type": "float"
+                },
+                {
+                    "name": "order_item_total_price_paid_with_contributions_coef",
+                    "type": "float"
                 }
             ]
         }
     ],
     "userQueries": [
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'",
         "UPDATE {{destDatabase}}.{{tableName}} SET product_name_stock = product_name WHERE merchant_name = 'ikea'",
-        "UPDATE {{destDatabase}}.{{tableName}} SET product_name = CONCAT(product_name_stock, '_', product_description) WHERE merchant_name = 'ikea'"
+        "UPDATE {{destDatabase}}.{{tableName}} SET product_name = CONCAT(product_name_stock, '_', product_description) WHERE merchant_name = 'ikea'",
+        "UPDATE {{destDatabase}}.{{tableName}} SET customer_gender_customer_age_range = CONCAT(cast(customer_gender as string),',',customer_age_range) WHERE TRUE",
+        "UPDATE {{destDatabase}}.{{tableName}} SET customer_segment = 11 WHERE customer_gender = 1 AND customer_age_range IN ('15 - 24', '25 - 34')",
+        "UPDATE {{destDatabase}}.{{tableName}} SET customer_segment = 12 WHERE customer_gender = 1 AND customer_age_range NOT IN ('15 - 24', '25 - 34') AND customer_age_range IS NOT NULL",
+        "UPDATE {{destDatabase}}.{{tableName}} SET customer_segment = 21 WHERE customer_gender = 2 AND customer_age_range IN ('15 - 24', '25 - 34')",
+        "UPDATE {{destDatabase}}.{{tableName}} SET customer_segment = 22 WHERE customer_gender = 2 AND customer_age_range NOT IN ('15 - 24', '25 - 34') AND customer_age_range IS NOT NULL",
+        "UPDATE {{destDatabase}}.{{tableName}} SET customer_segment = 30 WHERE (customer_segment NOT IN (11,12,21,22) or customer_segment is null)",
+        "UPDATE {{destDatabase}}.{{tableName}} SET order_item_total_price_paid_with_contributions_coef = 0.5,order_item_total_price_paid_with_contributions_ponderated = order_item_total_price_paid_with_contributions*0.5  WHERE customer_segment = 11",
+        "UPDATE {{destDatabase}}.{{tableName}} SET order_item_total_price_paid_with_contributions_coef = 2,order_item_total_price_paid_with_contributions_ponderated = order_item_total_price_paid_with_contributions*2  WHERE customer_segment = 12",
+        "UPDATE {{destDatabase}}.{{tableName}} SET order_item_total_price_paid_with_contributions_coef = 0.6,order_item_total_price_paid_with_contributions_ponderated = order_item_total_price_paid_with_contributions*0.6  WHERE customer_segment = 21",
+        "UPDATE {{destDatabase}}.{{tableName}} SET order_item_total_price_paid_with_contributions_coef = 2.6,order_item_total_price_paid_with_contributions_ponderated = order_item_total_price_paid_with_contributions*2.6  WHERE customer_segment = 22",
+        "UPDATE {{destDatabase}}.{{tableName}} SET order_item_total_price_paid_with_contributions_coef = 1,order_item_total_price_paid_with_contributions_ponderated = order_item_total_price_paid_with_contributions  WHERE customer_segment = 30",
+        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = brand_name_from_product_name WHERE brand_name_from_product_name IS NOT NULL AND brand_name_from_product_name <> '' AND (brand_name IS NULL OR brand_name = '' OR brand_name = 'brand not captured')"
     ]
 }
