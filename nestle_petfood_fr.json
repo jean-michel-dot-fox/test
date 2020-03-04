@@ -356,6 +356,9 @@
             "name": "cleanFields"
         },
         {
+            "name": "geolocationBusinessRulesOrderItems"
+        },
+        {
             "name": "isGoogleProvider"
         },
         {
@@ -460,16 +463,7 @@
             "parameters": {
                 "merchants": [
                     "amazon",
-                    "cdiscount",
-                    "darty",
-                    "la redoute",
-                    "priceminister",
-                    "fnac",
-                    "wish",
-                    "vinted",
-                    "vente privee",
-                    "boulanger",
-                    "conforama"
+                    "cdiscount"
                 ]
             }
         },
@@ -549,17 +543,6 @@
                     "beaute privee",
                     "westwing",
                     "bricoprive"
-                ]
-            }
-        },
-        {
-            "name": "brandNameFromProductName",
-            "parameters": {
-                "merchants": [
-                    "sephora",
-                    "marionnaud",
-                    "boulanger",
-                    "conforama"
                 ]
             }
         },
