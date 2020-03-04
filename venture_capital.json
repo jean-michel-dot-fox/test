@@ -45,9 +45,6 @@
                         "name": "order_total_fees"
                     },
                     {
-                        "name": "order_tip"
-                    },
-                    {
                         "name": "order_distinct_item_quantity"
                     },
                     {
@@ -224,115 +221,32 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "vente privee",
-                                    "showroom prive",
+                                    "3 suisses",
+                                    "alibaba",
+                                    "alltricks",
                                     "amazon",
-                                    "fnac",
-                                    "darty",
-                                    "cdiscount",
-                                    "zalando",
-                                    "sarenza",
-                                    "asos",
-                                    "la redoute",
-                                    "sephora",
-                                    "marionnaud",
-                                    "yves rocher",
-                                    "beaute privee",
+                                    "back market",
                                     "boulanger",
                                     "conforama",
-                                    "ikea",
-                                    "maisons du monde",
-                                    "vinted",
-                                    "vestiaire collective"
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "orders",
-                "fields": [
-                    {
-                        "name": "order_is_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_trash",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_spam",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_moved_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_currency",
-                        "conditions": [
-                            {
-                                "operator": "IN",
-                                "values": [
-                                    "eur",
-                                    "EUR"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_datetime",
-                        "conditions": [
-                            {
-                                "method": "year",
-                                "operator": ">",
-                                "values": [
-                                    2014
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "customers",
-                "fields": [
-                    {
-                        "name": "is_invalid_grant",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    1
+                                    "cdiscount",
+                                    "darty",
+                                    "ebay",
+                                    "fnac",
+                                    "gearbest",
+                                    "joom",
+                                    "la redoute",
+                                    "ldlc",
+                                    "leroy merlin",
+                                    "manomano",
+                                    "priceminister",
+                                    "rue du commerce",
+                                    "vente privee",
+                                    "showroom prive",
+                                    "samsung",
+                                    "ubaldi",
+                                    "wish",
+                                    "zalando",
+                                    "zooplus"
                                 ]
                             }
                         ]
@@ -343,6 +257,12 @@
         "addOnWhere": ""
     },
     "modules": [
+        {
+            "name": "segmentation",
+            "parameters": {
+                "startDate": "2017-01-01"
+            }
+        },
         {
             "name": "customerFoxbrainReady",
             "parameters": {
@@ -421,7 +341,7 @@
                         15,
                         18,
                         20,
-                        23
+                        24
                     ]
                 }
             ]
@@ -531,26 +451,32 @@
                     2019
                 ],
                 "merchants": [
-                    "vente privee",
-                    "showroom prive",
+                    "3 suisses",
+                    "alibaba",
+                    "alltricks",
                     "amazon",
-                    "fnac",
-                    "darty",
-                    "cdiscount",
-                    "zalando",
-                    "sarenza",
-                    "asos",
-                    "la redoute",
-                    "sephora",
-                    "marionnaud",
-                    "yves rocher",
-                    "beaute privee",
+                    "back market",
                     "boulanger",
                     "conforama",
-                    "ikea",
-                    "maisons du monde",
-                    "vinted",
-                    "vestiaire collective"
+                    "cdiscount",
+                    "darty",
+                    "ebay",
+                    "fnac",
+                    "gearbest",
+                    "joom",
+                    "la redoute",
+                    "ldlc",
+                    "leroy merlin",
+                    "manomano",
+                    "priceminister",
+                    "rue du commerce",
+                    "vente privee",
+                    "showroom prive",
+                    "samsung",
+                    "ubaldi",
+                    "wish",
+                    "zalando",
+                    "zooplus"
                 ]
             }
         },
@@ -614,50 +540,11 @@
                     "> 20 D"
                 ]
             }
-        },
-        {
-            "name": "customerGender"
-        },
-        {
-            "name": "extraFields",
-            "parameters": [
-                {
-                    "name": "is_reconditioned",
-                    "type": "integer"
-                },
-                {
-                    "name": "is_seller_reconditioning",
-                    "type": "integer"
-                },
-                {
-                    "name": "is_reconditioned_extended",
-                    "type": "integer"
-                },
-                {
-                    "name": "product_name_stock",
-                    "type": "string"
-                }
-            ]
         }
     ],
     "userQueries": [
         "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
         "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished', is_reconditioned_extended = 'refurbished (extended)' WHERE (merchant_name IN ('back market', 'certideal','destocksource','recommerce','reconditionneneuf','smarter') OR product_name LIKE '%reconditionne%' OR product_description LIKE '%reconditionne%' OR product_name_default LIKE '%reconditionne%' OR product_name LIKE '% grade a%' OR product_name LIKE '% grade a+%' OR product_name LIKE '% grade b%' OR product_name LIKE '% grade b+%' OR seller_name_raw LIKE '%reconditionne%' OR seller_name LIKE '%reconditionne%' OR seller_name LIKE '%refurb%' OR order_item_state LIKE '%reconditionne%')",
-        "UPDATE {{destDatabase}}.{{tableName}} AS ft SET is_seller_reconditioning = 1 FROM {{assetDatabase}}.sellers_reconditioner AS s WHERE ft.seller_name = s.seller_name",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'refurbished' WHERE is_seller_reconditioning = 1",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned = 'new' WHERE is_reconditioned IS NULL",
-        "UPDATE {{destDatabase}}.{{tableName}} AS ft SET is_seller_reconditioning_extended = 1 FROM {{assetDatabase}}.sellers_reconditioner_extended AS s WHERE ft.seller_name = s.seller_name",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned_extended = 'refurbished' WHERE is_seller_reconditioning_extended = 1",
-        "UPDATE {{destDatabase}}.{{tableName}} SET is_reconditioned_extended = 'new' WHERE is_reconditioned_extended IS NULL",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE (brand_name='iphones reconditionnes' OR brand_name='imac et macbook reconditionnes' OR brand_name='apple watch reconditionnees' OR brand_name='airpods reconditionnes' OR brand_name='ipad 2 et 4 reconditionnes' OR brand_name='apple watch reconditionnees' OR brand_name='apple reconditionnes')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'apple' WHERE brand_name LIKE '%ipad%reconditionnes%' AND merchant_name IN ('vente privee','showroom prive')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'lenovo' WHERE brand_name LIKE '%lenovo reconditionne%' AND merchant_name IN ('vente privee','showroom prive')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET brand_name = 'samsung' WHERE brand_name='s7 et s7 edge reconditionnes' AND merchant_name IN ('vente privee','showroom prive')",
-        "UPDATE {{destDatabase}}.{{tableName}} SET product_name_default = CONCAT(bm_category_0, ' - ', bm_category_1, ' - ', brand_name, ' - ', order_item_price_per_unit_with_promo_contributions_range)",
-        "UPDATE {{destDatabase}}.{{tableName}} SET bm_category_0='uncategorized' WHERE merchant_name = 'certideal'",
-        "UPDATE {{destDatabase}}.{{tableName}} SET product_name_stock = product_name WHERE merchant_name = 'ikea'",
-        "UPDATE {{destDatabase}}.{{tableName}} SET product_name = CONCAT(product_name_stock, '_', product_description) WHERE merchant_name = 'ikea'"
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'"
     ]
 }
