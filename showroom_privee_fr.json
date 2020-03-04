@@ -616,6 +616,15 @@
         },
         {
             "name": "customerGender"
+        },
+        {
+            "name": "extraFields",
+            "parameters": [
+                {
+                    "name": "product_name_stock",
+                    "type": "string"
+                }
+            ]
         }
     ],
     "userQueries": [
