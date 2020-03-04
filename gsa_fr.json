@@ -45,9 +45,6 @@
                         "name": "order_total_fees"
                     },
                     {
-                        "name": "order_tip"
-                    },
-                    {
                         "name": "order_distinct_item_quantity"
                     },
                     {
@@ -111,12 +108,6 @@
                     },
                     {
                         "name": "order_item_foxid"
-                    },
-                    {
-                        "name": "order_item_type"
-                    },
-                    {
-                        "name": "order_item_delivery_type"
                     }
                 ]
             },
@@ -230,108 +221,32 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "carrefour",
-                                    "ooshop",
-                                    "intermarche",
-                                    "auchan",
-                                    "auchan direct",
-                                    "leclerc",
-                                    "super u",
-                                    "casino",
-                                    "monoprix",
-                                    "franprix",
-                                    "chronodrive",
-                                    "houra",
-                                    "amazon prime"
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "orders",
-                "fields": [
-                    {
-                        "name": "order_is_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_trash",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_spam",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_moved_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_currency",
-                        "conditions": [
-                            {
-                                "operator": "IN",
-                                "values": [
-                                    "eur",
-                                    "EUR"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_datetime",
-                        "conditions": [
-                            {
-                                "method": "year",
-                                "operator": ">",
-                                "values": [
-                                    2014
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "customers",
-                "fields": [
-                    {
-                        "name": "is_invalid_grant",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    1
+                                    "3 suisses",
+                                    "alibaba",
+                                    "alltricks",
+                                    "amazon",
+                                    "back market",
+                                    "boulanger",
+                                    "conforama",
+                                    "cdiscount",
+                                    "darty",
+                                    "ebay",
+                                    "fnac",
+                                    "gearbest",
+                                    "joom",
+                                    "la redoute",
+                                    "ldlc",
+                                    "leroy merlin",
+                                    "manomano",
+                                    "priceminister",
+                                    "rue du commerce",
+                                    "vente privee",
+                                    "showroom prive",
+                                    "samsung",
+                                    "ubaldi",
+                                    "wish",
+                                    "zalando",
+                                    "zooplus"
                                 ]
                             }
                         ]
@@ -342,6 +257,12 @@
         "addOnWhere": ""
     },
     "modules": [
+        {
+            "name": "segmentation",
+            "parameters": {
+                "startDate": "2017-01-01"
+            }
+        },
         {
             "name": "customerFoxbrainReady",
             "parameters": {
@@ -369,9 +290,6 @@
         },
         {
             "name": "cleanFields"
-        },
-        {
-            "name": "geolocationBusinessRulesOrderItems"
         },
         {
             "name": "isGoogleProvider"
@@ -423,7 +341,7 @@
                         15,
                         18,
                         20,
-                        23
+                        24
                     ]
                 }
             ]
@@ -533,19 +451,32 @@
                     2019
                 ],
                 "merchants": [
-                    "carrefour",
-                    "ooshop",
-                    "intermarche",
-                    "auchan",
-                    "auchan direct",
-                    "leclerc",
-                    "super u",
-                    "casino",
-                    "monoprix",
-                    "franprix",
-                    "chronodrive",
-                    "houra",
-                    "amazon prime"
+                    "3 suisses",
+                    "alibaba",
+                    "alltricks",
+                    "amazon",
+                    "back market",
+                    "boulanger",
+                    "conforama",
+                    "cdiscount",
+                    "darty",
+                    "ebay",
+                    "fnac",
+                    "gearbest",
+                    "joom",
+                    "la redoute",
+                    "ldlc",
+                    "leroy merlin",
+                    "manomano",
+                    "priceminister",
+                    "rue du commerce",
+                    "vente privee",
+                    "showroom prive",
+                    "samsung",
+                    "ubaldi",
+                    "wish",
+                    "zalando",
+                    "zooplus"
                 ]
             }
         },
@@ -577,6 +508,17 @@
             }
         },
         {
+            "name": "brandNameFromProductName",
+            "parameters": {
+                "merchants": [
+                    "sephora",
+                    "marionnaud",
+                    "boulanger",
+                    "conforama"
+                ]
+            }
+        },
+        {
             "name": "deliveryDateType",
             "parameters": {
                 "mode": "average",
@@ -598,25 +540,11 @@
                     "> 20 D"
                 ]
             }
-        },
-        {
-            "name": "customerGender"
-        },
-        {
-            "name": "extraFields",
-            "parameters": [
-                {
-                    "name": "drive_or_home_delivery",
-                    "type": "string"
-                }
-            ]
         }
     ],
     "userQueries": [
         "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
         "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'",
-        "UPDATE {{destDatabase}}.{{tableName}} SET drive_or_home_delivery = 'drive' WHERE parser_name IN ('auchandrive-new-fr-1', 'auchandrive-new-fr-2', 'carrefour-new-fr-1', 'casino_drive-new-fr-1', 'chronodrive-new-fr-1', 'leclerc-radar-fr-2')  OR (parser_name IN ('intermarchedrive-new-fr-1','monoprix-new-fr-1','mes_courses_casino-new-fr-1') AND order_item_delivery_type IN ('drive', 'drive pieton', 'retrait en magasin', 'retrait drive', 'click&collect') AND order_item_type != 'mode') OR (parser_name IN ('super u-new-fr-2', 'superu-new-fr-1') AND order_item_delivery_type NOT IN ('delivery', 'livraison a domicile'))",
-        "UPDATE {{destDatabase}}.{{tableName}} SET drive_or_home_delivery = 'home delivery' WHERE drive_or_home_delivery IS NULL AND (parser_name IN ('amazonprime-new-fr-1', 'amazonprime-new-fr-2', 'auchan_direct-new-fr-1', 'auchan_direct-new-fr-2', 'auchandirect-new-fr-3', 'franprix-new-fr-1', 'houra-new-fr-1', 'intermarchedrive-new-fr-1', 'leclerc-radar-fr-1', 'mes_courses_casino-new-fr-1', 'mes_courses_casino-new-fr-2', 'ooshop-new-fr-1', 'ooshop-new-fr-2', 'super u-new-fr-2', 'superu-new-fr-1', 'monoprix-new-fr-2') OR (parser_name = 'monoprix-new-fr-1' AND order_item_type != 'mode'))"
+        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'"
     ]
 }
