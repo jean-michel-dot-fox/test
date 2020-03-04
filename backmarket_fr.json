@@ -367,18 +367,7 @@
     },
     "modules": [
         {
-            "name": "brandNameFromProductName",
-            "parameters": {
-                "merchants": [
-                    "boulanger",
-                    "apple",
-                    "back market",
-                    "destocksource",
-                    "recommerce",
-                    "reconditionneneuf",
-                    "smarter"
-                ]
-            }
+            "name": "brandNameFromProductName"
         },
         {
             "name": "categories",
