@@ -431,15 +431,6 @@
             "name": "weekDay"
         },
         {
-            "name": "sellerNameToMerchantName",
-            "parameters": {
-                "merchants": [
-                    "justeat",
-                    "frichti"
-                ]
-            }
-        },
-        {
             "name": "deliveryArea",
             "parameters": {
                 "merchants": [
@@ -469,9 +460,6 @@
         },
         {
             "name": "geolocationBusinessRulesOrderItems"
-        },
-        {
-            "name": "sanitizeJustEatMerchantName"
         },
         {
             "name": "ponderation",
@@ -602,7 +590,5 @@
             }
         }
     ],
-    "userQueries": [
-        "temp_flat_table_food_fr_foxbrain3_preprod.country not in ('fr') or temp_flat_table_food_fr_foxbrain3_preprod.country is null"
-    ]
+    "userQueries": []
 }
