@@ -221,32 +221,13 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "3 suisses",
-                                    "alibaba",
-                                    "alltricks",
                                     "amazon",
-                                    "back market",
-                                    "boulanger",
-                                    "conforama",
                                     "cdiscount",
-                                    "darty",
-                                    "ebay",
-                                    "fnac",
-                                    "gearbest",
-                                    "joom",
-                                    "la redoute",
-                                    "ldlc",
-                                    "leroy merlin",
-                                    "manomano",
-                                    "priceminister",
-                                    "rue du commerce",
-                                    "vente privee",
-                                    "showroom prive",
-                                    "samsung",
-                                    "ubaldi",
-                                    "wish",
-                                    "zalando",
-                                    "zooplus"
+                                    "zooplus",
+                                    "bitiba",
+                                    "croquetteland",
+                                    "compagniedesanimaux",
+                                    "wanimo"
                                 ]
                             }
                         ]
@@ -451,32 +432,13 @@
                     2019
                 ],
                 "merchants": [
-                    "3 suisses",
-                    "alibaba",
-                    "alltricks",
                     "amazon",
-                    "back market",
-                    "boulanger",
-                    "conforama",
                     "cdiscount",
-                    "darty",
-                    "ebay",
-                    "fnac",
-                    "gearbest",
-                    "joom",
-                    "la redoute",
-                    "ldlc",
-                    "leroy merlin",
-                    "manomano",
-                    "priceminister",
-                    "rue du commerce",
-                    "vente privee",
-                    "showroom prive",
-                    "samsung",
-                    "ubaldi",
-                    "wish",
-                    "zalando",
-                    "zooplus"
+                    "zooplus",
+                    "bitiba",
+                    "croquetteland",
+                    "compagniedesanimaux",
+                    "wanimo"
                 ]
             }
         },
