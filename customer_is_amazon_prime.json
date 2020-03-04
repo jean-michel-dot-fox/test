@@ -187,18 +187,6 @@
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "name": "order_datetime",
-                        "conditions": [
-                            {
-                                "method": "year",
-                                "operator": ">",
-                                "values": [
-                                    2014
-                                ]
-                            }
-                        ]
                     }
                 ]
             }
@@ -214,22 +202,6 @@
             "parameters": {
                 "deltaInDays": 5
             }
-        },
-        {
-            "name": "zipCodeFromAddress",
-            "parameters": [
-                {
-                    "table": "order_items",
-                    "fields": [
-                        {
-                            "name": "order_item_delivery_address"
-                        },
-                        {
-                            "name": "order_item_address"
-                        }
-                    ]
-                }
-            ]
         },
         {
             "name": "categories",
