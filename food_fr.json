@@ -1,6 +1,6 @@
 {
     "industryType": "food",
-    "tableName": "food-fr",
+    "tableName": "food",
     "query": {
         "select": [
             {
@@ -431,14 +431,6 @@
             "name": "weekDay"
         },
         {
-            "name": "deliveryArea",
-            "parameters": {
-                "merchants": [
-                    "deliveroo"
-                ]
-            }
-        },
-        {
             "name": "loyaltyFood",
             "parameters": {
                 "merchants": [
@@ -469,9 +461,6 @@
         },
         {
             "name": "contributions"
-        },
-        {
-            "name": "orderItemDurationMinutes"
         },
         {
             "name": "hourRange",
