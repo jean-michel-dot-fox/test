@@ -639,10 +639,7 @@
             "name": "brandNameFromProductName",
             "parameters": {
                 "merchants": [
-                    "sephora",
-                    "marionnaud",
-                    "boulanger",
-                    "conforama"
+                    "boulanger"
                 ]
             }
         },
