@@ -635,10 +635,13 @@
             "name": "brandNameFromProductName",
             "parameters": {
                 "merchants": [
-                    "sephora",
-                    "marionnaud",
                     "boulanger",
-                    "conforama"
+                    "apple",
+                    "back market",
+                    "destocksource",
+                    "recommerce",
+                    "reconditionneneuf",
+                    "smarter"
                 ]
             }
         },
