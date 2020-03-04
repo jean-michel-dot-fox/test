@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "veepee",
+    "tableName": "dsadadasdas",
     "query": {
         "select": [
             {
@@ -45,16 +45,7 @@
                         "name": "order_total_fees"
                     },
                     {
-                        "name": "order_tip"
-                    },
-                    {
                         "name": "order_distinct_item_quantity"
-                    },
-                    {
-                        "name": "order_created_at"
-                    },
-                    {
-                        "name": "order_foxid"
                     }
                 ]
             },
@@ -162,21 +153,6 @@
                     },
                     {
                         "name": "provider"
-                    },
-                    {
-                        "name": "customer_created_at"
-                    },
-                    {
-                        "name": "customer_last_update"
-                    },
-                    {
-                        "name": "customer_last_upgrade"
-                    },
-                    {
-                        "name": "customer_last_export"
-                    },
-                    {
-                        "name": "is_email_remover"
                     }
                 ]
             },
@@ -193,9 +169,6 @@
                 "fields": [
                     {
                         "name": "parser_name"
-                    },
-                    {
-                        "name": "id_parser"
                     },
                     {
                         "name": "parser_lang"
@@ -224,24 +197,30 @@
                             {
                                 "operator": "IN",
                                 "values": [
+                                    "vente privee",
+                                    "showroom prive",
                                     "amazon",
-                                    "asos",
-                                    "boulanger",
-                                    "bricoprive",
-                                    "cdiscount",
-                                    "darty",
                                     "fnac",
+                                    "darty",
+                                    "cdiscount",
+                                    "zalando",
+                                    "sarenza",
+                                    "asos",
                                     "la redoute",
+                                    "sephora",
+                                    "marionnaud",
+                                    "yves rocher",
+                                    "beaute privee",
+                                    "boulanger",
+                                    "conforama",
+                                    "ikea",
+                                    "maisons du monde",
+                                    "bricoprive",
                                     "leroy merlin",
                                     "manomano",
                                     "priceminister",
-                                    "private sport shop",
-                                    "sarenza",
-                                    "showroom prive",
-                                    "vente privee",
-                                    "vinted",
                                     "wish",
-                                    "zalando"
+                                    "private sport shop"
                                 ]
                             }
                         ]
@@ -251,99 +230,6 @@
             {
                 "table": "orders",
                 "fields": [
-                    {
-                        "name": "order_is_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_trash",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_spam",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_moved_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "table": "orders",
-                "fields": [
-                    {
-                        "name": "order_is_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_trash",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_spam",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_moved_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
                     {
                         "name": "order_currency",
                         "conditions": [
@@ -371,15 +257,27 @@
                 ]
             },
             {
-                "table": "customers",
+                "table": "parsers",
                 "fields": [
                     {
-                        "name": "is_invalid_grant",
+                        "name": "parser_name",
                         "conditions": [
                             {
-                                "operator": "NOT IN",
+                                "operator": "LIKE",
                                 "values": [
-                                    1
+                                    "%-new-fr-%"
+                                ]
+                            },
+                            {
+                                "operator": "NOT LIKE",
+                                "values": [
+                                    "%-offline-%"
+                                ]
+                            },
+                            {
+                                "operator": "NOT LIKE",
+                                "values": [
+                                    "%-shop-%"
                                 ]
                             }
                         ]
@@ -397,26 +295,7 @@
             }
         },
         {
-            "name": "zipCodeFromAddress",
-            "parameters": [
-                {
-                    "table": "order_items",
-                    "fields": [
-                        {
-                            "name": "order_item_delivery_address"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "name": "cleanPromo"
-        },
-        {
-            "name": "customerAgeRange"
-        },
-        {
-            "name": "cleanFields"
         },
         {
             "name": "isGoogleProvider"
@@ -443,13 +322,33 @@
             "name": "weekDay"
         },
         {
-            "name": "ponderation",
-            "parameters": {
-                "fieldName": "coeff_with_merch_food_cab_7_clusters"
-            }
+            "name": "ponderation"
         },
         {
             "name": "contributions"
+        },
+        {
+            "name": "audiences",
+            "parameters": {
+                "audiences": [
+                    "Foodies",
+                    "Cooking Enthusiasts",
+                    "Shutterbugs",
+                    "Savvy Parents",
+                    "Pet lovers",
+                    "Do-it-yourselfers",
+                    "Auto enthusiasts",
+                    "Fashionistas",
+                    "Beauty Mavens",
+                    "Home decor enthusiasts",
+                    "Technophiles",
+                    "Night life enthusiasts",
+                    "Political junkies",
+                    "Fast food cravers",
+                    "Avid Investors",
+                    "Sports fans"
+                ]
+            }
         },
         {
             "name": "hourRange",
@@ -468,7 +367,7 @@
                         15,
                         18,
                         20,
-                        23
+                        24
                     ]
                 }
             ]
@@ -501,9 +400,6 @@
                         },
                         {
                             "name": "order_item_price_per_unit"
-                        },
-                        {
-                            "name": "order_item_price_per_unit_with_promo_contributions"
                         }
                     ],
                     "intervals": [
@@ -568,7 +464,8 @@
                 {
                     "name": "mappingCategories",
                     "merchants": [
-                        "vente privee"
+                        "vente privee",
+                        "showroom prive"
                     ]
                 }
             ]
@@ -586,7 +483,6 @@
                 "merchants": [
                     "amazon",
                     "asos",
-                    "boulanger",
                     "bricoprive",
                     "cdiscount",
                     "darty",
@@ -595,13 +491,20 @@
                     "leroy merlin",
                     "manomano",
                     "priceminister",
-                    "private sport shop",
                     "sarenza",
                     "showroom prive",
                     "vente privee",
-                    "vinted",
+                    "zalando",
                     "wish",
-                    "zalando"
+                    "boulanger",
+                    "private sport shop",
+                    "sephora",
+                    "marionnaud",
+                    "yves rocher",
+                    "beaute privee",
+                    "conforama",
+                    "ikea",
+                    "maisons du monde"
                 ]
             }
         },
@@ -617,6 +520,9 @@
                     "vente privee"
                 ]
             }
+        },
+        {
+            "name": "orderPlacedBeforeAndDuringLoyaltyYear"
         },
         {
             "name": "merchantType",
@@ -667,12 +573,18 @@
             }
         },
         {
-            "name": "customerGender"
+            "name": "zipCodeFromAddress",
+            "parameters": [
+                {
+                    "table": "order_items",
+                    "fields": [
+                        {
+                            "name": "order_item_delivery_address"
+                        }
+                    ]
+                }
+            ]
         }
     ],
-    "userQueries": [
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' or parser_name='amazon-new-fr-2' OR parser_name='showroomprive-new-fr-3'"
-    ]
+    "userQueries": []
 }
