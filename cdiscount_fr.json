@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "veepee",
+    "tableName": "cdiscount_fr",
     "query": {
         "select": [
             {
