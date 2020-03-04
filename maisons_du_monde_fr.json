@@ -336,7 +336,7 @@
                 ]
             }
         ],
-        "addOnWhere": "order_items.id_order_item IN (SELECT id_flat_table FROM `flat_table_assets`.`temporary_mdm_id `) "
+        "addOnWhere": "order_items.id_order_item IN (SELECT id_flat_table FROM `flat_table_assets`.`temporary_mdm_id`) "
     },
     "modules": [
         {
