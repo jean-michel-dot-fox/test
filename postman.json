@@ -1,0 +1,505 @@
+{
+    "industryType": "ecom",
+    "tableName": "BackMarket",
+    "query": {
+        "select": [
+            {
+                "table": "brands",
+                "fields": [
+                    {
+                        "name": "id_brand"
+                    },
+                    {
+                        "name": "brand_name"
+                    }
+                ]
+            },
+            {
+                "table": "customers",
+                "fields": [
+                    {
+                        "name": "id_customer"
+                    },
+                    {
+                        "name": "customer_birth_year"
+                    },
+                    {
+                        "name": "customer_gender"
+                    },
+                    {
+                        "name": "customer_region"
+                    },
+                    {
+                        "name": "provider"
+                    },
+                    {
+                        "name": "customer_zipcode"
+                    }
+                ]
+            },
+            {
+                "table": "orders",
+                "fields": [
+                    {
+                        "name": "id_order"
+                    },
+                    {
+                        "name": "order_datetime"
+                    },
+                    {
+                        "name": "order_total_paid"
+                    },
+                    {
+                        "name": "order_option_3"
+                    },
+                    {
+                        "name": "order_delivery_fee"
+                    },
+                    {
+                        "name": "order_tip"
+                    },
+                    {
+                        "name": "order_fidelity_additionnal_points"
+                    },
+                    {
+                        "name": "order_item_quantity"
+                    }
+                ]
+            },
+            {
+                "table": "order_items",
+                "fields": [
+                    {
+                        "name": "id_order_item"
+                    },
+                    {
+                        "name": "order_item_delivery_address_city"
+                    },
+                    {
+                        "name": "order_item_delivery_address_country_code"
+                    },
+                    {
+                        "name": "order_item_delivery_address_region"
+                    },
+                    {
+                        "name": "order_item_delivery_address_zipcode"
+                    },
+                    {
+                        "name": "order_item_total_price_paid"
+                    },
+                    {
+                        "name": "order_item_quantity"
+                    }
+                ]
+            },
+            {
+                "table": "parsers",
+                "fields": [
+                    {
+                        "name": "id_parser"
+                    },
+                    {
+                        "name": "merchant_name"
+                    },
+                    {
+                        "name": "parser_name"
+                    }
+                ]
+            },
+            {
+                "table": "products",
+                "fields": [
+                    {
+                        "name": "id_product"
+                    },
+                    {
+                        "name": "product_name"
+                    }
+                ]
+            },
+            {
+                "table": "sellers",
+                "fields": [
+                    {
+                        "name": "id_seller"
+                    },
+                    {
+                        "name": "seller_name"
+                    }
+                ]
+            }
+        ],
+        "where": [
+            {
+                "table": "parsers",
+                "fields": [
+                    {
+                        "name": "merchant_name",
+                        "conditions": [
+                            {
+                                "operator": "IN",
+                                "values": [
+                                    "vente privee",
+                                    "showroom prive",
+                                    "amazon",
+                                    "fnac",
+                                    "darty",
+                                    "cdiscount",
+                                    "zalando",
+                                    "sarenza",
+                                    "asos",
+                                    "la redoute",
+                                    "sephora",
+                                    "marionnaud",
+                                    "yves rocher",
+                                    "beaute privee",
+                                    "boulanger",
+                                    "conforama",
+                                    "ikea",
+                                    "maisons du monde",
+                                    "bricoprive",
+                                    "leroy merlin",
+                                    "manomano",
+                                    "priceminister",
+                                    "wish",
+                                    "private sport shop"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "orders",
+                "fields": [
+                    {
+                        "name": "order_currency",
+                        "conditions": [
+                            {
+                                "operator": "IN",
+                                "values": [
+                                    "eur",
+                                    "EUR"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_datetime",
+                        "conditions": [
+                            {
+                                "method": "year",
+                                "operator": ">",
+                                "values": [
+                                    2014
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "parsers",
+                "fields": [
+                    {
+                        "name": "parser_name",
+                        "conditions": [
+                            {
+                                "operator": "LIKE",
+                                "values": [
+                                    "%-new-fr-%"
+                                ]
+                            },
+                            {
+                                "operator": "NOT LIKE",
+                                "values": [
+                                    "%-offline-%"
+                                ]
+                            },
+                            {
+                                "operator": "NOT LIKE",
+                                "values": [
+                                    "%-shop-%"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "addOnWhere": ""
+    },
+    "modules": [
+        {
+            "name": "categories",
+            "parameters": [
+                {
+                    "name": "authorizedCategories"
+                },
+                {
+                    "name": "concatenateCategory0And1"
+                },
+                {
+                    "name": "mappingMacroCategories"
+                },
+                {
+                    "name": "concatenateDefaultProductName",
+                    "parameters": {
+                        "table": "order_items",
+                        "fields": [
+                            {
+                                "name": "order_item_price_per_unit"
+                            }
+                        ],
+                        "intervals": [
+                            0,
+                            15,
+                            30,
+                            50,
+                            100,
+                            200,
+                            500
+                        ]
+                    }
+                },
+                {
+                    "name": "mappingCategories",
+                    "merchants": [
+                        "vente privee",
+                        "showroom prive"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cleanFields"
+        },
+        {
+            "name": "cleanPromo"
+        },
+        {
+            "name": "cohorts",
+            "parameters": {
+                "years": [
+                    2015,
+                    2016,
+                    2017,
+                    2018,
+                    2019
+                ],
+                "merchants": [
+                    "amazon",
+                    "asos",
+                    "bricoprive",
+                    "cdiscount",
+                    "darty",
+                    "fnac",
+                    "la redoute",
+                    "leroy merlin",
+                    "manomano",
+                    "priceminister",
+                    "sarenza",
+                    "showroom prive",
+                    "vente privee",
+                    "zalando",
+                    "wish",
+                    "boulanger",
+                    "private sport shop",
+                    "sephora",
+                    "marionnaud",
+                    "yves rocher",
+                    "beaute privee",
+                    "conforama",
+                    "ikea",
+                    "maisons du monde"
+                ]
+            }
+        },
+        {
+            "name": "contributions"
+        },
+        {
+            "name": "customerAgeRange"
+        },
+        {
+            "name": "customerBirthYear"
+        },
+        {
+            "name": "customerFoxbrainReady",
+            "parameters": {
+                "deltaInDays": 5
+            }
+        },
+        {
+            "name": "customerGender"
+        },
+        {
+            "name": "customerOptInPanel"
+        },
+        {
+            "name": "foxwatchZone",
+            "parameters": [
+                {
+                    "countryCode": "fr",
+                    "granularityLevel": "order_items",
+                    "fields": [
+                        "order_item_delivery_address_zipcode",
+                        "order_item_delivery_address_zipcode_business_rules",
+                        "order_item_main_zipcode_business_rules"
+                    ]
+                },
+                {
+                    "countryCode": "fr",
+                    "granularityLevel": "customers",
+                    "fields": [
+                        "customer_zipcode_business_rules",
+                        "customer_zipcode"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "geolocationBusinessRulesCustomers"
+        },
+        {
+            "name": "geolocationBusinessRulesOrderItems",
+            "parameters": {
+                "requiredFields": [
+                    "order_item_main_country",
+                    "order_item_main_zipcode"
+                ],
+                "additionalFields": [
+                    "order_item_delivery_address"
+                ]
+            }
+        },
+        {
+            "name": "hourRange",
+            "parameters": [
+                {
+                    "columnPrefix": "order_datetime",
+                    "fields": [
+                        {
+                            "table": "orders",
+                            "name": "order_datetime"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        4,
+                        11,
+                        15,
+                        18,
+                        24
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "idFlatTableOrderDatetime"
+        },
+        {
+            "name": "isGoogleProvider"
+        },
+        {
+            "name": "isWeekDay"
+        },
+        {
+            "name": "isWeekend"
+        },
+        {
+            "name": "loyalty",
+            "parameters": {
+                "merchants": [
+                    "amazon",
+                    "cdiscount",
+                    "la redoute",
+                    "showroom prive",
+                    "asos",
+                    "vente privee"
+                ]
+            }
+        },
+        {
+            "name": "marketplace"
+        },
+        {
+            "name": "merchantType",
+            "parameters": {
+                "merchants": [
+                    "vente privee",
+                    "showroom prive",
+                    "limango",
+                    "private sport shop",
+                    "beaute privee",
+                    "westwing",
+                    "bricoprive"
+                ]
+            }
+        },
+        {
+            "name": "ponderation",
+            "parameters": {
+                "fieldName": "coeff_with_merch_food_cab_7_clusters"
+            }
+        },
+        {
+            "name": "priceRange",
+            "parameters": [
+                {
+                    "table": "orders",
+                    "fields": [
+                        {
+                            "name": "order_total_paid"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        15,
+                        30,
+                        50,
+                        100,
+                        200,
+                        500
+                    ]
+                },
+                {
+                    "table": "order_items",
+                    "fields": [
+                        {
+                            "name": "order_item_total_price_paid"
+                        },
+                        {
+                            "name": "order_item_price_per_unit"
+                        },
+                        {
+                            "name": "order_item_price_per_unit_with_promo_contributions"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        15,
+                        30,
+                        50,
+                        100,
+                        200,
+                        500
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "rankPerUser"
+        },
+        {
+            "name": "rankPerUserPerMerchant"
+        },
+        {
+            "name": "ventilateOrderTotalPaid"
+        },
+        {
+            "name": "weekDay"
+        }
+    ],
+    "userQueries": []
+}
