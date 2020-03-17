@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "backmarket_capital_letters",
+    "tableName": "e2e_testing",
     "query": {
         "select": [
             {
@@ -143,26 +143,16 @@
                                     "showroom prive",
                                     "amazon",
                                     "fnac",
-                                    "darty",
                                     "cdiscount",
                                     "zalando",
-                                    "sarenza",
                                     "asos",
-                                    "la redoute",
-                                    "sephora",
                                     "marionnaud",
-                                    "yves rocher",
                                     "beaute privee",
                                     "boulanger",
-                                    "conforama",
-                                    "ikea",
                                     "maisons du monde",
                                     "bricoprive",
-                                    "leroy merlin",
                                     "manomano",
-                                    "priceminister",
-                                    "wish",
-                                    "private sport shop"
+                                    "wish"
                                 ]
                             }
                         ]
@@ -230,6 +220,9 @@
         "addOnWhere": ""
     },
     "modules": [
+        {
+            "name": "brandNameFromProductName"
+        },
         {
             "name": "categories",
             "parameters": [
