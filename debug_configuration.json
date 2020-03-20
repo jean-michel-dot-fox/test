@@ -11,6 +11,9 @@
                     },
                     {
                         "name": "brand_name"
+                    },
+                    {
+                        "name": "brand_clean_name"
                     }
                 ]
             },
