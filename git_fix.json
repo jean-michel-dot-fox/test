@@ -11,6 +11,12 @@
                     },
                     {
                         "name": "brand_name"
+                    },
+                    {
+                        "name": "brand_clean_name"
+                    },
+                    {
+                        "name": "brand_name_vp"
                     }
                 ]
             },
@@ -125,6 +131,14 @@
                     },
                     {
                         "name": "seller_name"
+                    }
+                ]
+            },
+            {
+                "table": "categories",
+                "fields": [
+                    {
+                        "name": "id_category"
                     }
                 ]
             }
