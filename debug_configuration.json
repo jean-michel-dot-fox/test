@@ -130,6 +130,14 @@
                         "name": "seller_name"
                     }
                 ]
+            },
+            {
+                "table": "categories",
+                "fields": [
+                    {
+                        "name": "id_category"
+                    }
+                ]
             }
         ],
         "where": [
