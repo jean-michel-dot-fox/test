@@ -166,18 +166,6 @@
                 "table": "orders",
                 "fields": [
                     {
-                        "name": "order_currency",
-                        "conditions": [
-                            {
-                                "operator": "IN",
-                                "values": [
-                                    "eur",
-                                    "EUR"
-                                ]
-                            }
-                        ]
-                    },
-                    {
                         "name": "order_datetime",
                         "conditions": [
                             {
