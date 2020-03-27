@@ -1,6 +1,6 @@
 {
     "industryType": "cab",
-    "tableName": "flat_table_cab_all_fr_foxbrain3",
+    "tableName": "cab fr",
     "query": {
         "select": [
             {
@@ -11,195 +11,6 @@
                     },
                     {
                         "name": "brand_name"
-                    }
-                ]
-            },
-            {
-                "table": "orders",
-                "fields": [
-                    {
-                        "name": "id_order"
-                    },
-                    {
-                        "name": "order_item_quantity"
-                    },
-                    {
-                        "name": "order_datetime",
-                        "value": "DATETIME(TIMESTAMP(order_datetime), \"Europe/Paris\")"
-                    },
-                    {
-                        "name": "order_total_paid"
-                    },
-                    {
-                        "name": "order_currency"
-                    },
-                    {
-                        "name": "order_option_3"
-                    },
-                    {
-                        "name": "order_delivery_fee"
-                    },
-                    {
-                        "name": "order_processing_fee"
-                    },
-                    {
-                        "name": "order_total_fees"
-                    },
-                    {
-                        "name": "order_tip"
-                    },
-                    {
-                        "name": "order_distinct_item_quantity"
-                    },
-                    {
-                        "name": "order_created_at"
-                    },
-                    {
-                        "name": "order_foxid"
-                    }
-                ]
-            },
-            {
-                "table": "order_items",
-                "fields": [
-                    {
-                        "name": "id_order_item"
-                    },
-                    {
-                        "name": "order_item_total_price_paid"
-                    },
-                    {
-                        "name": "order_item_quantity"
-                    },
-                    {
-                        "name": "order_item_delivery_address"
-                    },
-                    {
-                        "name": "order_item_delivery_date_max"
-                    },
-                    {
-                        "name": "order_item_delivery_date_min"
-                    },
-                    {
-                        "name": "order_item_delivery_time_max"
-                    },
-                    {
-                        "name": "order_item_delivery_time_min"
-                    },
-                    {
-                        "name": "order_item_duration"
-                    },
-                    {
-                        "name": "order_item_delivery_address_zipcode"
-                    },
-                    {
-                        "name": "order_item_delivery_address_country_code"
-                    },
-                    {
-                        "name": "order_item_delivery_address_region"
-                    },
-                    {
-                        "name": "order_item_delivery_address_subregion"
-                    },
-                    {
-                        "name": "order_item_delivery_address_city"
-                    },
-                    {
-                        "name": "order_item_delivery_address_latitude"
-                    },
-                    {
-                        "name": "order_item_delivery_address_longitude"
-                    },
-                    {
-                        "name": "order_item_delivery_type"
-                    },
-                    {
-                        "name": "order_item_price_per_unit"
-                    },
-                    {
-                        "name": "order_item_address"
-                    },
-                    {
-                        "name": "order_item_address_zipcode"
-                    },
-                    {
-                        "name": "order_item_address_country_code"
-                    },
-                    {
-                        "name": "order_item_address_region"
-                    },
-                    {
-                        "name": "order_item_address_subregion"
-                    },
-                    {
-                        "name": "order_item_address_city"
-                    },
-                    {
-                        "name": "order_item_address_latitude"
-                    },
-                    {
-                        "name": "order_item_address_longitude"
-                    },
-                    {
-                        "name": "order_item_other_fee_1_name"
-                    },
-                    {
-                        "name": "order_item_other_fee_1"
-                    },
-                    {
-                        "name": "order_item_other_fee_2_name"
-                    },
-                    {
-                        "name": "order_item_other_fee_2"
-                    },
-                    {
-                        "name": "order_item_departure_address"
-                    },
-                    {
-                        "name": "order_item_departure_address_latitude"
-                    },
-                    {
-                        "name": "order_item_departure_address_longitude"
-                    },
-                    {
-                        "name": "order_item_departure_address_zipcode"
-                    },
-                    {
-                        "name": "order_item_arrival_address"
-                    },
-                    {
-                        "name": "order_item_arrival_address_zipcode"
-                    },
-                    {
-                        "name": "order_item_arrival_address_latitude"
-                    },
-                    {
-                        "name": "order_item_arrival_address_longitude"
-                    }
-                ]
-            },
-            {
-                "table": "products",
-                "fields": [
-                    {
-                        "name": "id_product"
-                    },
-                    {
-                        "name": "product_name"
-                    },
-                    {
-                        "name": "product_description"
-                    }
-                ]
-            },
-            {
-                "table": "sellers",
-                "fields": [
-                    {
-                        "name": "id_seller"
-                    },
-                    {
-                        "name": "seller_name"
                     }
                 ]
             },
@@ -216,31 +27,113 @@
                         "name": "customer_gender"
                     },
                     {
-                        "name": "customer_hash"
-                    },
-                    {
                         "name": "customer_region"
                     },
                     {
-                        "name": "customer_country"
-                    },
-                    {
                         "name": "provider"
+                    }
+                ]
+            },
+            {
+                "table": "orders",
+                "fields": [
+                    {
+                        "name": "id_order"
                     },
                     {
-                        "name": "customer_created_at"
+                        "name": "order_datetime"
                     },
                     {
-                        "name": "customer_last_update"
+                        "name": "order_delivery_fee"
                     },
                     {
-                        "name": "customer_last_upgrade"
+                        "name": "order_total_paid"
                     },
                     {
-                        "name": "customer_last_export"
+                        "name": "order_option_3"
                     },
                     {
-                        "name": "is_email_remover"
+                        "name": "order_tip"
+                    },
+                    {
+                        "name": "order_currency"
+                    }
+                ]
+            },
+            {
+                "table": "order_items",
+                "fields": [
+                    {
+                        "name": "id_order_item"
+                    },
+                    {
+                        "name": "order_item_delivery_address_city"
+                    },
+                    {
+                        "name": "order_item_delivery_address_country_code"
+                    },
+                    {
+                        "name": "order_item_delivery_address_region"
+                    },
+                    {
+                        "name": "order_item_delivery_address_zipcode"
+                    },
+                    {
+                        "name": "order_item_total_price_paid"
+                    },
+                    {
+                        "name": "order_item_duration"
+                    },
+                    {
+                        "name": "order_item_departure_address"
+                    },
+                    {
+                        "name": "order_item_arrival_address"
+                    },
+                    {
+                        "name": "order_item_departure_address_zipcode"
+                    },
+                    {
+                        "name": "order_item_arrival_address_zipcode"
+                    },
+                    {
+                        "name": "order_item_departure_time"
+                    }
+                ]
+            },
+            {
+                "table": "parsers",
+                "fields": [
+                    {
+                        "name": "id_parser"
+                    },
+                    {
+                        "name": "merchant_name"
+                    },
+                    {
+                        "name": "parser_name"
+                    }
+                ]
+            },
+            {
+                "table": "products",
+                "fields": [
+                    {
+                        "name": "id_product"
+                    },
+                    {
+                        "name": "product_name"
+                    }
+                ]
+            },
+            {
+                "table": "sellers",
+                "fields": [
+                    {
+                        "name": "id_seller"
+                    },
+                    {
+                        "name": "seller_name"
                     }
                 ]
             },
@@ -249,31 +142,6 @@
                 "fields": [
                     {
                         "name": "seller_category_name"
-                    }
-                ]
-            },
-            {
-                "table": "parsers",
-                "fields": [
-                    {
-                        "name": "parser_name"
-                    },
-                    {
-                        "name": "id_parser"
-                    },
-                    {
-                        "name": "parser_lang"
-                    },
-                    {
-                        "name": "merchant_name"
-                    }
-                ]
-            },
-            {
-                "table": "payment_methods",
-                "fields": [
-                    {
-                        "name": "payment_method_name"
                     }
                 ]
             }
@@ -288,14 +156,30 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "chauffeur prive",
-                                    "g7",
-                                    "heetch",
-                                    "lecab",
-                                    "marcel",
-                                    "taxify",
-                                    "uber",
-                                    "deliveroo"
+                                    "vente privee",
+                                    "showroom prive",
+                                    "amazon",
+                                    "fnac",
+                                    "darty",
+                                    "cdiscount",
+                                    "zalando",
+                                    "sarenza",
+                                    "asos",
+                                    "la redoute",
+                                    "sephora",
+                                    "marionnaud",
+                                    "yves rocher",
+                                    "beaute privee",
+                                    "boulanger",
+                                    "conforama",
+                                    "ikea",
+                                    "maisons du monde",
+                                    "bricoprive",
+                                    "leroy merlin",
+                                    "manomano",
+                                    "priceminister",
+                                    "wish",
+                                    "private sport shop"
                                 ]
                             }
                         ]
@@ -303,15 +187,56 @@
                 ]
             },
             {
-                "table": "customers",
+                "table": "orders",
                 "fields": [
                     {
-                        "name": "is_invalid_grant",
+                        "name": "order_currency",
                         "conditions": [
                             {
-                                "operator": "NOT IN",
+                                "operator": "IN",
                                 "values": [
-                                    1
+                                    "eur",
+                                    "EUR"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "order_datetime",
+                        "conditions": [
+                            {
+                                "method": "year",
+                                "operator": ">",
+                                "values": [
+                                    2014
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "parsers",
+                "fields": [
+                    {
+                        "name": "parser_name",
+                        "conditions": [
+                            {
+                                "operator": "LIKE",
+                                "values": [
+                                    "%-new-fr-%"
+                                ]
+                            },
+                            {
+                                "operator": "NOT LIKE",
+                                "values": [
+                                    "%-offline-%"
+                                ]
+                            },
+                            {
+                                "operator": "NOT LIKE",
+                                "values": [
+                                    "%-shop-%"
                                 ]
                             }
                         ]
@@ -323,14 +248,45 @@
     },
     "modules": [
         {
-            "name": "buyOneGetOneFree",
-            "parameters": {
-                "regex": [
-                    "offert",
-                    "free",
-                    " x2"
-                ]
-            }
+            "name": "categories",
+            "parameters": [
+                {
+                    "name": "authorizedCategories"
+                },
+                {
+                    "name": "concatenateCategory0And1"
+                },
+                {
+                    "name": "mappingMacroCategories"
+                },
+                {
+                    "name": "concatenateDefaultProductName",
+                    "parameters": {
+                        "table": "order_items",
+                        "fields": [
+                            {
+                                "name": "order_item_price_per_unit"
+                            }
+                        ],
+                        "intervals": [
+                            0,
+                            15,
+                            30,
+                            50,
+                            100,
+                            200,
+                            500
+                        ]
+                    }
+                },
+                {
+                    "name": "mappingCategories",
+                    "merchants": [
+                        "vente privee",
+                        "showroom prive"
+                    ]
+                }
+            ]
         },
         {
             "name": "cleanFields"
@@ -342,30 +298,37 @@
             "name": "cohorts",
             "parameters": {
                 "years": [
+                    2015,
+                    2016,
                     2017,
                     2018,
                     2019
                 ],
                 "merchants": [
-                    "cote sushi",
-                    "deliveroo",
-                    "dominos",
-                    "foodcheri",
-                    "foodora",
-                    "frichti",
-                    "glovo",
-                    "pizza hut",
-                    "planet sushi",
-                    "popchef",
-                    "restoin",
-                    "speed rabbit pizza",
-                    "sushishop",
-                    "takeeateasy",
-                    "uber eats",
-                    "just eat",
-                    "fetch",
-                    "nestor",
-                    "mcdonalds"
+                    "amazon",
+                    "asos",
+                    "bricoprive",
+                    "cdiscount",
+                    "darty",
+                    "fnac",
+                    "la redoute",
+                    "leroy merlin",
+                    "manomano",
+                    "priceminister",
+                    "sarenza",
+                    "showroom prive",
+                    "vente privee",
+                    "zalando",
+                    "wish",
+                    "boulanger",
+                    "private sport shop",
+                    "sephora",
+                    "marionnaud",
+                    "yves rocher",
+                    "beaute privee",
+                    "conforama",
+                    "ikea",
+                    "maisons du monde"
                 ]
             }
         },
@@ -373,75 +336,44 @@
             "name": "contributions"
         },
         {
-            "name": "countryCode",
-            "parameters": {
-                "addressesFields": [
-                    "order_item_delivery_address",
-                    "order_item_departure_address"
-                ]
-            }
+            "name": "customerAgeRange"
         },
         {
-            "name": "customerAgeRange"
+            "name": "customerBirthYear"
         },
         {
             "name": "customerFoxbrainReady",
             "parameters": {
-                "deltaInDays": 10000
+                "deltaInDays": 5
             }
         },
         {
             "name": "customerGender"
         },
         {
-            "name": "deliveryArea",
-            "parameters": {
-                "merchants": [
-                    "deliveroo"
-                ]
-            }
-        },
-        {
-            "name": "deliveryDateType",
-            "parameters": {
-                "mode": "average",
-                "intervals": [
-                    1,
-                    2,
-                    3,
-                    6,
-                    11,
-                    21
-                ],
-                "values": [
-                    "0 D",
-                    "1 D",
-                    "2 D",
-                    "3-5 D",
-                    "6-10 D",
-                    "11-20 D",
-                    "> 20 D"
-                ]
-            }
-        },
-        {
-            "name": "extraFields",
-            "parameters": [
-                {
-                    "name": "sport_competition",
-                    "type": "string"
-                }
-            ]
+            "name": "customerOptInPanel"
         },
         {
             "name": "foxwatchZone",
-            "parameters": {
-                "countryCode": "fr",
-                "addressesFields": [
-                    "order_item_arrival_address_zipcode",
-                    "order_item_arrival_address_zipcode_business_rules"
-                ]
-            }
+            "parameters": [
+                {
+                    "countryCode": "fr",
+                    "granularityLevel": "order_items",
+                    "fields": [
+                        "order_item_delivery_address_zipcode",
+                        "order_item_delivery_address_zipcode_business_rules",
+                        "order_item_main_zipcode_business_rules"
+                    ]
+                },
+                {
+                    "countryCode": "fr",
+                    "granularityLevel": "customers",
+                    "fields": [
+                        "customer_zipcode",
+                        "customer_zipcode_business_rules"
+                    ]
+                }
+            ]
         },
         {
             "name": "geolocationBusinessRulesCustomers"
@@ -454,8 +386,7 @@
                     "order_item_main_zipcode"
                 ],
                 "additionalFields": [
-                    "order_item_arrival_address",
-                    "order_item_departure_address"
+                    "order_item_delivery_address"
                 ]
             }
         },
@@ -463,9 +394,10 @@
             "name": "hourRange",
             "parameters": [
                 {
-                    "table": "orders",
+                    "columnPrefix": "order_datetime",
                     "fields": [
                         {
+                            "table": "orders",
                             "name": "order_datetime"
                         }
                     ],
@@ -496,26 +428,31 @@
             "name": "loyalty",
             "parameters": {
                 "merchants": [
-                    "amazon"
+                    "amazon",
+                    "cdiscount",
+                    "la redoute",
+                    "showroom prive",
+                    "asos",
+                    "vente privee"
                 ]
             }
         },
         {
-            "name": "loyaltyFood",
+            "name": "marketplace"
+        },
+        {
+            "name": "merchantType",
             "parameters": {
                 "merchants": [
-                    "deliveroo"
+                    "vente privee",
+                    "showroom prive",
+                    "limango",
+                    "private sport shop",
+                    "beaute privee",
+                    "westwing",
+                    "bricoprive"
                 ]
             }
-        },
-        {
-            "name": "merchantNameCustomSushishop"
-        },
-        {
-            "name": "orderItemDeliveryTypeClean"
-        },
-        {
-            "name": "orderItemDurationMinutes"
         },
         {
             "name": "ponderation",
@@ -536,10 +473,11 @@
                     "intervals": [
                         0,
                         15,
-                        20,
-                        25,
-                        35,
-                        50
+                        30,
+                        50,
+                        100,
+                        200,
+                        500
                     ]
                 },
                 {
@@ -547,31 +485,22 @@
                     "fields": [
                         {
                             "name": "order_item_total_price_paid"
+                        },
+                        {
+                            "name": "order_item_price_per_unit"
+                        },
+                        {
+                            "name": "order_item_price_per_unit_with_promo_contributions"
                         }
                     ],
                     "intervals": [
                         0,
                         15,
-                        20,
-                        25,
-                        35,
-                        50
-                    ]
-                },
-                {
-                    "table": "order_items",
-                    "fields": [
-                        {
-                            "name": "order_item_price_per_unit"
-                        }
-                    ],
-                    "intervals": [
-                        0,
-                        10,
-                        20,
                         30,
-                        40,
-                        50
+                        50,
+                        100,
+                        200,
+                        500
                     ]
                 }
             ]
@@ -581,21 +510,6 @@
         },
         {
             "name": "rankPerUserPerMerchant"
-        },
-        {
-            "name": "sanitizeJustEatMerchantName"
-        },
-        {
-            "name": "sellerNameToMerchantName",
-            "parameters": {
-                "merchants": [
-                    "justeat",
-                    "frichti"
-                ]
-            }
-        },
-        {
-            "name": "topRestaurantChain"
         },
         {
             "name": "ventilateOrderTotalPaid"
