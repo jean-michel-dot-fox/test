@@ -136,6 +136,20 @@
                         "name": "seller_name"
                     }
                 ]
+            },
+            {
+                "table": "categories",
+                "fields": [
+                    {
+                        "name": "category_node_value"
+                    },
+                    {
+                        "name": "category_description"
+                    },
+                    {
+                        "name": "category_name"
+                    }
+                ]
             }
         ],
         "where": [
