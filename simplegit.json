@@ -14,6 +14,12 @@
                     },
                     {
                         "name": "brand_clean_name"
+                    },
+                    {
+                        "name": "brand_name_vp"
+                    },
+                    {
+                        "name": "last_update"
                     }
                 ]
             },
