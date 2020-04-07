@@ -75,6 +75,9 @@
                     },
                     {
                         "name": "order_created_at"
+                    },
+                    {
+                        "name": "order_foxid"
                     }
                 ]
             },
