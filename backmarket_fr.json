@@ -78,6 +78,9 @@
                     },
                     {
                         "name": "order_foxid"
+                    },
+                    {
+                        "name": "order_order_date"
                     }
                 ]
             },
