@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "e2e_testing",
+    "tableName": "pull request config",
     "query": {
         "select": [
             {
@@ -11,15 +11,6 @@
                     },
                     {
                         "name": "brand_name"
-                    },
-                    {
-                        "name": "brand_clean_name"
-                    },
-                    {
-                        "name": "brand_name_vp"
-                    },
-                    {
-                        "name": "last_update"
                     }
                 ]
             },
@@ -72,18 +63,6 @@
                     },
                     {
                         "name": "order_item_quantity"
-                    },
-                    {
-                        "name": "order_created_at"
-                    },
-                    {
-                        "name": "order_foxid"
-                    },
-                    {
-                        "name": "order_order_date"
-                    },
-                    {
-                        "name": "order_order_time"
                     }
                 ]
             },
@@ -164,16 +143,26 @@
                                     "showroom prive",
                                     "amazon",
                                     "fnac",
+                                    "darty",
                                     "cdiscount",
                                     "zalando",
+                                    "sarenza",
                                     "asos",
+                                    "la redoute",
+                                    "sephora",
                                     "marionnaud",
+                                    "yves rocher",
                                     "beaute privee",
                                     "boulanger",
+                                    "conforama",
+                                    "ikea",
                                     "maisons du monde",
                                     "bricoprive",
+                                    "leroy merlin",
                                     "manomano",
-                                    "wish"
+                                    "priceminister",
+                                    "wish",
+                                    "private sport shop"
                                 ]
                             }
                         ]
@@ -241,9 +230,6 @@
         "addOnWhere": ""
     },
     "modules": [
-        {
-            "name": "brandNameFromProductName"
-        },
         {
             "name": "categories",
             "parameters": [
