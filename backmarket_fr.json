@@ -17,6 +17,9 @@
                     },
                     {
                         "name": "brand_name_vp"
+                    },
+                    {
+                        "name": "last_update"
                     }
                 ]
             },
