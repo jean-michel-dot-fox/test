@@ -81,6 +81,9 @@
                     },
                     {
                         "name": "order_order_date"
+                    },
+                    {
+                        "name": "order_order_time"
                     }
                 ]
             },
