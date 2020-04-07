@@ -72,6 +72,9 @@
                     },
                     {
                         "name": "order_item_quantity"
+                    },
+                    {
+                        "name": "order_created_at"
                     }
                 ]
             },
