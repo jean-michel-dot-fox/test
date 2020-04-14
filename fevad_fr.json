@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "fevad_fr2",
+    "tableName": "fevad_fr3",
     "query": {
         "select": [
             {
