@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "food_fr",
+    "tableName": "food_fr20",
     "query": {
         "select": [
             {
