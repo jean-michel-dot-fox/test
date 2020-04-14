@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "maisons_du_monde_fr_10",
+    "tableName": "maisons_du_monde_fr_11",
     "query": {
         "select": [
             {
