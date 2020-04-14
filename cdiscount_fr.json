@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "cdiscount_fr",
+    "tableName": "cdiscount_fr1",
     "query": {
         "select": [
             {
