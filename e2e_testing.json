@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "e2e_testing5",
+    "tableName": "e2e_testing6",
     "query": {
         "select": [
             {
