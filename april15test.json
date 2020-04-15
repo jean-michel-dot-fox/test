@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "april15test",
+    "tableName": "april15test_v1",
     "query": {
         "select": [
             {
