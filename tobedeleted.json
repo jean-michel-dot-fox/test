@@ -7,10 +7,16 @@
                 "table": "brands",
                 "fields": [
                     {
-                        "name": "id_brand"
+                        "name": "brand_name"
                     },
                     {
-                        "name": "brand_name"
+                        "name": "brand_clean_name"
+                    },
+                    {
+                        "name": "brand_name_vp"
+                    },
+                    {
+                        "name": "id_brand"
                     }
                 ]
             },
