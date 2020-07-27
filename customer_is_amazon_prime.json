@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "customer_is_amazon_prime",
+    "tableName": "testdebounce",
     "query": {
         "select": [
             {
