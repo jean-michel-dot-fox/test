@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "testdebounce",
+    "tableName": "testdebounce_hello",
     "query": {
         "select": [
             {
