@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "cdiscount_fr",
+    "tableName": "cdiscount_fr1",
     "query": {
         "select": [
             {
@@ -128,6 +128,14 @@
                     },
                     {
                         "name": "seller_name"
+                    }
+                ]
+            },
+            {
+                "table": "categories",
+                "fields": [
+                    {
+                        "name": "category_name"
                     }
                 ]
             }
