@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "cab_uk_apr15_v2",
+    "tableName": "cab_uk_apr15_v3",
     "query": {
         "select": [
             {
