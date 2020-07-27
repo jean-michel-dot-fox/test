@@ -1,6 +1,6 @@
 {
     "industryType": "ecom",
-    "tableName": "cdiscount_fr",
+    "tableName": "cdiscount_fr1",
     "query": {
         "select": [
             {
@@ -11,131 +11,9 @@
                     },
                     {
                         "name": "brand_name"
-                    }
-                ]
-            },
-            {
-                "table": "orders",
-                "fields": [
-                    {
-                        "name": "id_order"
                     },
                     {
-                        "name": "order_item_quantity"
-                    },
-                    {
-                        "name": "order_datetime"
-                    },
-                    {
-                        "name": "order_total_paid"
-                    },
-                    {
-                        "name": "order_currency"
-                    },
-                    {
-                        "name": "order_option_3"
-                    },
-                    {
-                        "name": "order_delivery_fee"
-                    },
-                    {
-                        "name": "order_processing_fee"
-                    },
-                    {
-                        "name": "order_total_fees"
-                    },
-                    {
-                        "name": "order_tip"
-                    },
-                    {
-                        "name": "order_distinct_item_quantity"
-                    },
-                    {
-                        "name": "order_created_at"
-                    },
-                    {
-                        "name": "order_foxid"
-                    }
-                ]
-            },
-            {
-                "table": "order_items",
-                "fields": [
-                    {
-                        "name": "id_order_item"
-                    },
-                    {
-                        "name": "order_item_total_price_paid"
-                    },
-                    {
-                        "name": "order_item_quantity"
-                    },
-                    {
-                        "name": "order_item_delivery_address"
-                    },
-                    {
-                        "name": "order_item_departure_address"
-                    },
-                    {
-                        "name": "order_item_delivery_date_max"
-                    },
-                    {
-                        "name": "order_item_delivery_date_min"
-                    },
-                    {
-                        "name": "order_item_delivery_address_region"
-                    },
-                    {
-                        "name": "order_item_delivery_address_subregion"
-                    },
-                    {
-                        "name": "order_item_delivery_address_zipcode"
-                    },
-                    {
-                        "name": "order_item_delivery_address_country_code"
-                    },
-                    {
-                        "name": "order_item_delivery_address_country"
-                    },
-                    {
-                        "name": "order_item_delivery_address_city"
-                    },
-                    {
-                        "name": "order_item_delivery_address_latitude"
-                    },
-                    {
-                        "name": "order_item_delivery_address_longitude"
-                    },
-                    {
-                        "name": "order_item_price_per_unit"
-                    },
-                    {
-                        "name": "order_item_foxid"
-                    }
-                ]
-            },
-            {
-                "table": "products",
-                "fields": [
-                    {
-                        "name": "id_product"
-                    },
-                    {
-                        "name": "product_name"
-                    },
-                    {
-                        "name": "product_description"
-                    }
-                ]
-            },
-            {
-                "table": "sellers",
-                "fields": [
-                    {
-                        "name": "id_seller"
-                    },
-                    {
-                        "name": "seller_name"
+                        "name": "brand_clean_name"
                     }
                 ]
             },
@@ -152,39 +30,68 @@
                         "name": "customer_gender"
                     },
                     {
-                        "name": "customer_hash"
-                    },
-                    {
                         "name": "customer_region"
-                    },
-                    {
-                        "name": "customer_country"
                     },
                     {
                         "name": "provider"
                     },
                     {
-                        "name": "customer_created_at"
-                    },
-                    {
-                        "name": "customer_last_update"
-                    },
-                    {
-                        "name": "customer_last_upgrade"
-                    },
-                    {
-                        "name": "customer_last_export"
-                    },
-                    {
-                        "name": "is_email_remover"
+                        "name": "customer_zipcode"
                     }
                 ]
             },
             {
-                "table": "seller_categories",
+                "table": "orders",
                 "fields": [
                     {
-                        "name": "seller_category_name"
+                        "name": "id_order"
+                    },
+                    {
+                        "name": "order_datetime"
+                    },
+                    {
+                        "name": "order_total_paid"
+                    },
+                    {
+                        "name": "order_option_3"
+                    },
+                    {
+                        "name": "order_delivery_fee"
+                    },
+                    {
+                        "name": "order_tip"
+                    },
+                    {
+                        "name": "order_fidelity_additionnal_points"
+                    },
+                    {
+                        "name": "order_item_quantity"
+                    }
+                ]
+            },
+            {
+                "table": "order_items",
+                "fields": [
+                    {
+                        "name": "id_order_item"
+                    },
+                    {
+                        "name": "order_item_delivery_address_city"
+                    },
+                    {
+                        "name": "order_item_delivery_address_country_code"
+                    },
+                    {
+                        "name": "order_item_delivery_address_region"
+                    },
+                    {
+                        "name": "order_item_delivery_address_zipcode"
+                    },
+                    {
+                        "name": "order_item_total_price_paid"
+                    },
+                    {
+                        "name": "order_item_quantity"
                     }
                 ]
             },
@@ -192,24 +99,43 @@
                 "table": "parsers",
                 "fields": [
                     {
-                        "name": "parser_name"
-                    },
-                    {
                         "name": "id_parser"
                     },
                     {
-                        "name": "parser_lang"
+                        "name": "merchant_name"
                     },
                     {
-                        "name": "merchant_name"
+                        "name": "parser_name"
                     }
                 ]
             },
             {
-                "table": "payment_methods",
+                "table": "products",
                 "fields": [
                     {
-                        "name": "payment_method_name"
+                        "name": "id_product"
+                    },
+                    {
+                        "name": "product_name"
+                    }
+                ]
+            },
+            {
+                "table": "sellers",
+                "fields": [
+                    {
+                        "name": "id_seller"
+                    },
+                    {
+                        "name": "seller_name"
+                    }
+                ]
+            },
+            {
+                "table": "categories",
+                "fields": [
+                    {
+                        "name": "category_name"
                     }
                 ]
             }
@@ -224,32 +150,30 @@
                             {
                                 "operator": "IN",
                                 "values": [
-                                    "3 suisses",
-                                    "alibaba",
-                                    "alltricks",
+                                    "vente privee",
+                                    "showroom prive",
                                     "amazon",
-                                    "back market",
+                                    "fnac",
+                                    "darty",
+                                    "cdiscount",
+                                    "zalando",
+                                    "sarenza",
+                                    "asos",
+                                    "la redoute",
+                                    "sephora",
+                                    "marionnaud",
+                                    "yves rocher",
+                                    "beaute privee",
                                     "boulanger",
                                     "conforama",
-                                    "cdiscount",
-                                    "darty",
-                                    "ebay",
-                                    "fnac",
-                                    "gearbest",
-                                    "joom",
-                                    "la redoute",
-                                    "ldlc",
+                                    "ikea",
+                                    "maisons du monde",
+                                    "bricoprive",
                                     "leroy merlin",
                                     "manomano",
                                     "priceminister",
-                                    "rue du commerce",
-                                    "vente privee",
-                                    "showroom prive",
-                                    "samsung",
-                                    "ubaldi",
                                     "wish",
-                                    "zalando",
-                                    "zooplus"
+                                    "private sport shop"
                                 ]
                             }
                         ]
@@ -259,50 +183,6 @@
             {
                 "table": "orders",
                 "fields": [
-                    {
-                        "name": "order_is_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_trash",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_spam",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "order_is_moved_duplicate",
-                        "conditions": [
-                            {
-                                "operator": "NOT IN",
-                                "values": [
-                                    "1"
-                                ]
-                            }
-                        ]
-                    },
                     {
                         "name": "order_currency",
                         "conditions": [
@@ -330,15 +210,27 @@
                 ]
             },
             {
-                "table": "customers",
+                "table": "parsers",
                 "fields": [
                     {
-                        "name": "is_invalid_grant",
+                        "name": "parser_name",
                         "conditions": [
                             {
-                                "operator": "NOT IN",
+                                "operator": "LIKE",
                                 "values": [
-                                    1
+                                    "%-new-fr-%"
+                                ]
+                            },
+                            {
+                                "operator": "NOT LIKE",
+                                "values": [
+                                    "%-offline-%"
+                                ]
+                            },
+                            {
+                                "operator": "NOT LIKE",
+                                "values": [
+                                    "%-shop-%"
                                 ]
                             }
                         ]
@@ -350,47 +242,175 @@
     },
     "modules": [
         {
+            "name": "categories",
+            "parameters": [
+                {
+                    "name": "authorizedCategories"
+                },
+                {
+                    "name": "concatenateCategory0And1"
+                },
+                {
+                    "name": "mappingMacroCategories"
+                },
+                {
+                    "name": "concatenateDefaultProductName",
+                    "parameters": {
+                        "table": "order_items",
+                        "fields": [
+                            {
+                                "name": "order_item_price_per_unit"
+                            }
+                        ],
+                        "intervals": [
+                            0,
+                            15,
+                            30,
+                            50,
+                            100,
+                            200,
+                            500
+                        ]
+                    }
+                },
+                {
+                    "name": "mappingCategories",
+                    "merchants": [
+                        "vente privee",
+                        "showroom prive"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cleanFields"
+        },
+        {
+            "name": "cleanPromo"
+        },
+        {
+            "name": "cohorts",
+            "parameters": {
+                "years": [
+                    2015,
+                    2016,
+                    2017,
+                    2018,
+                    2019
+                ],
+                "merchants": [
+                    "amazon",
+                    "asos",
+                    "bricoprive",
+                    "cdiscount",
+                    "darty",
+                    "fnac",
+                    "la redoute",
+                    "leroy merlin",
+                    "manomano",
+                    "priceminister",
+                    "sarenza",
+                    "showroom prive",
+                    "vente privee",
+                    "zalando",
+                    "wish",
+                    "boulanger",
+                    "private sport shop",
+                    "sephora",
+                    "marionnaud",
+                    "yves rocher",
+                    "beaute privee",
+                    "conforama",
+                    "ikea",
+                    "maisons du monde"
+                ]
+            }
+        },
+        {
+            "name": "contributions"
+        },
+        {
+            "name": "customerAgeRange"
+        },
+        {
+            "name": "customerBirthYear"
+        },
+        {
             "name": "customerFoxbrainReady",
             "parameters": {
                 "deltaInDays": 5
             }
         },
         {
-            "name": "zipCodeFromAddress",
+            "name": "customerGender"
+        },
+        {
+            "name": "customerOptInPanel"
+        },
+        {
+            "name": "foxwatchZone",
             "parameters": [
                 {
-                    "table": "order_items",
+                    "countryCode": "fr",
+                    "granularityLevel": "order_items",
                     "fields": [
-                        {
-                            "name": "order_item_delivery_address"
-                        }
+                        "order_item_delivery_address_zipcode",
+                        "order_item_delivery_address_zipcode_business_rules",
+                        "order_item_main_zipcode_business_rules"
+                    ]
+                },
+                {
+                    "countryCode": "fr",
+                    "granularityLevel": "customers",
+                    "fields": [
+                        "customer_zipcode",
+                        "customer_zipcode_business_rules"
                     ]
                 }
             ]
         },
         {
-            "name": "cleanPromo"
+            "name": "geolocationBusinessRulesCustomers"
         },
         {
-            "name": "customerAgeRange"
+            "name": "geolocationBusinessRulesOrderItems",
+            "parameters": {
+                "requiredFields": [
+                    "order_item_main_country",
+                    "order_item_main_zipcode"
+                ],
+                "additionalFields": [
+                    "order_item_delivery_address"
+                ]
+            }
         },
         {
-            "name": "cleanFields"
-        },
-        {
-            "name": "isGoogleProvider"
-        },
-        {
-            "name": "rankPerUser"
-        },
-        {
-            "name": "rankPerUserPerMerchant"
-        },
-        {
-            "name": "ventilateOrderTotalPaid"
+            "name": "hourRange",
+            "parameters": [
+                {
+                    "columnPrefix": "order_datetime",
+                    "fields": [
+                        {
+                            "table": "orders",
+                            "name": "order_datetime"
+                        }
+                    ],
+                    "intervals": [
+                        0,
+                        4,
+                        11,
+                        15,
+                        18,
+                        24
+                    ]
+                }
+            ]
         },
         {
             "name": "idFlatTableOrderDatetime"
+        },
+        {
+            "name": "isGoogleProvider"
         },
         {
             "name": "isWeekDay"
@@ -399,38 +419,40 @@
             "name": "isWeekend"
         },
         {
-            "name": "weekDay"
+            "name": "loyalty",
+            "parameters": {
+                "merchants": [
+                    "amazon",
+                    "cdiscount",
+                    "la redoute",
+                    "showroom prive",
+                    "asos",
+                    "vente privee"
+                ]
+            }
+        },
+        {
+            "name": "marketplace"
+        },
+        {
+            "name": "merchantType",
+            "parameters": {
+                "merchants": [
+                    "vente privee",
+                    "showroom prive",
+                    "limango",
+                    "private sport shop",
+                    "beaute privee",
+                    "westwing",
+                    "bricoprive"
+                ]
+            }
         },
         {
             "name": "ponderation",
             "parameters": {
                 "fieldName": "coeff_with_merch_food_cab_7_clusters"
             }
-        },
-        {
-            "name": "contributions"
-        },
-        {
-            "name": "hourRange",
-            "parameters": [
-                {
-                    "table": "orders",
-                    "fields": [
-                        {
-                            "name": "order_datetime"
-                        }
-                    ],
-                    "intervals": [
-                        0,
-                        7,
-                        11,
-                        15,
-                        18,
-                        20,
-                        23
-                    ]
-                }
-            ]
         },
         {
             "name": "priceRange",
@@ -478,168 +500,17 @@
             ]
         },
         {
-            "name": "marketplace",
-            "parameters": {
-                "merchants": [
-                    "amazon",
-                    "cdiscount",
-                    "darty",
-                    "la redoute",
-                    "priceminister",
-                    "fnac",
-                    "wish",
-                    "vinted",
-                    "vente privee",
-                    "boulanger",
-                    "conforama",
-                    "back market",
-                    "manomano",
-                    "rue du commerce"
-                ]
-            }
+            "name": "rankPerUser"
         },
         {
-            "name": "categories",
-            "parameters": [
-                {
-                    "name": "authorizedCategories"
-                },
-                {
-                    "name": "concatenateCategory0And1"
-                },
-                {
-                    "name": "concatenateDefaultProductName",
-                    "parameters": {
-                        "table": "order_items",
-                        "fields": [
-                            {
-                                "name": "order_item_price_per_unit"
-                            }
-                        ],
-                        "intervals": [
-                            0,
-                            15,
-                            30,
-                            50,
-                            100,
-                            200,
-                            500
-                        ]
-                    }
-                }
-            ]
+            "name": "rankPerUserPerMerchant"
         },
         {
-            "name": "cohorts",
-            "parameters": {
-                "years": [
-                    2015,
-                    2016,
-                    2017,
-                    2018,
-                    2019
-                ],
-                "merchants": [
-                    "3 suisses",
-                    "alibaba",
-                    "alltricks",
-                    "amazon",
-                    "back market",
-                    "boulanger",
-                    "conforama",
-                    "cdiscount",
-                    "darty",
-                    "ebay",
-                    "fnac",
-                    "gearbest",
-                    "joom",
-                    "la redoute",
-                    "ldlc",
-                    "leroy merlin",
-                    "manomano",
-                    "priceminister",
-                    "rue du commerce",
-                    "vente privee",
-                    "showroom prive",
-                    "samsung",
-                    "ubaldi",
-                    "wish",
-                    "zalando",
-                    "zooplus"
-                ]
-            }
+            "name": "ventilateOrderTotalPaid"
         },
         {
-            "name": "loyalty",
-            "parameters": {
-                "merchants": [
-                    "amazon",
-                    "cdiscount",
-                    "la redoute",
-                    "showroom prive",
-                    "asos",
-                    "vente privee"
-                ]
-            }
-        },
-        {
-            "name": "merchantType",
-            "parameters": {
-                "merchants": [
-                    "vente privee",
-                    "showroom prive",
-                    "limango",
-                    "private sport shop",
-                    "beaute privee",
-                    "westwing",
-                    "bricoprive"
-                ]
-            }
-        },
-        {
-            "name": "brandNameFromProductName",
-            "parameters": {
-                "merchants": [
-                    "sephora",
-                    "marionnaud",
-                    "boulanger",
-                    "conforama"
-                ]
-            }
-        },
-        {
-            "name": "deliveryDateType",
-            "parameters": {
-                "mode": "average",
-                "intervals": [
-                    1,
-                    2,
-                    3,
-                    6,
-                    11,
-                    21
-                ],
-                "values": [
-                    "0 D",
-                    "1 D",
-                    "2 D",
-                    "3-5 D",
-                    "6-10 D",
-                    "11-20 D",
-                    "> 20 D"
-                ]
-            }
-        },
-        {
-            "name": "customerGender"
+            "name": "weekDay"
         }
     ],
-    "userQueries": [
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE id_order IN (15878940, 15683755)",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE parser_name='venteprivee-new-fr-3' OR parser_name='amazon-new-fr-2' OR parser_name='Showroomprive-new-fr-3'",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions >= 20000",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE order_item_total_price_paid_with_contributions < 0",
-        "DELETE FROM {{destDatabase}}.{{tableName}} WHERE id_customer = 1426654",
-        "UPDATE {{destDatabase}}.{{tableName}} SET category_0_category_1_authorized = 'uncategorized_uncategorized', category_0_authorized = 'uncategorized', category_1_authorized = 'uncategorized' WHERE merchant_name IN ('wish','joom')"
-    ]
+    "userQueries": []
 }
